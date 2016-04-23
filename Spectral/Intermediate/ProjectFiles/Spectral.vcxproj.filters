@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<None Include="..\..\Spectral.uproject" />
+		<Filter Include="Source">
+			<UniqueIdentifier>{3CD1DD04-659B-462C-8676-F4B724B5067B}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\Spectral.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<None Include="..\..\Source\SpectralEditor.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<Filter Include="Config">
+			<UniqueIdentifier>{CC1328CB-44D4-4812-BE02-2C37BF968792}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Config\DefaultEditor.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEngine.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultGame.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultInput.ini">
+			<Filter>Config</Filter>
+		</None >
+		<Filter Include="Source\Spectral">
+			<UniqueIdentifier>{A89723A6-6E15-482B-ACC3-2942BBA6E06A}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\Spectral\Spectral.Build.cs">
+			<Filter>Source\Spectral</Filter>
+		</None >
+		<ClCompile Include="..\..\Source\Spectral\Spectral.cpp">
+			<Filter>Source\Spectral</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\Spectral\Spectral.h">
+			<Filter>Source\Spectral</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\Spectral\SpectralGameMode.cpp">
+			<Filter>Source\Spectral</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\Spectral\SpectralGameMode.h">
+			<Filter>Source\Spectral</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\Spectral\SpectralPawn.cpp">
+			<Filter>Source\Spectral</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\Spectral\SpectralPawn.h">
+			<Filter>Source\Spectral</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\Spectral\SpectralProjectile.cpp">
+			<Filter>Source\Spectral</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\Spectral\SpectralProjectile.h">
+			<Filter>Source\Spectral</Filter>
+		</ClInclude >
+	</ItemGroup>
+</Project>
