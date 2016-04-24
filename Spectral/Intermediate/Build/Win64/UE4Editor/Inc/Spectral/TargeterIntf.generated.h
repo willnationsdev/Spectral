@@ -13,9 +13,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SPECTRAL_TargeterIntf_generated_h
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargeterIntf_h_13_RPC_WRAPPERS
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargeterIntf_h_13_RPC_WRAPPERS_NO_PURE_DECLS
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargeterIntf_h_13_STANDARD_CONSTRUCTORS \
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargeterIntf_h_13_RPC_WRAPPERS
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargeterIntf_h_13_RPC_WRAPPERS_NO_PURE_DECLS
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargeterIntf_h_13_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UTargeterIntf(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UTargeterIntf) \
@@ -27,7 +27,7 @@ private: \
 public:
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargeterIntf_h_13_ENHANCED_CONSTRUCTORS \
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargeterIntf_h_13_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UTargeterIntf(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -50,22 +50,22 @@ public: \
 	enum {IsIntrinsic=COMPILED_IN_INTRINSIC};
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargeterIntf_h_13_GENERATED_BODY_LEGACY \
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargeterIntf_h_13_GENERATED_BODY_LEGACY \
 		PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 	GENERATED_UINTERFACE_BODY_COMMON() \
-	Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargeterIntf_h_13_STANDARD_CONSTRUCTORS \
+	Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargeterIntf_h_13_STANDARD_CONSTRUCTORS \
 	PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargeterIntf_h_13_GENERATED_BODY \
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargeterIntf_h_13_GENERATED_BODY \
 	PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 	GENERATED_UINTERFACE_BODY_COMMON() \
-	Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargeterIntf_h_13_ENHANCED_CONSTRUCTORS \
+	Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargeterIntf_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 	PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargeterIntf_h_13_INCLASS_IINTERFACE_NO_PURE_DECLS \
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargeterIntf_h_13_INCLASS_IINTERFACE_NO_PURE_DECLS \
 protected: \
 	virtual ~ITargeterIntf() {} \
 public: \
@@ -73,7 +73,7 @@ public: \
 	virtual UObject* _getUObject() const = 0;
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargeterIntf_h_13_INCLASS_IINTERFACE \
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargeterIntf_h_13_INCLASS_IINTERFACE \
 protected: \
 	virtual ~ITargeterIntf() {} \
 public: \
@@ -81,27 +81,27 @@ public: \
 	virtual UObject* _getUObject() const = 0;
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargeterIntf_h_10_PROLOG
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargeterIntf_h_17_GENERATED_BODY_LEGACY \
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargeterIntf_h_10_PROLOG
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargeterIntf_h_17_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargeterIntf_h_13_RPC_WRAPPERS \
-	Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargeterIntf_h_13_INCLASS_IINTERFACE \
+	Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargeterIntf_h_13_RPC_WRAPPERS \
+	Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargeterIntf_h_13_INCLASS_IINTERFACE \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargeterIntf_h_17_GENERATED_BODY \
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargeterIntf_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargeterIntf_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargeterIntf_h_13_INCLASS_IINTERFACE_NO_PURE_DECLS \
+	Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargeterIntf_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargeterIntf_h_13_INCLASS_IINTERFACE_NO_PURE_DECLS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargeterIntf_h
+#define CURRENT_FILE_ID Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargeterIntf_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

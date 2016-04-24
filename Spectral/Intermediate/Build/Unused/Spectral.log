@@ -1,8 +1,12 @@
 ﻿  Compiling game modules for hot reload
-  Performing 3 actions (4 in parallel)
-  TargetingAreaIntf.cpp
+  Parsing headers for SpectralEditor
+    Running UnrealHeaderTool "D:\Source\GitHub\Spectral\Spectral\Spectral.uproject" "D:\Source\GitHub\Spectral\Spectral\Intermediate\Build\Win64\SpectralEditor\Development\UnrealHeaderTool.manifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -rocket -installed
+  Reflection code generated for SpectralEditor in 6.3530292 seconds
+  Performing 4 actions (4 in parallel)
+  Spectral.generated.cpp
   SkillUserIntf.cpp
-  [3/3] Link UE4Editor-Spectral-9016.dll
-     Creating library D:\Source\GitHub\Spectral\Spectral\Intermediate/Build/Win64\UE4Editor\Development\UE4Editor-Spectral-9016.lib and object D:\Source\GitHub\Spectral\Spectral\Intermediate/Build/Win64\UE4Editor\Development\UE4Editor-Spectral-9016.exp
+  SkillIntf.cpp
+  [4/4] Link UE4Editor-Spectral-9522.dll
+     Creating library D:\Source\GitHub\Spectral\Spectral\Intermediate/Build/Win64\UE4Editor\Development\UE4Editor-Spectral-9522.lib and object D:\Source\GitHub\Spectral\Spectral\Intermediate/Build/Win64\UE4Editor\Development\UE4Editor-Spectral-9522.exp
   -------- End Detailed Actions Stats -----------------------------------------------------------
-  Total build time: 3.05 seconds
+  Total build time: 9.89 seconds

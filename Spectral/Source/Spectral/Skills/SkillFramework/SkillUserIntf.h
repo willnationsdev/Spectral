@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "SkillExecutorIntf.h"
 #include "SkillUserIntf.generated.h"
 
 UINTERFACE()
@@ -19,20 +20,25 @@ public:
      * Returns an array of Skills associated with the SkillUser. 
      */
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillUserIntf")
-    TArray<TScriptInterface<class ISkillIntf>> GetSkills();
+    TArray<TScriptInterface<ISkillIntf>> GetSkills();
 
     /*
-     * Executes the skill in GetSkills().Get(Index). The Skill is fed targeting information
-     * specified by TargetingMethod.
+     * A Factory Method intended to generate the appropriate SkillExecutor based on
+     * the contents of the TargetingMethod array.
+     * 
+     * - If targetingMethod can be cast to TArray<TScriptInterface<ISkillUserIntf>>,
+     *   then the targets are assumed to be each of the provided references.
      *
-     * - If TargetingMethod can be cast to TArray<ISkillUserIntf>, then it is assumed that
-     *   the supplied list of SkillUsers are to be the sole targets of the executed skill.
+     * - Else if TargetingMethod can be cast to TArray<TScriptInterface<TargetingVolumeIntf>>, 
+     *   then the targets are assumed to be all entities within the supplied sequence of volumes.
      *
-     * - Else if TargetingMethod can be cast to TArray<TargetingVolumeIntf>, then the target is
-     *   assumed to be all entities within the supplied sequence of volumes.
+     * - Else if TargetingMethod can be cast to TArray<TScriptInterface<TargetingAreaIntf>>, 
+     *   then the targets are assumed to be all entities within the supplied sequence of areas.
      *
-     * - Else if TargetingMethod can be cast to TArray<TargetingAreaIntf>, then the target is
-     *   assumed to be all entities within the supplied sequence of areas.
+     * - Else if TargetingMethod can be cast to TArray<TScriptInterface<TargetingArcIntf>>, 
+     *   then the targets are assumed to be all entities within arcs of a variable width, depth,
+     *   and orientation from each of a set of points (analogous to "directed lines", but abstracted,
+     *   i.e. an extremely deep, yet thin arc could be considered a line, for all intents and purposes).
      *
      * Subclasses of AActor were selected because it would ensure that the object...
      * - can be replicated.
@@ -40,7 +46,7 @@ public:
      * - can be rendered.
      */
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillUserIntf")
-    void ExecuteSkill(const TArray<AActor*>& TargetingMethod, int32 Index);
+    TScriptInterface<ISkillExecutorIntf> GenerateSkillExecutor(const TArray<AActor*>& TargetingMethod, int32 SkillIndex);
 
     /*
      * Returns the location of the SkillUser as a 3-dimensional vector.

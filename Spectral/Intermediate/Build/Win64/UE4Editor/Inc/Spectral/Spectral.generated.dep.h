@@ -5,8 +5,14 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
+#ifndef SPECTRAL_SkillExecutorIntf_generated_h
+	#include "Skills/SkillFramework/SkillExecutorIntf.h"
+#endif
 #ifndef SPECTRAL_SkillIntf_generated_h
 	#include "Skills/SkillFramework/SkillIntf.h"
+#endif
+#ifndef SPECTRAL_SkillReactiveIntf_generated_h
+	#include "Skills/SkillFramework/SkillReactiveIntf.h"
 #endif
 #ifndef SPECTRAL_SkillUserIntf_generated_h
 	#include "Skills/SkillFramework/SkillUserIntf.h"
@@ -20,18 +26,21 @@
 #ifndef SPECTRAL_SpectralProjectile_generated_h
 	#include "SpectralProjectile.h"
 #endif
+#ifndef SPECTRAL_TargetingPermissionsIntf_generated_h
+	#include "TargetingSystem/TargetingFramework/TargetingPermissionsIntf.h"
+#endif
 #ifndef SPECTRAL_TargetableIntf_generated_h
-	#include "Skills/SkillFramework/TargetingFramework/TargetableIntf.h"
+	#include "TargetingSystem/TargetingFramework/TargetableIntf.h"
 #endif
 #ifndef SPECTRAL_TargeterIntf_generated_h
-	#include "Skills/SkillFramework/TargetingFramework/TargeterIntf.h"
+	#include "TargetingSystem/TargetingFramework/TargeterIntf.h"
+#endif
+#ifndef SPECTRAL_TargetingArcIntf_generated_h
+	#include "TargetingSystem/TargetingFramework/TargetingArcIntf.h"
 #endif
 #ifndef SPECTRAL_TargetingAreaIntf_generated_h
-	#include "Skills/SkillFramework/TargetingFramework/TargetingAreaIntf.h"
-#endif
-#ifndef SPECTRAL_TargetingDataIntf_generated_h
-	#include "Skills/SkillFramework/TargetingFramework/TargetingDataIntf.h"
+	#include "TargetingSystem/TargetingFramework/TargetingAreaIntf.h"
 #endif
 #ifndef SPECTRAL_TargetingVolumeIntf_generated_h
-	#include "Skills/SkillFramework/TargetingFramework/TargetingVolumeIntf.h"
+	#include "TargetingSystem/TargetingFramework/TargetingVolumeIntf.h"
 #endif

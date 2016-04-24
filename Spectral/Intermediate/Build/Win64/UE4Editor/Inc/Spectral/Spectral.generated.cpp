@@ -9,13 +9,189 @@
 #include "Spectral.generated.dep.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeSpectral() {}
+	TScriptInterface<ISkillIntf> ISkillExecutorIntf::GetSkill()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetSkill instead.");
+		SkillExecutorIntf_eventGetSkill_Parms Parms;
+		return Parms.ReturnValue;
+	}
+	TScriptInterface<ISkillUserIntf> ISkillExecutorIntf::GetSkillOwner()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetSkillOwner instead.");
+		SkillExecutorIntf_eventGetSkillOwner_Parms Parms;
+		return Parms.ReturnValue;
+	}
+	void USkillExecutorIntf::StaticRegisterNativesUSkillExecutorIntf()
+	{
+		FNativeFunctionRegistrar::RegisterFunction(USkillExecutorIntf::StaticClass(),"GetSkill",(Native)&ISkillExecutorIntf::execGetSkill);
+		FNativeFunctionRegistrar::RegisterFunction(USkillExecutorIntf::StaticClass(),"GetSkillOwner",(Native)&ISkillExecutorIntf::execGetSkillOwner);
+	}
+	IMPLEMENT_CLASS(USkillExecutorIntf, 580390892);
+	TScriptInterface<ISkillIntf> ISkillExecutorIntf::Execute_GetSkill(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(USkillExecutorIntf::StaticClass()));
+		SkillExecutorIntf_eventGetSkill_Parms Parms;
+		UFunction* const Func = O->FindFunction(SPECTRAL_GetSkill);
+		if (Func)
+		{
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (ISkillExecutorIntf*)(O->GetNativeInterfaceAddress(USkillExecutorIntf::StaticClass())))
+		{
+			Parms.ReturnValue = I->GetSkill_Implementation();
+		}
+		return Parms.ReturnValue;
+	}
+	TScriptInterface<ISkillUserIntf> ISkillExecutorIntf::Execute_GetSkillOwner(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(USkillExecutorIntf::StaticClass()));
+		SkillExecutorIntf_eventGetSkillOwner_Parms Parms;
+		UFunction* const Func = O->FindFunction(SPECTRAL_GetSkillOwner);
+		if (Func)
+		{
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (ISkillExecutorIntf*)(O->GetNativeInterfaceAddress(USkillExecutorIntf::StaticClass())))
+		{
+			Parms.ReturnValue = I->GetSkillOwner_Implementation();
+		}
+		return Parms.ReturnValue;
+	}
+	void ISkillIntf::ApplyMods()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_ApplyMods instead.");
+	}
+	void ISkillIntf::ApplySkill(const TScriptInterface<ISkillUserIntf>& Target)
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_ApplySkill instead.");
+	}
+	void ISkillIntf::GetModStorage()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetModStorage instead.");
+	}
+	TScriptInterface<ISkillUserIntf> ISkillIntf::GetSkillExecutor()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetSkillExecutor instead.");
+		SkillIntf_eventGetSkillExecutor_Parms Parms;
+		return Parms.ReturnValue;
+	}
+	void ISkillIntf::RevertMods()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_RevertMods instead.");
+	}
 	void USkillIntf::StaticRegisterNativesUSkillIntf()
 	{
+		FNativeFunctionRegistrar::RegisterFunction(USkillIntf::StaticClass(),"ApplyMods",(Native)&ISkillIntf::execApplyMods);
+		FNativeFunctionRegistrar::RegisterFunction(USkillIntf::StaticClass(),"ApplySkill",(Native)&ISkillIntf::execApplySkill);
+		FNativeFunctionRegistrar::RegisterFunction(USkillIntf::StaticClass(),"GetModStorage",(Native)&ISkillIntf::execGetModStorage);
+		FNativeFunctionRegistrar::RegisterFunction(USkillIntf::StaticClass(),"GetSkillExecutor",(Native)&ISkillIntf::execGetSkillExecutor);
+		FNativeFunctionRegistrar::RegisterFunction(USkillIntf::StaticClass(),"RevertMods",(Native)&ISkillIntf::execRevertMods);
 	}
-	IMPLEMENT_CLASS(USkillIntf, 2572706435);
-	void ISkillUserIntf::ExecuteSkill(const TArray<AActor*>& TargetingMethod, int32 Index)
+	IMPLEMENT_CLASS(USkillIntf, 2916264995);
+	void ISkillIntf::Execute_ApplyMods(UObject* O)
 	{
-		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_ExecuteSkill instead.");
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(USkillIntf::StaticClass()));
+		UFunction* const Func = O->FindFunction(SPECTRAL_ApplyMods);
+		if (Func)
+		{
+			O->ProcessEvent(Func, NULL);
+		}
+		else if (auto I = (ISkillIntf*)(O->GetNativeInterfaceAddress(USkillIntf::StaticClass())))
+		{
+			I->ApplyMods_Implementation();
+		}
+	}
+	void ISkillIntf::Execute_ApplySkill(UObject* O, const TScriptInterface<ISkillUserIntf>& Target)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(USkillIntf::StaticClass()));
+		SkillIntf_eventApplySkill_Parms Parms;
+		UFunction* const Func = O->FindFunction(SPECTRAL_ApplySkill);
+		if (Func)
+		{
+			Parms.Target=Target;
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (ISkillIntf*)(O->GetNativeInterfaceAddress(USkillIntf::StaticClass())))
+		{
+			I->ApplySkill_Implementation(Target);
+		}
+	}
+	void ISkillIntf::Execute_GetModStorage(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(USkillIntf::StaticClass()));
+		UFunction* const Func = O->FindFunction(SPECTRAL_GetModStorage);
+		if (Func)
+		{
+			O->ProcessEvent(Func, NULL);
+		}
+		else if (auto I = (ISkillIntf*)(O->GetNativeInterfaceAddress(USkillIntf::StaticClass())))
+		{
+			I->GetModStorage_Implementation();
+		}
+	}
+	TScriptInterface<ISkillUserIntf> ISkillIntf::Execute_GetSkillExecutor(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(USkillIntf::StaticClass()));
+		SkillIntf_eventGetSkillExecutor_Parms Parms;
+		UFunction* const Func = O->FindFunction(SPECTRAL_GetSkillExecutor);
+		if (Func)
+		{
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (ISkillIntf*)(O->GetNativeInterfaceAddress(USkillIntf::StaticClass())))
+		{
+			Parms.ReturnValue = I->GetSkillExecutor_Implementation();
+		}
+		return Parms.ReturnValue;
+	}
+	void ISkillIntf::Execute_RevertMods(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(USkillIntf::StaticClass()));
+		UFunction* const Func = O->FindFunction(SPECTRAL_RevertMods);
+		if (Func)
+		{
+			O->ProcessEvent(Func, NULL);
+		}
+		else if (auto I = (ISkillIntf*)(O->GetNativeInterfaceAddress(USkillIntf::StaticClass())))
+		{
+			I->RevertMods_Implementation();
+		}
+	}
+	void ISkillReactiveIntf::React()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_React instead.");
+	}
+	void USkillReactiveIntf::StaticRegisterNativesUSkillReactiveIntf()
+	{
+		FNativeFunctionRegistrar::RegisterFunction(USkillReactiveIntf::StaticClass(),"React",(Native)&ISkillReactiveIntf::execReact);
+	}
+	IMPLEMENT_CLASS(USkillReactiveIntf, 971437023);
+	void ISkillReactiveIntf::Execute_React(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(USkillReactiveIntf::StaticClass()));
+		UFunction* const Func = O->FindFunction(SPECTRAL_React);
+		if (Func)
+		{
+			O->ProcessEvent(Func, NULL);
+		}
+		else if (auto I = (ISkillReactiveIntf*)(O->GetNativeInterfaceAddress(USkillReactiveIntf::StaticClass())))
+		{
+			I->React_Implementation();
+		}
+	}
+	TScriptInterface<ISkillExecutorIntf> ISkillUserIntf::GenerateSkillExecutor(const TArray<AActor*>& TargetingMethod, int32 SkillIndex)
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GenerateSkillExecutor instead.");
+		SkillUserIntf_eventGenerateSkillExecutor_Parms Parms;
+		return Parms.ReturnValue;
 	}
 	TArray<TScriptInterface<ISkillIntf> > ISkillUserIntf::GetSkills()
 	{
@@ -31,27 +207,28 @@ void EmptyLinkFunctionForGeneratedCodeSpectral() {}
 	}
 	void USkillUserIntf::StaticRegisterNativesUSkillUserIntf()
 	{
-		FNativeFunctionRegistrar::RegisterFunction(USkillUserIntf::StaticClass(),"ExecuteSkill",(Native)&ISkillUserIntf::execExecuteSkill);
+		FNativeFunctionRegistrar::RegisterFunction(USkillUserIntf::StaticClass(),"GenerateSkillExecutor",(Native)&ISkillUserIntf::execGenerateSkillExecutor);
 		FNativeFunctionRegistrar::RegisterFunction(USkillUserIntf::StaticClass(),"GetSkills",(Native)&ISkillUserIntf::execGetSkills);
 		FNativeFunctionRegistrar::RegisterFunction(USkillUserIntf::StaticClass(),"GetSkillUserLocation",(Native)&ISkillUserIntf::execGetSkillUserLocation);
 	}
-	IMPLEMENT_CLASS(USkillUserIntf, 3451326998);
-	void ISkillUserIntf::Execute_ExecuteSkill(UObject* O, const TArray<AActor*>& TargetingMethod, int32 Index)
+	IMPLEMENT_CLASS(USkillUserIntf, 2217716462);
+	TScriptInterface<ISkillExecutorIntf> ISkillUserIntf::Execute_GenerateSkillExecutor(UObject* O, const TArray<AActor*>& TargetingMethod, int32 SkillIndex)
 	{
 		check(O != NULL);
 		check(O->GetClass()->ImplementsInterface(USkillUserIntf::StaticClass()));
-		SkillUserIntf_eventExecuteSkill_Parms Parms;
-		UFunction* const Func = O->FindFunction(SPECTRAL_ExecuteSkill);
+		SkillUserIntf_eventGenerateSkillExecutor_Parms Parms;
+		UFunction* const Func = O->FindFunction(SPECTRAL_GenerateSkillExecutor);
 		if (Func)
 		{
 			Parms.TargetingMethod=TargetingMethod;
-			Parms.Index=Index;
+			Parms.SkillIndex=SkillIndex;
 			O->ProcessEvent(Func, &Parms);
 		}
 		else if (auto I = (ISkillUserIntf*)(O->GetNativeInterfaceAddress(USkillUserIntf::StaticClass())))
 		{
-			I->ExecuteSkill_Implementation(TargetingMethod,Index);
+			Parms.ReturnValue = I->GenerateSkillExecutor_Implementation(TargetingMethod,SkillIndex);
 		}
+		return Parms.ReturnValue;
 	}
 	TArray<TScriptInterface<ISkillIntf> > ISkillUserIntf::Execute_GetSkills(UObject* O)
 	{
@@ -98,53 +275,183 @@ void EmptyLinkFunctionForGeneratedCodeSpectral() {}
 		FNativeFunctionRegistrar::RegisterFunction(ASpectralProjectile::StaticClass(),"OnHit",(Native)&ASpectralProjectile::execOnHit);
 	}
 	IMPLEMENT_CLASS(ASpectralProjectile, 2429959699);
-	void UTargetableIntf::StaticRegisterNativesUTargetableIntf()
+	void UTargetingPermissionsIntf::StaticRegisterNativesUTargetingPermissionsIntf()
 	{
 	}
-	IMPLEMENT_CLASS(UTargetableIntf, 3283782409);
+	IMPLEMENT_CLASS(UTargetingPermissionsIntf, 697166191);
+	FVector ITargetableIntf::GetTargetableLocation()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetTargetableLocation instead.");
+		TargetableIntf_eventGetTargetableLocation_Parms Parms;
+		return Parms.ReturnValue;
+	}
+	TScriptInterface<ITargetingPermissionsIntf> ITargetableIntf::GetTargetingPermissions()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetTargetingPermissions instead.");
+		TargetableIntf_eventGetTargetingPermissions_Parms Parms;
+		return Parms.ReturnValue;
+	}
+	void UTargetableIntf::StaticRegisterNativesUTargetableIntf()
+	{
+		FNativeFunctionRegistrar::RegisterFunction(UTargetableIntf::StaticClass(),"GetTargetableLocation",(Native)&ITargetableIntf::execGetTargetableLocation);
+		FNativeFunctionRegistrar::RegisterFunction(UTargetableIntf::StaticClass(),"GetTargetingPermissions",(Native)&ITargetableIntf::execGetTargetingPermissions);
+	}
+	IMPLEMENT_CLASS(UTargetableIntf, 1172094518);
+	FVector ITargetableIntf::Execute_GetTargetableLocation(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UTargetableIntf::StaticClass()));
+		TargetableIntf_eventGetTargetableLocation_Parms Parms;
+		UFunction* const Func = O->FindFunction(SPECTRAL_GetTargetableLocation);
+		if (Func)
+		{
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (ITargetableIntf*)(O->GetNativeInterfaceAddress(UTargetableIntf::StaticClass())))
+		{
+			Parms.ReturnValue = I->GetTargetableLocation_Implementation();
+		}
+		return Parms.ReturnValue;
+	}
+	TScriptInterface<ITargetingPermissionsIntf> ITargetableIntf::Execute_GetTargetingPermissions(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UTargetableIntf::StaticClass()));
+		TargetableIntf_eventGetTargetingPermissions_Parms Parms;
+		UFunction* const Func = O->FindFunction(SPECTRAL_GetTargetingPermissions);
+		if (Func)
+		{
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (ITargetableIntf*)(O->GetNativeInterfaceAddress(UTargetableIntf::StaticClass())))
+		{
+			Parms.ReturnValue = I->GetTargetingPermissions_Implementation();
+		}
+		return Parms.ReturnValue;
+	}
 	void UTargeterIntf::StaticRegisterNativesUTargeterIntf()
 	{
 	}
 	IMPLEMENT_CLASS(UTargeterIntf, 3550449262);
-	TArray<TScriptInterface<ITargetableIntf> > ITargetingAreaIntf::GetTargets()
+	void UTargetingArcIntf::StaticRegisterNativesUTargetingArcIntf()
 	{
-		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetTargets instead.");
-		TargetingAreaIntf_eventGetTargets_Parms Parms;
+	}
+	IMPLEMENT_CLASS(UTargetingArcIntf, 3952097823);
+	TArray<FVector2D> ITargetingAreaIntf::GetTargetableLocations()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetTargetableLocations instead.");
+		TargetingAreaIntf_eventGetTargetableLocations_Parms Parms;
+		return Parms.ReturnValue;
+	}
+	TArray<TScriptInterface<ITargetableIntf> > ITargetingAreaIntf::GetTargetables()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetTargetables instead.");
+		TargetingAreaIntf_eventGetTargetables_Parms Parms;
 		return Parms.ReturnValue;
 	}
 	void UTargetingAreaIntf::StaticRegisterNativesUTargetingAreaIntf()
 	{
-		FNativeFunctionRegistrar::RegisterFunction(UTargetingAreaIntf::StaticClass(),"GetTargets",(Native)&ITargetingAreaIntf::execGetTargets);
+		FNativeFunctionRegistrar::RegisterFunction(UTargetingAreaIntf::StaticClass(),"GetTargetableLocations",(Native)&ITargetingAreaIntf::execGetTargetableLocations);
+		FNativeFunctionRegistrar::RegisterFunction(UTargetingAreaIntf::StaticClass(),"GetTargetables",(Native)&ITargetingAreaIntf::execGetTargetables);
 	}
-	IMPLEMENT_CLASS(UTargetingAreaIntf, 1642085804);
-	TArray<TScriptInterface<ITargetableIntf> > ITargetingAreaIntf::Execute_GetTargets(UObject* O)
+	IMPLEMENT_CLASS(UTargetingAreaIntf, 3390846824);
+	TArray<FVector2D> ITargetingAreaIntf::Execute_GetTargetableLocations(UObject* O)
 	{
 		check(O != NULL);
 		check(O->GetClass()->ImplementsInterface(UTargetingAreaIntf::StaticClass()));
-		TargetingAreaIntf_eventGetTargets_Parms Parms;
-		UFunction* const Func = O->FindFunction(SPECTRAL_GetTargets);
+		TargetingAreaIntf_eventGetTargetableLocations_Parms Parms;
+		UFunction* const Func = O->FindFunction(SPECTRAL_GetTargetableLocations);
 		if (Func)
 		{
 			O->ProcessEvent(Func, &Parms);
 		}
 		else if (auto I = (ITargetingAreaIntf*)(O->GetNativeInterfaceAddress(UTargetingAreaIntf::StaticClass())))
 		{
-			Parms.ReturnValue = I->GetTargets_Implementation();
+			Parms.ReturnValue = I->GetTargetableLocations_Implementation();
 		}
 		return Parms.ReturnValue;
 	}
-	void UTargetingDataIntf::StaticRegisterNativesUTargetingDataIntf()
+	TArray<TScriptInterface<ITargetableIntf> > ITargetingAreaIntf::Execute_GetTargetables(UObject* O)
 	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UTargetingAreaIntf::StaticClass()));
+		TargetingAreaIntf_eventGetTargetables_Parms Parms;
+		UFunction* const Func = O->FindFunction(SPECTRAL_GetTargetables);
+		if (Func)
+		{
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (ITargetingAreaIntf*)(O->GetNativeInterfaceAddress(UTargetingAreaIntf::StaticClass())))
+		{
+			Parms.ReturnValue = I->GetTargetables_Implementation();
+		}
+		return Parms.ReturnValue;
 	}
-	IMPLEMENT_CLASS(UTargetingDataIntf, 1673515627);
+	TArray<FVector> ITargetingVolumeIntf::GetTargetableLocations()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetTargetableLocations instead.");
+		TargetingVolumeIntf_eventGetTargetableLocations_Parms Parms;
+		return Parms.ReturnValue;
+	}
+	TArray<TScriptInterface<ITargetableIntf> > ITargetingVolumeIntf::GetTargetables()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetTargetables instead.");
+		TargetingVolumeIntf_eventGetTargetables_Parms Parms;
+		return Parms.ReturnValue;
+	}
 	void UTargetingVolumeIntf::StaticRegisterNativesUTargetingVolumeIntf()
 	{
+		FNativeFunctionRegistrar::RegisterFunction(UTargetingVolumeIntf::StaticClass(),"GetTargetableLocations",(Native)&ITargetingVolumeIntf::execGetTargetableLocations);
+		FNativeFunctionRegistrar::RegisterFunction(UTargetingVolumeIntf::StaticClass(),"GetTargetables",(Native)&ITargetingVolumeIntf::execGetTargetables);
 	}
-	IMPLEMENT_CLASS(UTargetingVolumeIntf, 899878625);
-FName SPECTRAL_ExecuteSkill = FName(TEXT("ExecuteSkill"));
+	IMPLEMENT_CLASS(UTargetingVolumeIntf, 23120294);
+	TArray<FVector> ITargetingVolumeIntf::Execute_GetTargetableLocations(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UTargetingVolumeIntf::StaticClass()));
+		TargetingVolumeIntf_eventGetTargetableLocations_Parms Parms;
+		UFunction* const Func = O->FindFunction(SPECTRAL_GetTargetableLocations);
+		if (Func)
+		{
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (ITargetingVolumeIntf*)(O->GetNativeInterfaceAddress(UTargetingVolumeIntf::StaticClass())))
+		{
+			Parms.ReturnValue = I->GetTargetableLocations_Implementation();
+		}
+		return Parms.ReturnValue;
+	}
+	TArray<TScriptInterface<ITargetableIntf> > ITargetingVolumeIntf::Execute_GetTargetables(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UTargetingVolumeIntf::StaticClass()));
+		TargetingVolumeIntf_eventGetTargetables_Parms Parms;
+		UFunction* const Func = O->FindFunction(SPECTRAL_GetTargetables);
+		if (Func)
+		{
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (ITargetingVolumeIntf*)(O->GetNativeInterfaceAddress(UTargetingVolumeIntf::StaticClass())))
+		{
+			Parms.ReturnValue = I->GetTargetables_Implementation();
+		}
+		return Parms.ReturnValue;
+	}
+FName SPECTRAL_ApplyMods = FName(TEXT("ApplyMods"));
+FName SPECTRAL_ApplySkill = FName(TEXT("ApplySkill"));
+FName SPECTRAL_GenerateSkillExecutor = FName(TEXT("GenerateSkillExecutor"));
+FName SPECTRAL_GetModStorage = FName(TEXT("GetModStorage"));
+FName SPECTRAL_GetSkill = FName(TEXT("GetSkill"));
+FName SPECTRAL_GetSkillExecutor = FName(TEXT("GetSkillExecutor"));
+FName SPECTRAL_GetSkillOwner = FName(TEXT("GetSkillOwner"));
 FName SPECTRAL_GetSkills = FName(TEXT("GetSkills"));
 FName SPECTRAL_GetSkillUserLocation = FName(TEXT("GetSkillUserLocation"));
-FName SPECTRAL_GetTargets = FName(TEXT("GetTargets"));
+FName SPECTRAL_GetTargetableLocation = FName(TEXT("GetTargetableLocation"));
+FName SPECTRAL_GetTargetableLocations = FName(TEXT("GetTargetableLocations"));
+FName SPECTRAL_GetTargetables = FName(TEXT("GetTargetables"));
+FName SPECTRAL_GetTargetingPermissions = FName(TEXT("GetTargetingPermissions"));
+FName SPECTRAL_React = FName(TEXT("React"));
+FName SPECTRAL_RevertMods = FName(TEXT("RevertMods"));
 #if USE_COMPILED_IN_NATIVES
 // Cross Module References
 	ENGINE_API class UClass* Z_Construct_UClass_AActor_NoRegister();
@@ -159,10 +466,23 @@ FName SPECTRAL_GetTargets = FName(TEXT("GetTargets"));
 	ENGINE_API class UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_AActor();
 	ENGINE_API class UClass* Z_Construct_UClass_UProjectileMovementComponent_NoRegister();
+	COREUOBJECT_API class UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 
+	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillExecutorIntf_GetSkill();
+	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillExecutorIntf_GetSkillOwner();
+	SPECTRAL_API class UClass* Z_Construct_UClass_USkillExecutorIntf_NoRegister();
+	SPECTRAL_API class UClass* Z_Construct_UClass_USkillExecutorIntf();
+	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillIntf_ApplyMods();
+	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillIntf_ApplySkill();
+	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillIntf_GetModStorage();
+	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillIntf_GetSkillExecutor();
+	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillIntf_RevertMods();
 	SPECTRAL_API class UClass* Z_Construct_UClass_USkillIntf_NoRegister();
 	SPECTRAL_API class UClass* Z_Construct_UClass_USkillIntf();
-	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillUserIntf_ExecuteSkill();
+	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillReactiveIntf_React();
+	SPECTRAL_API class UClass* Z_Construct_UClass_USkillReactiveIntf_NoRegister();
+	SPECTRAL_API class UClass* Z_Construct_UClass_USkillReactiveIntf();
+	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillUserIntf_GenerateSkillExecutor();
 	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillUserIntf_GetSkills();
 	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillUserIntf_GetSkillUserLocation();
 	SPECTRAL_API class UClass* Z_Construct_UClass_USkillUserIntf_NoRegister();
@@ -174,18 +494,184 @@ FName SPECTRAL_GetTargets = FName(TEXT("GetTargets"));
 	SPECTRAL_API class UFunction* Z_Construct_UFunction_ASpectralProjectile_OnHit();
 	SPECTRAL_API class UClass* Z_Construct_UClass_ASpectralProjectile_NoRegister();
 	SPECTRAL_API class UClass* Z_Construct_UClass_ASpectralProjectile();
+	SPECTRAL_API class UClass* Z_Construct_UClass_UTargetingPermissionsIntf_NoRegister();
+	SPECTRAL_API class UClass* Z_Construct_UClass_UTargetingPermissionsIntf();
+	SPECTRAL_API class UFunction* Z_Construct_UFunction_UTargetableIntf_GetTargetableLocation();
+	SPECTRAL_API class UFunction* Z_Construct_UFunction_UTargetableIntf_GetTargetingPermissions();
 	SPECTRAL_API class UClass* Z_Construct_UClass_UTargetableIntf_NoRegister();
 	SPECTRAL_API class UClass* Z_Construct_UClass_UTargetableIntf();
 	SPECTRAL_API class UClass* Z_Construct_UClass_UTargeterIntf_NoRegister();
 	SPECTRAL_API class UClass* Z_Construct_UClass_UTargeterIntf();
-	SPECTRAL_API class UFunction* Z_Construct_UFunction_UTargetingAreaIntf_GetTargets();
+	SPECTRAL_API class UClass* Z_Construct_UClass_UTargetingArcIntf_NoRegister();
+	SPECTRAL_API class UClass* Z_Construct_UClass_UTargetingArcIntf();
+	SPECTRAL_API class UFunction* Z_Construct_UFunction_UTargetingAreaIntf_GetTargetableLocations();
+	SPECTRAL_API class UFunction* Z_Construct_UFunction_UTargetingAreaIntf_GetTargetables();
 	SPECTRAL_API class UClass* Z_Construct_UClass_UTargetingAreaIntf_NoRegister();
 	SPECTRAL_API class UClass* Z_Construct_UClass_UTargetingAreaIntf();
-	SPECTRAL_API class UClass* Z_Construct_UClass_UTargetingDataIntf_NoRegister();
-	SPECTRAL_API class UClass* Z_Construct_UClass_UTargetingDataIntf();
+	SPECTRAL_API class UFunction* Z_Construct_UFunction_UTargetingVolumeIntf_GetTargetableLocations();
+	SPECTRAL_API class UFunction* Z_Construct_UFunction_UTargetingVolumeIntf_GetTargetables();
 	SPECTRAL_API class UClass* Z_Construct_UClass_UTargetingVolumeIntf_NoRegister();
 	SPECTRAL_API class UClass* Z_Construct_UClass_UTargetingVolumeIntf();
 	SPECTRAL_API class UPackage* Z_Construct_UPackage_Spectral();
+	UFunction* Z_Construct_UFunction_USkillExecutorIntf_GetSkill()
+	{
+		UObject* Outer=Z_Construct_UClass_USkillExecutorIntf();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("GetSkill"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C020C00, 65535, sizeof(SkillExecutorIntf_eventGetSkill_Parms));
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_Native) UInterfaceProperty(CPP_PROPERTY_BASE(ReturnValue, SkillExecutorIntf_eventGetSkill_Parms), 0x0004000000000580, Z_Construct_UClass_USkillIntf_NoRegister());
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("SkillIntf"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Skills/SkillFramework/SkillExecutorIntf.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_USkillExecutorIntf_GetSkillOwner()
+	{
+		UObject* Outer=Z_Construct_UClass_USkillExecutorIntf();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("GetSkillOwner"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C020C00, 65535, sizeof(SkillExecutorIntf_eventGetSkillOwner_Parms));
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_Native) UInterfaceProperty(CPP_PROPERTY_BASE(ReturnValue, SkillExecutorIntf_eventGetSkillOwner_Parms), 0x0004000000000580, Z_Construct_UClass_USkillUserIntf_NoRegister());
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("SkillIntf"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Skills/SkillFramework/SkillExecutorIntf.h"));
+			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("* Provides access to the SkillExecutor that distributed the Skill."));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UClass* Z_Construct_UClass_USkillExecutorIntf_NoRegister()
+	{
+		return USkillExecutorIntf::StaticClass();
+	}
+	UClass* Z_Construct_UClass_USkillExecutorIntf()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			UInterface::StaticClass();
+			Z_Construct_UPackage_Spectral();
+			OuterClass = USkillExecutorIntf::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20104081;
+
+				OuterClass->LinkChild(Z_Construct_UFunction_USkillExecutorIntf_GetSkill());
+				OuterClass->LinkChild(Z_Construct_UFunction_USkillExecutorIntf_GetSkillOwner());
+
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillExecutorIntf_GetSkill()); // 2882728509
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillExecutorIntf_GetSkillOwner()); // 1821287466
+				OuterClass->StaticLink();
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	static FCompiledInDefer Z_CompiledInDefer_UClass_USkillExecutorIntf(Z_Construct_UClass_USkillExecutorIntf, TEXT("USkillExecutorIntf"));
+	DEFINE_VTABLE_PTR_HELPER_CTOR(USkillExecutorIntf);
+	UFunction* Z_Construct_UFunction_USkillIntf_ApplyMods()
+	{
+		UObject* Outer=Z_Construct_UClass_USkillIntf();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("ApplyMods"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C020C00, 65535);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("SkillIntf"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Skills/SkillFramework/SkillIntf.h"));
+			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("* Causes the Skill to undergo \"alterations\" based on modifications queued\n* to take effect."));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_USkillIntf_ApplySkill()
+	{
+		UObject* Outer=Z_Construct_UClass_USkillIntf();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("ApplySkill"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C420C00, 65535, sizeof(SkillIntf_eventApplySkill_Parms));
+			UProperty* NewProp_Target = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("Target"), RF_Public|RF_Transient|RF_Native) UInterfaceProperty(CPP_PROPERTY_BASE(Target, SkillIntf_eventApplySkill_Parms), 0x0004000008000182, Z_Construct_UClass_USkillUserIntf_NoRegister());
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("SkillIntf"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Skills/SkillFramework/SkillIntf.h"));
+			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("* Applies all SkillEffects within the Skill to the specified Target."));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_USkillIntf_GetModStorage()
+	{
+		UObject* Outer=Z_Construct_UClass_USkillIntf();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("GetModStorage"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C020C00, 65535);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("SkillIntf"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Skills/SkillFramework/SkillIntf.h"));
+			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("* Provides access to the ModStorage responsible for managing the relationship\n* between SkillMods and the Skill they are associated with.\n// TODO: Need to add the IModStorageIntf and make it a return value here"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_USkillIntf_GetSkillExecutor()
+	{
+		UObject* Outer=Z_Construct_UClass_USkillIntf();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("GetSkillExecutor"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C020C00, 65535, sizeof(SkillIntf_eventGetSkillExecutor_Parms));
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_Native) UInterfaceProperty(CPP_PROPERTY_BASE(ReturnValue, SkillIntf_eventGetSkillExecutor_Parms), 0x0004000000000580, Z_Construct_UClass_USkillUserIntf_NoRegister());
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("SkillIntf"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Skills/SkillFramework/SkillIntf.h"));
+			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("* Provides access to the SkillExecutor that distributed the Skill."));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_USkillIntf_RevertMods()
+	{
+		UObject* Outer=Z_Construct_UClass_USkillIntf();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("RevertMods"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C020C00, 65535);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("SkillIntf"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Skills/SkillFramework/SkillIntf.h"));
+			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("* Causes the Skill to revert all \"alterations\" from modifications previously\n* triggered by ApplyMods()."));
+#endif
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_USkillIntf_NoRegister()
 	{
 		return USkillIntf::StaticClass();
@@ -203,7 +689,17 @@ FName SPECTRAL_GetTargets = FName(TEXT("GetTargets"));
 				UObjectForceRegistration(OuterClass);
 				OuterClass->ClassFlags |= 0x20104081;
 
+				OuterClass->LinkChild(Z_Construct_UFunction_USkillIntf_ApplyMods());
+				OuterClass->LinkChild(Z_Construct_UFunction_USkillIntf_ApplySkill());
+				OuterClass->LinkChild(Z_Construct_UFunction_USkillIntf_GetModStorage());
+				OuterClass->LinkChild(Z_Construct_UFunction_USkillIntf_GetSkillExecutor());
+				OuterClass->LinkChild(Z_Construct_UFunction_USkillIntf_RevertMods());
 
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillIntf_ApplyMods()); // 1840304644
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillIntf_ApplySkill()); // 1693120112
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillIntf_GetModStorage()); // 803500406
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillIntf_GetSkillExecutor()); // 490407653
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillIntf_RevertMods()); // 597688203
 				OuterClass->StaticLink();
 			}
 		}
@@ -212,15 +708,61 @@ FName SPECTRAL_GetTargets = FName(TEXT("GetTargets"));
 	}
 	static FCompiledInDefer Z_CompiledInDefer_UClass_USkillIntf(Z_Construct_UClass_USkillIntf, TEXT("USkillIntf"));
 	DEFINE_VTABLE_PTR_HELPER_CTOR(USkillIntf);
-	UFunction* Z_Construct_UFunction_USkillUserIntf_ExecuteSkill()
+	UFunction* Z_Construct_UFunction_USkillReactiveIntf_React()
+	{
+		UObject* Outer=Z_Construct_UClass_USkillReactiveIntf();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("React"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C020C00, 65535);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("SkillReactiveIntf"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Skills/SkillFramework/SkillReactiveIntf.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UClass* Z_Construct_UClass_USkillReactiveIntf_NoRegister()
+	{
+		return USkillReactiveIntf::StaticClass();
+	}
+	UClass* Z_Construct_UClass_USkillReactiveIntf()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			UInterface::StaticClass();
+			Z_Construct_UPackage_Spectral();
+			OuterClass = USkillReactiveIntf::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20104081;
+
+				OuterClass->LinkChild(Z_Construct_UFunction_USkillReactiveIntf_React());
+
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillReactiveIntf_React()); // 273272993
+				OuterClass->StaticLink();
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	static FCompiledInDefer Z_CompiledInDefer_UClass_USkillReactiveIntf(Z_Construct_UClass_USkillReactiveIntf, TEXT("USkillReactiveIntf"));
+	DEFINE_VTABLE_PTR_HELPER_CTOR(USkillReactiveIntf);
+	UFunction* Z_Construct_UFunction_USkillUserIntf_GenerateSkillExecutor()
 	{
 		UObject* Outer=Z_Construct_UClass_USkillUserIntf();
 		static UFunction* ReturnFunction = NULL;
 		if (!ReturnFunction)
 		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("ExecuteSkill"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C420C00, 65535, sizeof(SkillUserIntf_eventExecuteSkill_Parms));
-			UProperty* NewProp_Index = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("Index"), RF_Public|RF_Transient|RF_Native) UIntProperty(CPP_PROPERTY_BASE(Index, SkillUserIntf_eventExecuteSkill_Parms), 0x0000000000000080);
-			UProperty* NewProp_TargetingMethod = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("TargetingMethod"), RF_Public|RF_Transient|RF_Native) UArrayProperty(CPP_PROPERTY_BASE(TargetingMethod, SkillUserIntf_eventExecuteSkill_Parms), 0x0000000008000182);
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("GenerateSkillExecutor"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C420C00, 65535, sizeof(SkillUserIntf_eventGenerateSkillExecutor_Parms));
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_Native) UInterfaceProperty(CPP_PROPERTY_BASE(ReturnValue, SkillUserIntf_eventGenerateSkillExecutor_Parms), 0x0004000000000580, Z_Construct_UClass_USkillExecutorIntf_NoRegister());
+			UProperty* NewProp_SkillIndex = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("SkillIndex"), RF_Public|RF_Transient|RF_Native) UIntProperty(CPP_PROPERTY_BASE(SkillIndex, SkillUserIntf_eventGenerateSkillExecutor_Parms), 0x0000000000000080);
+			UProperty* NewProp_TargetingMethod = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("TargetingMethod"), RF_Public|RF_Transient|RF_Native) UArrayProperty(CPP_PROPERTY_BASE(TargetingMethod, SkillUserIntf_eventGenerateSkillExecutor_Parms), 0x0000000008000182);
 			UProperty* NewProp_TargetingMethod_Inner = new(EC_InternalUseOnlyConstructor, NewProp_TargetingMethod, TEXT("TargetingMethod"), RF_Public|RF_Transient|RF_Native) UObjectProperty(FObjectInitializer(), EC_CppProperty, 0, 0x0000000000000000, Z_Construct_UClass_AActor_NoRegister());
 			ReturnFunction->Bind();
 			ReturnFunction->StaticLink();
@@ -228,7 +770,7 @@ FName SPECTRAL_GetTargets = FName(TEXT("GetTargets"));
 			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
 			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("SkillUserIntf"));
 			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Skills/SkillFramework/SkillUserIntf.h"));
-			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("* Executes the skill in GetSkills().Get(Index). The Skill is fed targeting information\n* specified by TargetingMethod.\n*\n* - If TargetingMethod can be cast to TArray<ISkillUserIntf>, then it is assumed that\n*   the supplied list of SkillUsers are to be the sole targets of the executed skill.\n*\n* - Else if TargetingMethod can be cast to TArray<TargetingVolumeIntf>, then the target is\n*   assumed to be all entities within the supplied sequence of volumes.\n*\n* - Else if TargetingMethod can be cast to TArray<TargetingAreaIntf>, then the target is\n*   assumed to be all entities within the supplied sequence of areas.\n*\n* Subclasses of AActor were selected because it would ensure that the object...\n* - can be replicated.\n* - has a transform.\n* - can be rendered."));
+			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("* A Factory Method intended to generate the appropriate SkillExecutor based on\n* the contents of the TargetingMethod array.\n*\n* - If targetingMethod can be cast to TArray<TScriptInterface<ISkillUserIntf>>,\n*   then the targets are assumed to be each of the provided references.\n*\n* - Else if TargetingMethod can be cast to TArray<TScriptInterface<TargetingVolumeIntf>>,\n*   then the targets are assumed to be all entities within the supplied sequence of volumes.\n*\n* - Else if TargetingMethod can be cast to TArray<TScriptInterface<TargetingAreaIntf>>,\n*   then the targets are assumed to be all entities within the supplied sequence of areas.\n*\n* - Else if TargetingMethod can be cast to TArray<TScriptInterface<TargetingArcIntf>>,\n*   then the targets are assumed to be all entities within arcs of a variable width, depth,\n*   and orientation from each of a set of points (analogous to \"directed lines\", but abstracted,\n*   i.e. an extremely deep, yet thin arc could be considered a line, for all intents and purposes).\n*\n* Subclasses of AActor were selected because it would ensure that the object...\n* - can be replicated.\n* - has a transform.\n* - can be rendered."));
 #endif
 		}
 		return ReturnFunction;
@@ -289,11 +831,11 @@ FName SPECTRAL_GetTargets = FName(TEXT("GetTargets"));
 				UObjectForceRegistration(OuterClass);
 				OuterClass->ClassFlags |= 0x20104081;
 
-				OuterClass->LinkChild(Z_Construct_UFunction_USkillUserIntf_ExecuteSkill());
+				OuterClass->LinkChild(Z_Construct_UFunction_USkillUserIntf_GenerateSkillExecutor());
 				OuterClass->LinkChild(Z_Construct_UFunction_USkillUserIntf_GetSkills());
 				OuterClass->LinkChild(Z_Construct_UFunction_USkillUserIntf_GetSkillUserLocation());
 
-				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillUserIntf_ExecuteSkill()); // 3203220692
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillUserIntf_GenerateSkillExecutor()); // 1760700840
 				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillUserIntf_GetSkills()); // 2668774844
 				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillUserIntf_GetSkillUserLocation()); // 2368337823
 				OuterClass->StaticLink();
@@ -485,6 +1027,68 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 	}
 	static FCompiledInDefer Z_CompiledInDefer_UClass_ASpectralProjectile(Z_Construct_UClass_ASpectralProjectile, TEXT("ASpectralProjectile"));
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ASpectralProjectile);
+	UClass* Z_Construct_UClass_UTargetingPermissionsIntf_NoRegister()
+	{
+		return UTargetingPermissionsIntf::StaticClass();
+	}
+	UClass* Z_Construct_UClass_UTargetingPermissionsIntf()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			UInterface::StaticClass();
+			Z_Construct_UPackage_Spectral();
+			OuterClass = UTargetingPermissionsIntf::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20104081;
+
+
+				OuterClass->StaticLink();
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	static FCompiledInDefer Z_CompiledInDefer_UClass_UTargetingPermissionsIntf(Z_Construct_UClass_UTargetingPermissionsIntf, TEXT("UTargetingPermissionsIntf"));
+	DEFINE_VTABLE_PTR_HELPER_CTOR(UTargetingPermissionsIntf);
+	UFunction* Z_Construct_UFunction_UTargetableIntf_GetTargetableLocation()
+	{
+		UObject* Outer=Z_Construct_UClass_UTargetableIntf();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("GetTargetableLocation"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C820C00, 65535, sizeof(TargetableIntf_eventGetTargetableLocation_Parms));
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_Native) UStructProperty(CPP_PROPERTY_BASE(ReturnValue, TargetableIntf_eventGetTargetableLocation_Parms), 0x0000000000000580, Z_Construct_UScriptStruct_FVector());
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("TargetableIntf"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("TargetingSystem/TargetingFramework/TargetableIntf.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_UTargetableIntf_GetTargetingPermissions()
+	{
+		UObject* Outer=Z_Construct_UClass_UTargetableIntf();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("GetTargetingPermissions"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C020C00, 65535, sizeof(TargetableIntf_eventGetTargetingPermissions_Parms));
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_Native) UInterfaceProperty(CPP_PROPERTY_BASE(ReturnValue, TargetableIntf_eventGetTargetingPermissions_Parms), 0x0004000000000580, Z_Construct_UClass_UTargetingPermissionsIntf_NoRegister());
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("TargetableIntf"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("TargetingSystem/TargetingFramework/TargetableIntf.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_UTargetableIntf_NoRegister()
 	{
 		return UTargetableIntf::StaticClass();
@@ -502,7 +1106,11 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				UObjectForceRegistration(OuterClass);
 				OuterClass->ClassFlags |= 0x20104081;
 
+				OuterClass->LinkChild(Z_Construct_UFunction_UTargetableIntf_GetTargetableLocation());
+				OuterClass->LinkChild(Z_Construct_UFunction_UTargetableIntf_GetTargetingPermissions());
 
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_UTargetableIntf_GetTargetableLocation()); // 3568518446
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_UTargetableIntf_GetTargetingPermissions()); // 1456590430
 				OuterClass->StaticLink();
 			}
 		}
@@ -537,21 +1145,66 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 	}
 	static FCompiledInDefer Z_CompiledInDefer_UClass_UTargeterIntf(Z_Construct_UClass_UTargeterIntf, TEXT("UTargeterIntf"));
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UTargeterIntf);
-	UFunction* Z_Construct_UFunction_UTargetingAreaIntf_GetTargets()
+	UClass* Z_Construct_UClass_UTargetingArcIntf_NoRegister()
+	{
+		return UTargetingArcIntf::StaticClass();
+	}
+	UClass* Z_Construct_UClass_UTargetingArcIntf()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			UInterface::StaticClass();
+			Z_Construct_UPackage_Spectral();
+			OuterClass = UTargetingArcIntf::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20104081;
+
+
+				OuterClass->StaticLink();
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	static FCompiledInDefer Z_CompiledInDefer_UClass_UTargetingArcIntf(Z_Construct_UClass_UTargetingArcIntf, TEXT("UTargetingArcIntf"));
+	DEFINE_VTABLE_PTR_HELPER_CTOR(UTargetingArcIntf);
+	UFunction* Z_Construct_UFunction_UTargetingAreaIntf_GetTargetableLocations()
 	{
 		UObject* Outer=Z_Construct_UClass_UTargetingAreaIntf();
 		static UFunction* ReturnFunction = NULL;
 		if (!ReturnFunction)
 		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("GetTargets"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C020C00, 65535, sizeof(TargetingAreaIntf_eventGetTargets_Parms));
-			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_Native) UArrayProperty(CPP_PROPERTY_BASE(ReturnValue, TargetingAreaIntf_eventGetTargets_Parms), 0x0004000000000580);
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("GetTargetableLocations"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C020C00, 65535, sizeof(TargetingAreaIntf_eventGetTargetableLocations_Parms));
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_Native) UArrayProperty(CPP_PROPERTY_BASE(ReturnValue, TargetingAreaIntf_eventGetTargetableLocations_Parms), 0x0000000000000580);
+			UProperty* NewProp_ReturnValue_Inner = new(EC_InternalUseOnlyConstructor, NewProp_ReturnValue, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_Native) UStructProperty(FObjectInitializer(), EC_CppProperty, 0, 0x0000000000000000, Z_Construct_UScriptStruct_FVector2D());
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("TargetingAreaIntf"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("TargetingSystem/TargetingFramework/TargetingAreaIntf.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_UTargetingAreaIntf_GetTargetables()
+	{
+		UObject* Outer=Z_Construct_UClass_UTargetingAreaIntf();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("GetTargetables"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C020C00, 65535, sizeof(TargetingAreaIntf_eventGetTargetables_Parms));
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_Native) UArrayProperty(CPP_PROPERTY_BASE(ReturnValue, TargetingAreaIntf_eventGetTargetables_Parms), 0x0004000000000580);
 			UProperty* NewProp_ReturnValue_Inner = new(EC_InternalUseOnlyConstructor, NewProp_ReturnValue, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_Native) UInterfaceProperty(FObjectInitializer(), EC_CppProperty, 0, 0x0004000000000000, Z_Construct_UClass_UTargetableIntf_NoRegister());
 			ReturnFunction->Bind();
 			ReturnFunction->StaticLink();
 #if WITH_METADATA
 			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
 			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("TargetingAreaIntf"));
-			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Skills/SkillFramework/TargetingFramework/TargetingAreaIntf.h"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("TargetingSystem/TargetingFramework/TargetingAreaIntf.h"));
 #endif
 		}
 		return ReturnFunction;
@@ -573,9 +1226,11 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				UObjectForceRegistration(OuterClass);
 				OuterClass->ClassFlags |= 0x20104081;
 
-				OuterClass->LinkChild(Z_Construct_UFunction_UTargetingAreaIntf_GetTargets());
+				OuterClass->LinkChild(Z_Construct_UFunction_UTargetingAreaIntf_GetTargetableLocations());
+				OuterClass->LinkChild(Z_Construct_UFunction_UTargetingAreaIntf_GetTargetables());
 
-				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_UTargetingAreaIntf_GetTargets()); // 1502354454
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_UTargetingAreaIntf_GetTargetableLocations()); // 184418019
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_UTargetingAreaIntf_GetTargetables()); // 1285001311
 				OuterClass->StaticLink();
 			}
 		}
@@ -584,32 +1239,44 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 	}
 	static FCompiledInDefer Z_CompiledInDefer_UClass_UTargetingAreaIntf(Z_Construct_UClass_UTargetingAreaIntf, TEXT("UTargetingAreaIntf"));
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UTargetingAreaIntf);
-	UClass* Z_Construct_UClass_UTargetingDataIntf_NoRegister()
+	UFunction* Z_Construct_UFunction_UTargetingVolumeIntf_GetTargetableLocations()
 	{
-		return UTargetingDataIntf::StaticClass();
-	}
-	UClass* Z_Construct_UClass_UTargetingDataIntf()
-	{
-		static UClass* OuterClass = NULL;
-		if (!OuterClass)
+		UObject* Outer=Z_Construct_UClass_UTargetingVolumeIntf();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
 		{
-			UInterface::StaticClass();
-			Z_Construct_UPackage_Spectral();
-			OuterClass = UTargetingDataIntf::StaticClass();
-			if (!(OuterClass->ClassFlags & CLASS_Constructed))
-			{
-				UObjectForceRegistration(OuterClass);
-				OuterClass->ClassFlags |= 0x20104081;
-
-
-				OuterClass->StaticLink();
-			}
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("GetTargetableLocations"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C020C00, 65535, sizeof(TargetingVolumeIntf_eventGetTargetableLocations_Parms));
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_Native) UArrayProperty(CPP_PROPERTY_BASE(ReturnValue, TargetingVolumeIntf_eventGetTargetableLocations_Parms), 0x0000000000000580);
+			UProperty* NewProp_ReturnValue_Inner = new(EC_InternalUseOnlyConstructor, NewProp_ReturnValue, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_Native) UStructProperty(FObjectInitializer(), EC_CppProperty, 0, 0x0000000000000000, Z_Construct_UScriptStruct_FVector());
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("TargetingVolumeIntf"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("TargetingSystem/TargetingFramework/TargetingVolumeIntf.h"));
+#endif
 		}
-		check(OuterClass->GetClass());
-		return OuterClass;
+		return ReturnFunction;
 	}
-	static FCompiledInDefer Z_CompiledInDefer_UClass_UTargetingDataIntf(Z_Construct_UClass_UTargetingDataIntf, TEXT("UTargetingDataIntf"));
-	DEFINE_VTABLE_PTR_HELPER_CTOR(UTargetingDataIntf);
+	UFunction* Z_Construct_UFunction_UTargetingVolumeIntf_GetTargetables()
+	{
+		UObject* Outer=Z_Construct_UClass_UTargetingVolumeIntf();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("GetTargetables"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C020C00, 65535, sizeof(TargetingVolumeIntf_eventGetTargetables_Parms));
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_Native) UArrayProperty(CPP_PROPERTY_BASE(ReturnValue, TargetingVolumeIntf_eventGetTargetables_Parms), 0x0004000000000580);
+			UProperty* NewProp_ReturnValue_Inner = new(EC_InternalUseOnlyConstructor, NewProp_ReturnValue, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_Native) UInterfaceProperty(FObjectInitializer(), EC_CppProperty, 0, 0x0004000000000000, Z_Construct_UClass_UTargetableIntf_NoRegister());
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("TargetingVolumeIntf"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("TargetingSystem/TargetingFramework/TargetingVolumeIntf.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_UTargetingVolumeIntf_NoRegister()
 	{
 		return UTargetingVolumeIntf::StaticClass();
@@ -627,7 +1294,11 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				UObjectForceRegistration(OuterClass);
 				OuterClass->ClassFlags |= 0x20104081;
 
+				OuterClass->LinkChild(Z_Construct_UFunction_UTargetingVolumeIntf_GetTargetableLocations());
+				OuterClass->LinkChild(Z_Construct_UFunction_UTargetingVolumeIntf_GetTargetables());
 
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_UTargetingVolumeIntf_GetTargetableLocations()); // 2107467629
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_UTargetingVolumeIntf_GetTargetables()); // 3532913685
 				OuterClass->StaticLink();
 			}
 		}
@@ -644,8 +1315,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), NULL, FName(TEXT("/Script/Spectral")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0x694A9B12;
-			Guid.B = 0xB82E1EB8;
+			Guid.A = 0x308F4B1C;
+			Guid.B = 0x8DEB9CA5;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);

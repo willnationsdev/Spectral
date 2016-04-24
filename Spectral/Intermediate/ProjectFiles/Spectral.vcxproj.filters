@@ -4,7 +4,7 @@
 	<ItemGroup>
 		<None Include="..\..\Spectral.uproject" />
 		<Filter Include="Source">
-			<UniqueIdentifier>{3B9E6C88-9FA4-41C6-8521-436E30BBF8F1}</UniqueIdentifier>
+			<UniqueIdentifier>{4BC686E8-8524-4829-A855-12C5C28E3866}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\Spectral.Target.cs">
 			<Filter>Source</Filter>
@@ -13,7 +13,7 @@
 			<Filter>Source</Filter>
 		</None >
 		<Filter Include="Config">
-			<UniqueIdentifier>{83912F86-04BA-45C9-B3DF-21B35328BD20}</UniqueIdentifier>
+			<UniqueIdentifier>{2B1E5702-977F-49B3-9C18-6715FBC940E1}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Config\DefaultEditor.ini">
 			<Filter>Config</Filter>
@@ -31,7 +31,7 @@
 			<Filter>Config</Filter>
 		</None >
 		<Filter Include="Source\Spectral">
-			<UniqueIdentifier>{961E470C-B537-4ABD-9C62-F321BDBB654E}</UniqueIdentifier>
+			<UniqueIdentifier>{F61B0360-3BEB-4F87-B33B-074C115E80CB}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\Spectral\Spectral.Build.cs">
 			<Filter>Source\Spectral</Filter>
@@ -61,15 +61,27 @@
 			<Filter>Source\Spectral</Filter>
 		</ClInclude >
 		<Filter Include="Source\Spectral\Skills">
-			<UniqueIdentifier>{3FFB2DE0-CBCD-4F75-B99E-E571AE10EB99}</UniqueIdentifier>
+			<UniqueIdentifier>{778F4690-FF15-4E17-A730-67E3BD574C16}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="Source\Spectral\Skills\SkillFramework">
-			<UniqueIdentifier>{088E2F10-495D-4185-9882-88C4E853C804}</UniqueIdentifier>
+			<UniqueIdentifier>{BC9A2293-FB99-4C95-88B5-B8ED8D851B47}</UniqueIdentifier>
 		</Filter>
+		<ClCompile Include="..\..\Source\Spectral\Skills\SkillFramework\SkillExecutorIntf.cpp">
+			<Filter>Source\Spectral\Skills\SkillFramework</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\Spectral\Skills\SkillFramework\SkillExecutorIntf.h">
+			<Filter>Source\Spectral\Skills\SkillFramework</Filter>
+		</ClInclude >
 		<ClCompile Include="..\..\Source\Spectral\Skills\SkillFramework\SkillIntf.cpp">
 			<Filter>Source\Spectral\Skills\SkillFramework</Filter>
 		</ClCompile >
 		<ClInclude Include="..\..\Source\Spectral\Skills\SkillFramework\SkillIntf.h">
+			<Filter>Source\Spectral\Skills\SkillFramework</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\Spectral\Skills\SkillFramework\SkillReactiveIntf.cpp">
+			<Filter>Source\Spectral\Skills\SkillFramework</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\Spectral\Skills\SkillFramework\SkillReactiveIntf.h">
 			<Filter>Source\Spectral\Skills\SkillFramework</Filter>
 		</ClInclude >
 		<ClCompile Include="..\..\Source\Spectral\Skills\SkillFramework\SkillUserIntf.cpp">
@@ -78,38 +90,47 @@
 		<ClInclude Include="..\..\Source\Spectral\Skills\SkillFramework\SkillUserIntf.h">
 			<Filter>Source\Spectral\Skills\SkillFramework</Filter>
 		</ClInclude >
-		<Filter Include="Source\Spectral\Skills\SkillFramework\TargetingFramework">
-			<UniqueIdentifier>{DE2F1443-084D-43E3-9BD9-77FD2BE76CD1}</UniqueIdentifier>
+		<Filter Include="Source\Spectral\TargetingSystem">
+			<UniqueIdentifier>{BC553BA9-2C05-40E6-847C-E70AB1BA9253}</UniqueIdentifier>
 		</Filter>
-		<ClCompile Include="..\..\Source\Spectral\Skills\SkillFramework\TargetingFramework\TargetableIntf.cpp">
-			<Filter>Source\Spectral\Skills\SkillFramework\TargetingFramework</Filter>
+		<Filter Include="Source\Spectral\TargetingSystem\TargetingFramework">
+			<UniqueIdentifier>{47524E1C-CAE4-4F69-B50A-9A837F57BBFE}</UniqueIdentifier>
+		</Filter>
+		<ClCompile Include="..\..\Source\Spectral\TargetingSystem\TargetingFramework\TargetableIntf.cpp">
+			<Filter>Source\Spectral\TargetingSystem\TargetingFramework</Filter>
 		</ClCompile >
-		<ClInclude Include="..\..\Source\Spectral\Skills\SkillFramework\TargetingFramework\TargetableIntf.h">
-			<Filter>Source\Spectral\Skills\SkillFramework\TargetingFramework</Filter>
+		<ClInclude Include="..\..\Source\Spectral\TargetingSystem\TargetingFramework\TargetableIntf.h">
+			<Filter>Source\Spectral\TargetingSystem\TargetingFramework</Filter>
 		</ClInclude >
-		<ClCompile Include="..\..\Source\Spectral\Skills\SkillFramework\TargetingFramework\TargeterIntf.cpp">
-			<Filter>Source\Spectral\Skills\SkillFramework\TargetingFramework</Filter>
+		<ClCompile Include="..\..\Source\Spectral\TargetingSystem\TargetingFramework\TargeterIntf.cpp">
+			<Filter>Source\Spectral\TargetingSystem\TargetingFramework</Filter>
 		</ClCompile >
-		<ClInclude Include="..\..\Source\Spectral\Skills\SkillFramework\TargetingFramework\TargeterIntf.h">
-			<Filter>Source\Spectral\Skills\SkillFramework\TargetingFramework</Filter>
+		<ClInclude Include="..\..\Source\Spectral\TargetingSystem\TargetingFramework\TargeterIntf.h">
+			<Filter>Source\Spectral\TargetingSystem\TargetingFramework</Filter>
 		</ClInclude >
-		<ClCompile Include="..\..\Source\Spectral\Skills\SkillFramework\TargetingFramework\TargetingAreaIntf.cpp">
-			<Filter>Source\Spectral\Skills\SkillFramework\TargetingFramework</Filter>
+		<ClCompile Include="..\..\Source\Spectral\TargetingSystem\TargetingFramework\TargetingArcIntf.cpp">
+			<Filter>Source\Spectral\TargetingSystem\TargetingFramework</Filter>
 		</ClCompile >
-		<ClInclude Include="..\..\Source\Spectral\Skills\SkillFramework\TargetingFramework\TargetingAreaIntf.h">
-			<Filter>Source\Spectral\Skills\SkillFramework\TargetingFramework</Filter>
+		<ClInclude Include="..\..\Source\Spectral\TargetingSystem\TargetingFramework\TargetingArcIntf.h">
+			<Filter>Source\Spectral\TargetingSystem\TargetingFramework</Filter>
 		</ClInclude >
-		<ClCompile Include="..\..\Source\Spectral\Skills\SkillFramework\TargetingFramework\TargetingDataIntf.cpp">
-			<Filter>Source\Spectral\Skills\SkillFramework\TargetingFramework</Filter>
+		<ClCompile Include="..\..\Source\Spectral\TargetingSystem\TargetingFramework\TargetingAreaIntf.cpp">
+			<Filter>Source\Spectral\TargetingSystem\TargetingFramework</Filter>
 		</ClCompile >
-		<ClInclude Include="..\..\Source\Spectral\Skills\SkillFramework\TargetingFramework\TargetingDataIntf.h">
-			<Filter>Source\Spectral\Skills\SkillFramework\TargetingFramework</Filter>
+		<ClInclude Include="..\..\Source\Spectral\TargetingSystem\TargetingFramework\TargetingAreaIntf.h">
+			<Filter>Source\Spectral\TargetingSystem\TargetingFramework</Filter>
 		</ClInclude >
-		<ClCompile Include="..\..\Source\Spectral\Skills\SkillFramework\TargetingFramework\TargetingVolumeIntf.cpp">
-			<Filter>Source\Spectral\Skills\SkillFramework\TargetingFramework</Filter>
+		<ClCompile Include="..\..\Source\Spectral\TargetingSystem\TargetingFramework\TargetingPermissionsIntf.cpp">
+			<Filter>Source\Spectral\TargetingSystem\TargetingFramework</Filter>
 		</ClCompile >
-		<ClInclude Include="..\..\Source\Spectral\Skills\SkillFramework\TargetingFramework\TargetingVolumeIntf.h">
-			<Filter>Source\Spectral\Skills\SkillFramework\TargetingFramework</Filter>
+		<ClInclude Include="..\..\Source\Spectral\TargetingSystem\TargetingFramework\TargetingPermissionsIntf.h">
+			<Filter>Source\Spectral\TargetingSystem\TargetingFramework</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\Spectral\TargetingSystem\TargetingFramework\TargetingVolumeIntf.cpp">
+			<Filter>Source\Spectral\TargetingSystem\TargetingFramework</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\Spectral\TargetingSystem\TargetingFramework\TargetingVolumeIntf.h">
+			<Filter>Source\Spectral\TargetingSystem\TargetingFramework</Filter>
 		</ClInclude >
 	</ItemGroup>
 </Project>

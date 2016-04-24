@@ -8,14 +8,68 @@
 #include "ObjectBase.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class ITargetingPermissionsIntf;
+struct FVector;
 #ifdef SPECTRAL_TargetableIntf_generated_h
 #error "TargetableIntf.generated.h already included, missing '#pragma once' in TargetableIntf.h"
 #endif
 #define SPECTRAL_TargetableIntf_generated_h
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargetableIntf_h_13_RPC_WRAPPERS
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargetableIntf_h_13_RPC_WRAPPERS_NO_PURE_DECLS
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargetableIntf_h_13_STANDARD_CONSTRUCTORS \
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_RPC_WRAPPERS \
+	virtual TScriptInterface<ITargetingPermissionsIntf> GetTargetingPermissions_Implementation()=0; \
+	virtual FVector GetTargetableLocation_Implementation()=0; \
+ \
+	DECLARE_FUNCTION(execGetTargetingPermissions) \
+	{ \
+		P_FINISH; \
+		*(TScriptInterface<ITargetingPermissionsIntf>*)Z_Param__Result=this->GetTargetingPermissions_Implementation(); \
+	} \
+ \
+	DECLARE_FUNCTION(execGetTargetableLocation) \
+	{ \
+		P_FINISH; \
+		*(FVector*)Z_Param__Result=this->GetTargetableLocation_Implementation(); \
+	}
+
+
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual TScriptInterface<ITargetingPermissionsIntf> GetTargetingPermissions_Implementation()=0; \
+	virtual FVector GetTargetableLocation_Implementation()=0; \
+ \
+	DECLARE_FUNCTION(execGetTargetingPermissions) \
+	{ \
+		P_FINISH; \
+		*(TScriptInterface<ITargetingPermissionsIntf>*)Z_Param__Result=this->GetTargetingPermissions_Implementation(); \
+	} \
+ \
+	DECLARE_FUNCTION(execGetTargetableLocation) \
+	{ \
+		P_FINISH; \
+		*(FVector*)Z_Param__Result=this->GetTargetableLocation_Implementation(); \
+	}
+
+
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_EVENT_PARMS \
+	struct TargetableIntf_eventGetTargetableLocation_Parms \
+	{ \
+		FVector ReturnValue; \
+ \
+		/** Constructor, intializes return property only **/ \
+		TargetableIntf_eventGetTargetableLocation_Parms() \
+			: ReturnValue(ForceInit) \
+		{ \
+		} \
+	}; \
+	struct TargetableIntf_eventGetTargetingPermissions_Parms \
+	{ \
+		TScriptInterface<ITargetingPermissionsIntf> ReturnValue; \
+	};
+
+
+extern SPECTRAL_API  FName SPECTRAL_GetTargetableLocation;
+extern SPECTRAL_API  FName SPECTRAL_GetTargetingPermissions;
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_CALLBACK_WRAPPERS
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UTargetableIntf(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UTargetableIntf) \
@@ -27,7 +81,7 @@ private: \
 public:
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargetableIntf_h_13_ENHANCED_CONSTRUCTORS \
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UTargetableIntf(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -50,58 +104,67 @@ public: \
 	enum {IsIntrinsic=COMPILED_IN_INTRINSIC};
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargetableIntf_h_13_GENERATED_BODY_LEGACY \
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_GENERATED_BODY_LEGACY \
 		PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 	GENERATED_UINTERFACE_BODY_COMMON() \
-	Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargetableIntf_h_13_STANDARD_CONSTRUCTORS \
+	Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_STANDARD_CONSTRUCTORS \
 	PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargetableIntf_h_13_GENERATED_BODY \
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_GENERATED_BODY \
 	PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 	GENERATED_UINTERFACE_BODY_COMMON() \
-	Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargetableIntf_h_13_ENHANCED_CONSTRUCTORS \
+	Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 	PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargetableIntf_h_13_INCLASS_IINTERFACE_NO_PURE_DECLS \
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_INCLASS_IINTERFACE_NO_PURE_DECLS \
 protected: \
 	virtual ~ITargetableIntf() {} \
 public: \
 	typedef UTargetableIntf UClassType; \
+	static FVector Execute_GetTargetableLocation(UObject* O); \
+	static TScriptInterface<ITargetingPermissionsIntf> Execute_GetTargetingPermissions(UObject* O); \
 	virtual UObject* _getUObject() const = 0;
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargetableIntf_h_13_INCLASS_IINTERFACE \
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_INCLASS_IINTERFACE \
 protected: \
 	virtual ~ITargetableIntf() {} \
 public: \
 	typedef UTargetableIntf UClassType; \
+	static FVector Execute_GetTargetableLocation(UObject* O); \
+	static TScriptInterface<ITargetingPermissionsIntf> Execute_GetTargetingPermissions(UObject* O); \
 	virtual UObject* _getUObject() const = 0;
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargetableIntf_h_10_PROLOG
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargetableIntf_h_17_GENERATED_BODY_LEGACY \
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_11_PROLOG \
+	Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_EVENT_PARMS
+
+
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_18_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargetableIntf_h_13_RPC_WRAPPERS \
-	Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargetableIntf_h_13_INCLASS_IINTERFACE \
+	Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_RPC_WRAPPERS \
+	Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_CALLBACK_WRAPPERS \
+	Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_INCLASS_IINTERFACE \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargetableIntf_h_17_GENERATED_BODY \
+#define Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_18_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargetableIntf_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargetableIntf_h_13_INCLASS_IINTERFACE_NO_PURE_DECLS \
+	Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_CALLBACK_WRAPPERS \
+	Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h_14_INCLASS_IINTERFACE_NO_PURE_DECLS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID Spectral_Source_Spectral_Skills_SkillFramework_TargetingFramework_TargetableIntf_h
+#define CURRENT_FILE_ID Spectral_Source_Spectral_TargetingSystem_TargetingFramework_TargetableIntf_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

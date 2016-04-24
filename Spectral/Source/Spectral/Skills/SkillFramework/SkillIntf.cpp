@@ -8,8 +8,3 @@
 USkillIntf::USkillIntf(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
 }
-
-TScriptInterface<ISkillIntf> ISkillIntf::GetProjectedSkill()
-{
-    return TScriptInterface<ISkillIntf>();
-}
