@@ -1,0 +1,8 @@
+﻿  Compiling game modules for hot reload
+  Performing 3 actions (4 in parallel)
+  TargetingAreaIntf.cpp
+  SkillUserIntf.cpp
+  [3/3] Link UE4Editor-Spectral-9016.dll
+     Creating library D:\Source\GitHub\Spectral\Spectral\Intermediate/Build/Win64\UE4Editor\Development\UE4Editor-Spectral-9016.lib and object D:\Source\GitHub\Spectral\Spectral\Intermediate/Build/Win64\UE4Editor\Development\UE4Editor-Spectral-9016.exp
+  -------- End Detailed Actions Stats -----------------------------------------------------------
+  Total build time: 3.05 seconds

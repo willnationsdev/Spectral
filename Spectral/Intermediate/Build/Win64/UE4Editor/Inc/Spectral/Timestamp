@@ -1,3 +1,10 @@
 D:\Source\GitHub\Spectral\Spectral\Source\Spectral\SpectralGameMode.h
 D:\Source\GitHub\Spectral\Spectral\Source\Spectral\SpectralPawn.h
 D:\Source\GitHub\Spectral\Spectral\Source\Spectral\SpectralProjectile.h
+D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills\SkillFramework\SkillIntf.h
+D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills\SkillFramework\SkillUserIntf.h
+D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills\SkillFramework\TargetingFramework\TargetableIntf.h
+D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills\SkillFramework\TargetingFramework\TargeterIntf.h
+D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills\SkillFramework\TargetingFramework\TargetingAreaIntf.h
+D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills\SkillFramework\TargetingFramework\TargetingDataIntf.h
+D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills\SkillFramework\TargetingFramework\TargetingVolumeIntf.h

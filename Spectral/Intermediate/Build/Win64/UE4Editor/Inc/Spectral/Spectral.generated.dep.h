@@ -5,6 +5,12 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
+#ifndef SPECTRAL_SkillIntf_generated_h
+	#include "Skills/SkillFramework/SkillIntf.h"
+#endif
+#ifndef SPECTRAL_SkillUserIntf_generated_h
+	#include "Skills/SkillFramework/SkillUserIntf.h"
+#endif
 #ifndef SPECTRAL_SpectralGameMode_generated_h
 	#include "SpectralGameMode.h"
 #endif
@@ -13,4 +19,19 @@
 #endif
 #ifndef SPECTRAL_SpectralProjectile_generated_h
 	#include "SpectralProjectile.h"
+#endif
+#ifndef SPECTRAL_TargetableIntf_generated_h
+	#include "Skills/SkillFramework/TargetingFramework/TargetableIntf.h"
+#endif
+#ifndef SPECTRAL_TargeterIntf_generated_h
+	#include "Skills/SkillFramework/TargetingFramework/TargeterIntf.h"
+#endif
+#ifndef SPECTRAL_TargetingAreaIntf_generated_h
+	#include "Skills/SkillFramework/TargetingFramework/TargetingAreaIntf.h"
+#endif
+#ifndef SPECTRAL_TargetingDataIntf_generated_h
+	#include "Skills/SkillFramework/TargetingFramework/TargetingDataIntf.h"
+#endif
+#ifndef SPECTRAL_TargetingVolumeIntf_generated_h
+	#include "Skills/SkillFramework/TargetingFramework/TargetingVolumeIntf.h"
 #endif
