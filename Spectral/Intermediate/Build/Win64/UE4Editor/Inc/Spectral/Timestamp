@@ -1,10 +1,13 @@
 D:\Source\GitHub\Spectral\Spectral\Source\Spectral\SpectralGameMode.h
 D:\Source\GitHub\Spectral\Spectral\Source\Spectral\SpectralPawn.h
 D:\Source\GitHub\Spectral\Spectral\Source\Spectral\SpectralProjectile.h
+D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills\SkillFramework\SkillEffectFactoryIntf.h
 D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills\SkillFramework\SkillEffectIntf.h
 D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills\SkillFramework\SkillEffectStorageIntf.h
 D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills\SkillFramework\SkillExecutorIntf.h
+D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills\SkillFramework\SkillFactoryIntf.h
 D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills\SkillFramework\SkillIntf.h
+D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills\SkillFramework\SkillModFactoryIntf.h
 D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills\SkillFramework\SkillModIntf.h
 D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills\SkillFramework\SkillModStorageIntf.h
 D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills\SkillFramework\SkillReactiveIntf.h

@@ -4,6 +4,8 @@
 
 #include "SkillEffectStorageIntf.generated.h"
 
+class ISkillEffectIntf;
+
 /**
 *
 */
@@ -18,4 +20,27 @@ class ISkillEffectStorageIntf {
 
 public:
 
+    /*
+     * Returns an array of the SkillEffects managed by the SkillEffectStorage.
+     */
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillEffectStorageIntf")
+    TArray<TScriptInterface<ISkillEffectIntf>> GetSkillEffects() const;
+
+    /*
+     * Adds a new SkillEffect to the array of skill effects.
+     */
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillEffectStorageIntf")
+    void AddSkillEffect(const TScriptInterface<ISkillEffectIntf>& SkillEffect);
+
+    /*
+     * Removes the referenced SkillEffect from the array of skill effects.
+     */
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillEffectStorageIntf")
+    void RemoveSkillEffectByRef(const TScriptInterface<ISkillEffectIntf>& SkillEffect);
+
+    /*
+     * Removes the SkillEffect at Index from the array of skill effects.
+     */
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillEffectStorageIntf")
+    void RemoveSkillEffectByIndex(int32 Index);
 };

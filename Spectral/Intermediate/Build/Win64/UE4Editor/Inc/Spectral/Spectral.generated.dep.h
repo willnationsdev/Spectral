@@ -5,6 +5,9 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
+#ifndef SPECTRAL_SkillEffectFactoryIntf_generated_h
+	#include "Skills/SkillFramework/SkillEffectFactoryIntf.h"
+#endif
 #ifndef SPECTRAL_SkillEffectIntf_generated_h
 	#include "Skills/SkillFramework/SkillEffectIntf.h"
 #endif
@@ -14,8 +17,14 @@
 #ifndef SPECTRAL_SkillExecutorIntf_generated_h
 	#include "Skills/SkillFramework/SkillExecutorIntf.h"
 #endif
+#ifndef SPECTRAL_SkillFactoryIntf_generated_h
+	#include "Skills/SkillFramework/SkillFactoryIntf.h"
+#endif
 #ifndef SPECTRAL_SkillIntf_generated_h
 	#include "Skills/SkillFramework/SkillIntf.h"
+#endif
+#ifndef SPECTRAL_SkillModFactoryIntf_generated_h
+	#include "Skills/SkillFramework/SkillModFactoryIntf.h"
 #endif
 #ifndef SPECTRAL_SkillModIntf_generated_h
 	#include "Skills/SkillFramework/SkillModIntf.h"
