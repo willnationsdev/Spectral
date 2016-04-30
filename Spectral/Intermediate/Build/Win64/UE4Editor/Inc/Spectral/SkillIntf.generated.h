@@ -10,15 +10,18 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class ISkillExecutorIntf;
 class ISkillUserIntf;
+class ISkillEffectStorageIntf;
+class ISkillModStorageIntf;
 #ifdef SPECTRAL_SkillIntf_generated_h
 #error "SkillIntf.generated.h already included, missing '#pragma once' in SkillIntf.h"
 #endif
 #define SPECTRAL_SkillIntf_generated_h
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_RPC_WRAPPERS \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_RPC_WRAPPERS \
 	virtual TScriptInterface<ISkillExecutorIntf> GetSkillExecutor_Implementation()=0; \
 	virtual void ApplySkill_Implementation(const TScriptInterface<ISkillUserIntf>& Target)=0; \
-	virtual void GetModStorage_Implementation()=0; \
+	virtual TScriptInterface<ISkillEffectStorageIntf> GetEffectStorage_Implementation()=0; \
+	virtual TScriptInterface<ISkillModStorageIntf> GetModStorage_Implementation()=0; \
 	virtual void RevertMods_Implementation()=0; \
 	virtual void ApplyMods_Implementation()=0; \
  \
@@ -35,10 +38,16 @@ class ISkillUserIntf;
 		this->ApplySkill_Implementation(Z_Param_Out_Target); \
 	} \
  \
+	DECLARE_FUNCTION(execGetEffectStorage) \
+	{ \
+		P_FINISH; \
+		*(TScriptInterface<ISkillEffectStorageIntf>*)Z_Param__Result=this->GetEffectStorage_Implementation(); \
+	} \
+ \
 	DECLARE_FUNCTION(execGetModStorage) \
 	{ \
 		P_FINISH; \
-		this->GetModStorage_Implementation(); \
+		*(TScriptInterface<ISkillModStorageIntf>*)Z_Param__Result=this->GetModStorage_Implementation(); \
 	} \
  \
 	DECLARE_FUNCTION(execRevertMods) \
@@ -54,10 +63,11 @@ class ISkillUserIntf;
 	}
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual TScriptInterface<ISkillExecutorIntf> GetSkillExecutor_Implementation()=0; \
 	virtual void ApplySkill_Implementation(const TScriptInterface<ISkillUserIntf>& Target)=0; \
-	virtual void GetModStorage_Implementation()=0; \
+	virtual TScriptInterface<ISkillEffectStorageIntf> GetEffectStorage_Implementation()=0; \
+	virtual TScriptInterface<ISkillModStorageIntf> GetModStorage_Implementation()=0; \
 	virtual void RevertMods_Implementation()=0; \
 	virtual void ApplyMods_Implementation()=0; \
  \
@@ -74,10 +84,16 @@ class ISkillUserIntf;
 		this->ApplySkill_Implementation(Z_Param_Out_Target); \
 	} \
  \
+	DECLARE_FUNCTION(execGetEffectStorage) \
+	{ \
+		P_FINISH; \
+		*(TScriptInterface<ISkillEffectStorageIntf>*)Z_Param__Result=this->GetEffectStorage_Implementation(); \
+	} \
+ \
 	DECLARE_FUNCTION(execGetModStorage) \
 	{ \
 		P_FINISH; \
-		this->GetModStorage_Implementation(); \
+		*(TScriptInterface<ISkillModStorageIntf>*)Z_Param__Result=this->GetModStorage_Implementation(); \
 	} \
  \
 	DECLARE_FUNCTION(execRevertMods) \
@@ -93,10 +109,18 @@ class ISkillUserIntf;
 	}
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_EVENT_PARMS \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_EVENT_PARMS \
 	struct SkillIntf_eventApplySkill_Parms \
 	{ \
 		TScriptInterface<ISkillUserIntf> Target; \
+	}; \
+	struct SkillIntf_eventGetEffectStorage_Parms \
+	{ \
+		TScriptInterface<ISkillEffectStorageIntf> ReturnValue; \
+	}; \
+	struct SkillIntf_eventGetModStorage_Parms \
+	{ \
+		TScriptInterface<ISkillModStorageIntf> ReturnValue; \
 	}; \
 	struct SkillIntf_eventGetSkillExecutor_Parms \
 	{ \
@@ -106,11 +130,12 @@ class ISkillUserIntf;
 
 extern SPECTRAL_API  FName SPECTRAL_ApplyMods;
 extern SPECTRAL_API  FName SPECTRAL_ApplySkill;
+extern SPECTRAL_API  FName SPECTRAL_GetEffectStorage;
 extern SPECTRAL_API  FName SPECTRAL_GetModStorage;
 extern SPECTRAL_API  FName SPECTRAL_GetSkillExecutor;
 extern SPECTRAL_API  FName SPECTRAL_RevertMods;
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_CALLBACK_WRAPPERS
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_STANDARD_CONSTRUCTORS \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_CALLBACK_WRAPPERS
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API USkillIntf(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(USkillIntf) \
@@ -122,7 +147,7 @@ private: \
 public:
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_ENHANCED_CONSTRUCTORS \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API USkillIntf(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -145,67 +170,69 @@ public: \
 	enum {IsIntrinsic=COMPILED_IN_INTRINSIC};
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_GENERATED_BODY_LEGACY \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_GENERATED_BODY_LEGACY \
 		PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 	GENERATED_UINTERFACE_BODY_COMMON() \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_STANDARD_CONSTRUCTORS \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_STANDARD_CONSTRUCTORS \
 	PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_GENERATED_BODY \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_GENERATED_BODY \
 	PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 	GENERATED_UINTERFACE_BODY_COMMON() \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_ENHANCED_CONSTRUCTORS \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 	PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_INCLASS_IINTERFACE_NO_PURE_DECLS \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_INCLASS_IINTERFACE_NO_PURE_DECLS \
 protected: \
 	virtual ~ISkillIntf() {} \
 public: \
 	typedef USkillIntf UClassType; \
 	static void Execute_ApplyMods(UObject* O); \
 	static void Execute_ApplySkill(UObject* O, const TScriptInterface<ISkillUserIntf>& Target); \
-	static void Execute_GetModStorage(UObject* O); \
+	static TScriptInterface<ISkillEffectStorageIntf> Execute_GetEffectStorage(UObject* O); \
+	static TScriptInterface<ISkillModStorageIntf> Execute_GetModStorage(UObject* O); \
 	static TScriptInterface<ISkillExecutorIntf> Execute_GetSkillExecutor(UObject* O); \
 	static void Execute_RevertMods(UObject* O); \
 	virtual UObject* _getUObject() const = 0;
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_INCLASS_IINTERFACE \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_INCLASS_IINTERFACE \
 protected: \
 	virtual ~ISkillIntf() {} \
 public: \
 	typedef USkillIntf UClassType; \
 	static void Execute_ApplyMods(UObject* O); \
 	static void Execute_ApplySkill(UObject* O, const TScriptInterface<ISkillUserIntf>& Target); \
-	static void Execute_GetModStorage(UObject* O); \
+	static TScriptInterface<ISkillEffectStorageIntf> Execute_GetEffectStorage(UObject* O); \
+	static TScriptInterface<ISkillModStorageIntf> Execute_GetModStorage(UObject* O); \
 	static TScriptInterface<ISkillExecutorIntf> Execute_GetSkillExecutor(UObject* O); \
 	static void Execute_RevertMods(UObject* O); \
 	virtual UObject* _getUObject() const = 0;
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_11_PROLOG \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_EVENT_PARMS
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_13_PROLOG \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_EVENT_PARMS
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_18_GENERATED_BODY_LEGACY \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_20_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_RPC_WRAPPERS \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_CALLBACK_WRAPPERS \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_INCLASS_IINTERFACE \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_RPC_WRAPPERS \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_CALLBACK_WRAPPERS \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_INCLASS_IINTERFACE \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_18_GENERATED_BODY \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_20_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_CALLBACK_WRAPPERS \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_14_INCLASS_IINTERFACE_NO_PURE_DECLS \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_CALLBACK_WRAPPERS \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_INCLASS_IINTERFACE_NO_PURE_DECLS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

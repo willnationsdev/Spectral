@@ -22,4 +22,5 @@ public:
      * Applies the modifications associated with this SkillMod to a given Skill
      */
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillModIntf")
+    void ApplyMod(const TScriptInterface<class ISkillIntf>& Skill);
 };

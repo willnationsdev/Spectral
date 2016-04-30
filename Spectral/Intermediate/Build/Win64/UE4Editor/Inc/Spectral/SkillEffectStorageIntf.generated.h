@@ -13,69 +13,89 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SPECTRAL_SkillEffectStorageIntf_generated_h
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_11_RPC_WRAPPERS
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_11_RPC_WRAPPERS_NO_PURE_DECLS
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_11_INCLASS_NO_PURE_DECLS \
-	private: \
-	static void StaticRegisterNativesASkillEffectStorageIntf(); \
-	friend SPECTRAL_API class UClass* Z_Construct_UClass_ASkillEffectStorageIntf(); \
-	public: \
-	DECLARE_CLASS(ASkillEffectStorageIntf, AActor, COMPILED_IN_FLAGS(0), 0, Spectral, NO_API) \
-	DECLARE_SERIALIZER(ASkillEffectStorageIntf) \
-	/** Indicates whether the class is compiled into the engine */    enum {IsIntrinsic=COMPILED_IN_INTRINSIC}; \
-	virtual UObject* _getUObject() const override { return const_cast<ASkillEffectStorageIntf*>(this); }
-
-
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_11_INCLASS \
-	private: \
-	static void StaticRegisterNativesASkillEffectStorageIntf(); \
-	friend SPECTRAL_API class UClass* Z_Construct_UClass_ASkillEffectStorageIntf(); \
-	public: \
-	DECLARE_CLASS(ASkillEffectStorageIntf, AActor, COMPILED_IN_FLAGS(0), 0, Spectral, NO_API) \
-	DECLARE_SERIALIZER(ASkillEffectStorageIntf) \
-	/** Indicates whether the class is compiled into the engine */    enum {IsIntrinsic=COMPILED_IN_INTRINSIC}; \
-	virtual UObject* _getUObject() const override { return const_cast<ASkillEffectStorageIntf*>(this); }
-
-
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_11_STANDARD_CONSTRUCTORS \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_RPC_WRAPPERS
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_RPC_WRAPPERS_NO_PURE_DECLS
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API ASkillEffectStorageIntf(const FObjectInitializer& ObjectInitializer); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ASkillEffectStorageIntf) \
-	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ASkillEffectStorageIntf); \
-DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASkillEffectStorageIntf); \
+	NO_API USkillEffectStorageIntf(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(USkillEffectStorageIntf) \
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, USkillEffectStorageIntf); \
+DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(USkillEffectStorageIntf); \
 private: \
 	/** Private copy-constructor, should never be used */ \
-	NO_API ASkillEffectStorageIntf(const ASkillEffectStorageIntf& InCopy); \
+	NO_API USkillEffectStorageIntf(const USkillEffectStorageIntf& InCopy); \
 public:
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_11_ENHANCED_CONSTRUCTORS \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_ENHANCED_CONSTRUCTORS \
+	/** Standard constructor, called after all reflected properties have been initialized */ \
+	NO_API USkillEffectStorageIntf(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
 	/** Private copy-constructor, should never be used */ \
-	NO_API ASkillEffectStorageIntf(const ASkillEffectStorageIntf& InCopy); \
+	NO_API USkillEffectStorageIntf(const USkillEffectStorageIntf& InCopy); \
 public: \
-	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ASkillEffectStorageIntf); \
-DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASkillEffectStorageIntf); \
-	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ASkillEffectStorageIntf)
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, USkillEffectStorageIntf); \
+DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(USkillEffectStorageIntf); \
+	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(USkillEffectStorageIntf)
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_8_PROLOG
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_11_GENERATED_BODY_LEGACY \
+#undef GENERATED_UINTERFACE_BODY_COMMON
+#define GENERATED_UINTERFACE_BODY_COMMON() \
+	private: \
+	static void StaticRegisterNativesUSkillEffectStorageIntf(); \
+	friend SPECTRAL_API class UClass* Z_Construct_UClass_USkillEffectStorageIntf(); \
+public: \
+	DECLARE_CLASS(USkillEffectStorageIntf, UInterface, COMPILED_IN_FLAGS(CLASS_Abstract | CLASS_Interface), 0, Spectral, NO_API) \
+	DECLARE_SERIALIZER(USkillEffectStorageIntf) \
+	enum {IsIntrinsic=COMPILED_IN_INTRINSIC};
+
+
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_GENERATED_BODY_LEGACY \
+		PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+	GENERATED_UINTERFACE_BODY_COMMON() \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_STANDARD_CONSTRUCTORS \
+	PRAGMA_ENABLE_DEPRECATION_WARNINGS
+
+
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_GENERATED_BODY \
+	PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+	GENERATED_UINTERFACE_BODY_COMMON() \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_ENHANCED_CONSTRUCTORS \
+private: \
+	PRAGMA_ENABLE_DEPRECATION_WARNINGS
+
+
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_INCLASS_IINTERFACE_NO_PURE_DECLS \
+protected: \
+	virtual ~ISkillEffectStorageIntf() {} \
+public: \
+	typedef USkillEffectStorageIntf UClassType; \
+	virtual UObject* _getUObject() const = 0;
+
+
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_INCLASS_IINTERFACE \
+protected: \
+	virtual ~ISkillEffectStorageIntf() {} \
+public: \
+	typedef USkillEffectStorageIntf UClassType; \
+	virtual UObject* _getUObject() const = 0;
+
+
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_10_PROLOG
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_17_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_11_RPC_WRAPPERS \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_11_INCLASS \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_11_STANDARD_CONSTRUCTORS \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_RPC_WRAPPERS \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_INCLASS_IINTERFACE \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_11_GENERATED_BODY \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_11_RPC_WRAPPERS_NO_PURE_DECLS \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_11_INCLASS_NO_PURE_DECLS \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_11_ENHANCED_CONSTRUCTORS \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_INCLASS_IINTERFACE_NO_PURE_DECLS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
