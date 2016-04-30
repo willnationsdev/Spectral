@@ -6,6 +6,9 @@
 #include "SkillIntf.generated.h"
 
 class USkillUserIntf;
+class USkillExecutorIntf;
+class USkillModStorageIntf;
+class USkillEffectStorageIntf;
 
 UINTERFACE()
 class SPECTRAL_API USkillIntf : public UInterface
@@ -36,9 +39,15 @@ public:
      * Provides access to the ModStorage responsible for managing the relationship
      * between SkillMods and the Skill they are associated with.
      */
-    // TODO: Need to add the IModStorageIntf and make it a return value here
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillIntf")
-    void GetModStorage();
+    TScriptInterface<ISkillModStorageIntf> GetModStorage();
+
+    /*
+     * Provides access to the EffectStorage responsible for managing the relationship
+     * between SkillEffects and the Skill they are associated with.
+     */
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillIntf")
+    TScriptInterface<ISkillEffectStorageIntf> GetEffectStorage();
 
     /*
      * Applies all SkillEffects within the Skill to the specified Target.
@@ -50,5 +59,5 @@ public:
      * Provides access to the SkillExecutor that distributed the Skill.
      */
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillIntf")
-    TScriptInterface<ISkillUserIntf> GetSkillExecutor();
+    TScriptInterface<ISkillExecutorIntf> GetSkillExecutor();
 };

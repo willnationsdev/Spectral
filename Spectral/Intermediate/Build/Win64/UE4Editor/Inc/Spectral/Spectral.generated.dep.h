@@ -5,11 +5,23 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
+#ifndef SPECTRAL_SkillEffectIntf_generated_h
+	#include "Skills/SkillFramework/SkillEffectIntf.h"
+#endif
+#ifndef SPECTRAL_SkillEffectStorageIntf_generated_h
+	#include "Skills/SkillFramework/SkillEffectStorageIntf.h"
+#endif
 #ifndef SPECTRAL_SkillExecutorIntf_generated_h
 	#include "Skills/SkillFramework/SkillExecutorIntf.h"
 #endif
 #ifndef SPECTRAL_SkillIntf_generated_h
 	#include "Skills/SkillFramework/SkillIntf.h"
+#endif
+#ifndef SPECTRAL_SkillModIntf_generated_h
+	#include "Skills/SkillFramework/SkillModIntf.h"
+#endif
+#ifndef SPECTRAL_SkillModStorageIntf_generated_h
+	#include "Skills/SkillFramework/SkillModStorageIntf.h"
 #endif
 #ifndef SPECTRAL_SkillReactiveIntf_generated_h
 	#include "Skills/SkillFramework/SkillReactiveIntf.h"
