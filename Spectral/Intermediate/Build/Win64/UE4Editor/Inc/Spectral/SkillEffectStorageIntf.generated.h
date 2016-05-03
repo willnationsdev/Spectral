@@ -17,7 +17,7 @@ class ISkillEffectIntf;
 #define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_RPC_WRAPPERS \
 	virtual void RemoveSkillEffectByIndex_Implementation(int32 Index)=0; \
 	virtual void RemoveSkillEffectByRef_Implementation(const TScriptInterface<ISkillEffectIntf>& SkillEffect)=0; \
-	virtual void AddSkillEffect_Implementation(const TScriptInterface<ISkillEffectIntf>& SkillEffect)=0; \
+	virtual TScriptInterface<ISkillEffectIntf> AddSkillEffect_Implementation(const TScriptInterface<ISkillEffectIntf>& SkillEffect, int32 Index)=0; \
 	virtual TArray<TScriptInterface<ISkillEffectIntf> > GetSkillEffects_Implementation() const=0; \
  \
 	DECLARE_FUNCTION(execRemoveSkillEffectByIndex) \
@@ -37,8 +37,9 @@ class ISkillEffectIntf;
 	DECLARE_FUNCTION(execAddSkillEffect) \
 	{ \
 		P_GET_TINTERFACE_REF(ISkillEffectIntf,Z_Param_Out_SkillEffect); \
+		P_GET_PROPERTY(UIntProperty,Z_Param_Index); \
 		P_FINISH; \
-		this->AddSkillEffect_Implementation(Z_Param_Out_SkillEffect); \
+		*(TScriptInterface<ISkillEffectIntf>*)Z_Param__Result=this->AddSkillEffect_Implementation(Z_Param_Out_SkillEffect,Z_Param_Index); \
 	} \
  \
 	DECLARE_FUNCTION(execGetSkillEffects) \
@@ -51,7 +52,7 @@ class ISkillEffectIntf;
 #define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void RemoveSkillEffectByIndex_Implementation(int32 Index)=0; \
 	virtual void RemoveSkillEffectByRef_Implementation(const TScriptInterface<ISkillEffectIntf>& SkillEffect)=0; \
-	virtual void AddSkillEffect_Implementation(const TScriptInterface<ISkillEffectIntf>& SkillEffect)=0; \
+	virtual TScriptInterface<ISkillEffectIntf> AddSkillEffect_Implementation(const TScriptInterface<ISkillEffectIntf>& SkillEffect, int32 Index)=0; \
 	virtual TArray<TScriptInterface<ISkillEffectIntf> > GetSkillEffects_Implementation() const=0; \
  \
 	DECLARE_FUNCTION(execRemoveSkillEffectByIndex) \
@@ -71,8 +72,9 @@ class ISkillEffectIntf;
 	DECLARE_FUNCTION(execAddSkillEffect) \
 	{ \
 		P_GET_TINTERFACE_REF(ISkillEffectIntf,Z_Param_Out_SkillEffect); \
+		P_GET_PROPERTY(UIntProperty,Z_Param_Index); \
 		P_FINISH; \
-		this->AddSkillEffect_Implementation(Z_Param_Out_SkillEffect); \
+		*(TScriptInterface<ISkillEffectIntf>*)Z_Param__Result=this->AddSkillEffect_Implementation(Z_Param_Out_SkillEffect,Z_Param_Index); \
 	} \
  \
 	DECLARE_FUNCTION(execGetSkillEffects) \
@@ -86,6 +88,8 @@ class ISkillEffectIntf;
 	struct SkillEffectStorageIntf_eventAddSkillEffect_Parms \
 	{ \
 		TScriptInterface<ISkillEffectIntf> SkillEffect; \
+		int32 Index; \
+		TScriptInterface<ISkillEffectIntf> ReturnValue; \
 	}; \
 	struct SkillEffectStorageIntf_eventGetSkillEffects_Parms \
 	{ \
@@ -161,7 +165,7 @@ protected: \
 	virtual ~ISkillEffectStorageIntf() {} \
 public: \
 	typedef USkillEffectStorageIntf UClassType; \
-	static void Execute_AddSkillEffect(UObject* O, const TScriptInterface<ISkillEffectIntf>& SkillEffect); \
+	static TScriptInterface<ISkillEffectIntf> Execute_AddSkillEffect(UObject* O, const TScriptInterface<ISkillEffectIntf>& SkillEffect, int32 Index); \
 	static TArray<TScriptInterface<ISkillEffectIntf> > Execute_GetSkillEffects(const UObject* O); \
 	static void Execute_RemoveSkillEffectByIndex(UObject* O, int32 Index); \
 	static void Execute_RemoveSkillEffectByRef(UObject* O, const TScriptInterface<ISkillEffectIntf>& SkillEffect); \
@@ -173,7 +177,7 @@ protected: \
 	virtual ~ISkillEffectStorageIntf() {} \
 public: \
 	typedef USkillEffectStorageIntf UClassType; \
-	static void Execute_AddSkillEffect(UObject* O, const TScriptInterface<ISkillEffectIntf>& SkillEffect); \
+	static TScriptInterface<ISkillEffectIntf> Execute_AddSkillEffect(UObject* O, const TScriptInterface<ISkillEffectIntf>& SkillEffect, int32 Index); \
 	static TArray<TScriptInterface<ISkillEffectIntf> > Execute_GetSkillEffects(const UObject* O); \
 	static void Execute_RemoveSkillEffectByIndex(UObject* O, int32 Index); \
 	static void Execute_RemoveSkillEffectByRef(UObject* O, const TScriptInterface<ISkillEffectIntf>& SkillEffect); \

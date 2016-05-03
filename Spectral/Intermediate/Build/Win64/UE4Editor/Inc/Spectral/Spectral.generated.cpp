@@ -82,9 +82,11 @@ void EmptyLinkFunctionForGeneratedCodeSpectral() {}
 			I->RevertEffect_Implementation(Skill);
 		}
 	}
-	void ISkillEffectStorageIntf::AddSkillEffect(const TScriptInterface<ISkillEffectIntf>& SkillEffect)
+	TScriptInterface<ISkillEffectIntf> ISkillEffectStorageIntf::AddSkillEffect(const TScriptInterface<ISkillEffectIntf>& SkillEffect, int32 Index)
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_AddSkillEffect instead.");
+		SkillEffectStorageIntf_eventAddSkillEffect_Parms Parms;
+		return Parms.ReturnValue;
 	}
 	TArray<TScriptInterface<ISkillEffectIntf> > ISkillEffectStorageIntf::GetSkillEffects() const
 	{
@@ -107,8 +109,8 @@ void EmptyLinkFunctionForGeneratedCodeSpectral() {}
 		FNativeFunctionRegistrar::RegisterFunction(USkillEffectStorageIntf::StaticClass(),"RemoveSkillEffectByIndex",(Native)&ISkillEffectStorageIntf::execRemoveSkillEffectByIndex);
 		FNativeFunctionRegistrar::RegisterFunction(USkillEffectStorageIntf::StaticClass(),"RemoveSkillEffectByRef",(Native)&ISkillEffectStorageIntf::execRemoveSkillEffectByRef);
 	}
-	IMPLEMENT_CLASS(USkillEffectStorageIntf, 1681131970);
-	void ISkillEffectStorageIntf::Execute_AddSkillEffect(UObject* O, const TScriptInterface<ISkillEffectIntf>& SkillEffect)
+	IMPLEMENT_CLASS(USkillEffectStorageIntf, 70095828);
+	TScriptInterface<ISkillEffectIntf> ISkillEffectStorageIntf::Execute_AddSkillEffect(UObject* O, const TScriptInterface<ISkillEffectIntf>& SkillEffect, int32 Index)
 	{
 		check(O != NULL);
 		check(O->GetClass()->ImplementsInterface(USkillEffectStorageIntf::StaticClass()));
@@ -117,12 +119,14 @@ void EmptyLinkFunctionForGeneratedCodeSpectral() {}
 		if (Func)
 		{
 			Parms.SkillEffect=SkillEffect;
+			Parms.Index=Index;
 			O->ProcessEvent(Func, &Parms);
 		}
 		else if (auto I = (ISkillEffectStorageIntf*)(O->GetNativeInterfaceAddress(USkillEffectStorageIntf::StaticClass())))
 		{
-			I->AddSkillEffect_Implementation(SkillEffect);
+			Parms.ReturnValue = I->AddSkillEffect_Implementation(SkillEffect,Index);
 		}
+		return Parms.ReturnValue;
 	}
 	TArray<TScriptInterface<ISkillEffectIntf> > ISkillEffectStorageIntf::Execute_GetSkillEffects(const UObject* O)
 	{
@@ -226,10 +230,6 @@ void EmptyLinkFunctionForGeneratedCodeSpectral() {}
 	{
 	}
 	IMPLEMENT_CLASS(USkillFactoryIntf, 1663338449);
-	void ISkillIntf::ApplyMods()
-	{
-		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_ApplyMods instead.");
-	}
 	void ISkillIntf::ApplySkill(const TScriptInterface<ISkillUserIntf>& Target)
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_ApplySkill instead.");
@@ -252,34 +252,14 @@ void EmptyLinkFunctionForGeneratedCodeSpectral() {}
 		SkillIntf_eventGetSkillExecutor_Parms Parms;
 		return Parms.ReturnValue;
 	}
-	void ISkillIntf::RevertMods()
-	{
-		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_RevertMods instead.");
-	}
 	void USkillIntf::StaticRegisterNativesUSkillIntf()
 	{
-		FNativeFunctionRegistrar::RegisterFunction(USkillIntf::StaticClass(),"ApplyMods",(Native)&ISkillIntf::execApplyMods);
 		FNativeFunctionRegistrar::RegisterFunction(USkillIntf::StaticClass(),"ApplySkill",(Native)&ISkillIntf::execApplySkill);
 		FNativeFunctionRegistrar::RegisterFunction(USkillIntf::StaticClass(),"GetEffectStorage",(Native)&ISkillIntf::execGetEffectStorage);
 		FNativeFunctionRegistrar::RegisterFunction(USkillIntf::StaticClass(),"GetModStorage",(Native)&ISkillIntf::execGetModStorage);
 		FNativeFunctionRegistrar::RegisterFunction(USkillIntf::StaticClass(),"GetSkillExecutor",(Native)&ISkillIntf::execGetSkillExecutor);
-		FNativeFunctionRegistrar::RegisterFunction(USkillIntf::StaticClass(),"RevertMods",(Native)&ISkillIntf::execRevertMods);
 	}
-	IMPLEMENT_CLASS(USkillIntf, 3293528238);
-	void ISkillIntf::Execute_ApplyMods(UObject* O)
-	{
-		check(O != NULL);
-		check(O->GetClass()->ImplementsInterface(USkillIntf::StaticClass()));
-		UFunction* const Func = O->FindFunction(SPECTRAL_ApplyMods);
-		if (Func)
-		{
-			O->ProcessEvent(Func, NULL);
-		}
-		else if (auto I = (ISkillIntf*)(O->GetNativeInterfaceAddress(USkillIntf::StaticClass())))
-		{
-			I->ApplyMods_Implementation();
-		}
-	}
+	IMPLEMENT_CLASS(USkillIntf, 1839935160);
 	void ISkillIntf::Execute_ApplySkill(UObject* O, const TScriptInterface<ISkillUserIntf>& Target)
 	{
 		check(O != NULL);
@@ -343,20 +323,6 @@ void EmptyLinkFunctionForGeneratedCodeSpectral() {}
 			Parms.ReturnValue = I->GetSkillExecutor_Implementation();
 		}
 		return Parms.ReturnValue;
-	}
-	void ISkillIntf::Execute_RevertMods(UObject* O)
-	{
-		check(O != NULL);
-		check(O->GetClass()->ImplementsInterface(USkillIntf::StaticClass()));
-		UFunction* const Func = O->FindFunction(SPECTRAL_RevertMods);
-		if (Func)
-		{
-			O->ProcessEvent(Func, NULL);
-		}
-		else if (auto I = (ISkillIntf*)(O->GetNativeInterfaceAddress(USkillIntf::StaticClass())))
-		{
-			I->RevertMods_Implementation();
-		}
 	}
 	void USkillModFactoryIntf::StaticRegisterNativesUSkillModFactoryIntf()
 	{
@@ -521,6 +487,10 @@ void EmptyLinkFunctionForGeneratedCodeSpectral() {}
 			I->React_Implementation();
 		}
 	}
+	void ASkillStorageIntf::StaticRegisterNativesASkillStorageIntf()
+	{
+	}
+	IMPLEMENT_CLASS(ASkillStorageIntf, 3514150204);
 	TScriptInterface<ISkillExecutorIntf> ISkillUserIntf::GenerateSkillExecutor(const TArray<AActor*>& TargetingMethod, int32 SkillIndex)
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GenerateSkillExecutor instead.");
@@ -775,7 +745,6 @@ FName SPECTRAL_AddSkillEffect = FName(TEXT("AddSkillEffect"));
 FName SPECTRAL_AddSkillMod = FName(TEXT("AddSkillMod"));
 FName SPECTRAL_ApplyEffect = FName(TEXT("ApplyEffect"));
 FName SPECTRAL_ApplyMod = FName(TEXT("ApplyMod"));
-FName SPECTRAL_ApplyMods = FName(TEXT("ApplyMods"));
 FName SPECTRAL_ApplySkill = FName(TEXT("ApplySkill"));
 FName SPECTRAL_GenerateSkillExecutor = FName(TEXT("GenerateSkillExecutor"));
 FName SPECTRAL_GetEffectStorage = FName(TEXT("GetEffectStorage"));
@@ -799,9 +768,9 @@ FName SPECTRAL_RemoveSkillModByIndex = FName(TEXT("RemoveSkillModByIndex"));
 FName SPECTRAL_RemoveSkillModByRef = FName(TEXT("RemoveSkillModByRef"));
 FName SPECTRAL_RevertEffect = FName(TEXT("RevertEffect"));
 FName SPECTRAL_RevertMod = FName(TEXT("RevertMod"));
-FName SPECTRAL_RevertMods = FName(TEXT("RevertMods"));
 #if USE_COMPILED_IN_NATIVES
 // Cross Module References
+	ENGINE_API class UClass* Z_Construct_UClass_AActor();
 	ENGINE_API class UClass* Z_Construct_UClass_AActor_NoRegister();
 	COREUOBJECT_API class UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API class UClass* Z_Construct_UClass_AGameMode();
@@ -812,7 +781,6 @@ FName SPECTRAL_RevertMods = FName(TEXT("RevertMods"));
 	ENGINE_API class UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API class UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	ENGINE_API class UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
-	ENGINE_API class UClass* Z_Construct_UClass_AActor();
 	ENGINE_API class UClass* Z_Construct_UClass_UProjectileMovementComponent_NoRegister();
 	COREUOBJECT_API class UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 
@@ -835,12 +803,10 @@ FName SPECTRAL_RevertMods = FName(TEXT("RevertMods"));
 	SPECTRAL_API class UClass* Z_Construct_UClass_USkillExecutorIntf();
 	SPECTRAL_API class UClass* Z_Construct_UClass_USkillFactoryIntf_NoRegister();
 	SPECTRAL_API class UClass* Z_Construct_UClass_USkillFactoryIntf();
-	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillIntf_ApplyMods();
 	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillIntf_ApplySkill();
 	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillIntf_GetEffectStorage();
 	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillIntf_GetModStorage();
 	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillIntf_GetSkillExecutor();
-	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillIntf_RevertMods();
 	SPECTRAL_API class UClass* Z_Construct_UClass_USkillIntf_NoRegister();
 	SPECTRAL_API class UClass* Z_Construct_UClass_USkillIntf();
 	SPECTRAL_API class UClass* Z_Construct_UClass_USkillModFactoryIntf_NoRegister();
@@ -858,6 +824,8 @@ FName SPECTRAL_RevertMods = FName(TEXT("RevertMods"));
 	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillReactiveIntf_React();
 	SPECTRAL_API class UClass* Z_Construct_UClass_USkillReactiveIntf_NoRegister();
 	SPECTRAL_API class UClass* Z_Construct_UClass_USkillReactiveIntf();
+	SPECTRAL_API class UClass* Z_Construct_UClass_ASkillStorageIntf_NoRegister();
+	SPECTRAL_API class UClass* Z_Construct_UClass_ASkillStorageIntf();
 	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillUserIntf_GenerateSkillExecutor();
 	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillUserIntf_GetSkills();
 	SPECTRAL_API class UFunction* Z_Construct_UFunction_USkillUserIntf_GetSkillUserLocation();
@@ -1011,6 +979,8 @@ FName SPECTRAL_RevertMods = FName(TEXT("RevertMods"));
 		if (!ReturnFunction)
 		{
 			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("AddSkillEffect"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C420C00, 65535, sizeof(SkillEffectStorageIntf_eventAddSkillEffect_Parms));
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_Native) UInterfaceProperty(CPP_PROPERTY_BASE(ReturnValue, SkillEffectStorageIntf_eventAddSkillEffect_Parms), 0x0004000000000580, Z_Construct_UClass_USkillEffectIntf_NoRegister());
+			UProperty* NewProp_Index = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("Index"), RF_Public|RF_Transient|RF_Native) UIntProperty(CPP_PROPERTY_BASE(Index, SkillEffectStorageIntf_eventAddSkillEffect_Parms), 0x0000000000000080);
 			UProperty* NewProp_SkillEffect = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("SkillEffect"), RF_Public|RF_Transient|RF_Native) UInterfaceProperty(CPP_PROPERTY_BASE(SkillEffect, SkillEffectStorageIntf_eventAddSkillEffect_Parms), 0x0004000008000182, Z_Construct_UClass_USkillEffectIntf_NoRegister());
 			ReturnFunction->Bind();
 			ReturnFunction->StaticLink();
@@ -1018,7 +988,7 @@ FName SPECTRAL_RevertMods = FName(TEXT("RevertMods"));
 			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
 			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("SkillEffectStorageIntf"));
 			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Skills/SkillFramework/SkillEffectStorageIntf.h"));
-			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("* Adds a new SkillEffect to the array of skill effects."));
+			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("* Adds a new SkillEffect to the array of skill effects. Index = -1 should imply insertion\n* into the end of the container."));
 #endif
 		}
 		return ReturnFunction;
@@ -1103,7 +1073,7 @@ FName SPECTRAL_RevertMods = FName(TEXT("RevertMods"));
 				OuterClass->LinkChild(Z_Construct_UFunction_USkillEffectStorageIntf_RemoveSkillEffectByIndex());
 				OuterClass->LinkChild(Z_Construct_UFunction_USkillEffectStorageIntf_RemoveSkillEffectByRef());
 
-				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillEffectStorageIntf_AddSkillEffect()); // 4084624934
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillEffectStorageIntf_AddSkillEffect()); // 2434087524
 				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillEffectStorageIntf_GetSkillEffects()); // 990506481
 				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillEffectStorageIntf_RemoveSkillEffectByIndex()); // 2891675389
 				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillEffectStorageIntf_RemoveSkillEffectByRef()); // 3412690568
@@ -1208,24 +1178,6 @@ FName SPECTRAL_RevertMods = FName(TEXT("RevertMods"));
 	}
 	static FCompiledInDefer Z_CompiledInDefer_UClass_USkillFactoryIntf(Z_Construct_UClass_USkillFactoryIntf, TEXT("USkillFactoryIntf"));
 	DEFINE_VTABLE_PTR_HELPER_CTOR(USkillFactoryIntf);
-	UFunction* Z_Construct_UFunction_USkillIntf_ApplyMods()
-	{
-		UObject* Outer=Z_Construct_UClass_USkillIntf();
-		static UFunction* ReturnFunction = NULL;
-		if (!ReturnFunction)
-		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("ApplyMods"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C020C00, 65535);
-			ReturnFunction->Bind();
-			ReturnFunction->StaticLink();
-#if WITH_METADATA
-			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
-			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("SkillIntf"));
-			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Skills/SkillFramework/SkillIntf.h"));
-			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("* Causes the Skill to undergo \"alterations\" based on modifications queued\n* to take effect."));
-#endif
-		}
-		return ReturnFunction;
-	}
 	UFunction* Z_Construct_UFunction_USkillIntf_ApplySkill()
 	{
 		UObject* Outer=Z_Construct_UClass_USkillIntf();
@@ -1302,24 +1254,6 @@ FName SPECTRAL_RevertMods = FName(TEXT("RevertMods"));
 		}
 		return ReturnFunction;
 	}
-	UFunction* Z_Construct_UFunction_USkillIntf_RevertMods()
-	{
-		UObject* Outer=Z_Construct_UClass_USkillIntf();
-		static UFunction* ReturnFunction = NULL;
-		if (!ReturnFunction)
-		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("RevertMods"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x0C020C00, 65535);
-			ReturnFunction->Bind();
-			ReturnFunction->StaticLink();
-#if WITH_METADATA
-			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
-			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("SkillIntf"));
-			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Skills/SkillFramework/SkillIntf.h"));
-			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("* Causes the Skill to revert all \"alterations\" from modifications previously\n* triggered by ApplyMods()."));
-#endif
-		}
-		return ReturnFunction;
-	}
 	UClass* Z_Construct_UClass_USkillIntf_NoRegister()
 	{
 		return USkillIntf::StaticClass();
@@ -1337,19 +1271,15 @@ FName SPECTRAL_RevertMods = FName(TEXT("RevertMods"));
 				UObjectForceRegistration(OuterClass);
 				OuterClass->ClassFlags |= 0x20104081;
 
-				OuterClass->LinkChild(Z_Construct_UFunction_USkillIntf_ApplyMods());
 				OuterClass->LinkChild(Z_Construct_UFunction_USkillIntf_ApplySkill());
 				OuterClass->LinkChild(Z_Construct_UFunction_USkillIntf_GetEffectStorage());
 				OuterClass->LinkChild(Z_Construct_UFunction_USkillIntf_GetModStorage());
 				OuterClass->LinkChild(Z_Construct_UFunction_USkillIntf_GetSkillExecutor());
-				OuterClass->LinkChild(Z_Construct_UFunction_USkillIntf_RevertMods());
 
-				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillIntf_ApplyMods()); // 1840304644
 				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillIntf_ApplySkill()); // 1693120112
 				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillIntf_GetEffectStorage()); // 1921352047
 				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillIntf_GetModStorage()); // 2249285755
 				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillIntf_GetSkillExecutor()); // 3485223694
-				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_USkillIntf_RevertMods()); // 597688203
 				OuterClass->StaticLink();
 			}
 		}
@@ -1608,6 +1538,37 @@ FName SPECTRAL_RevertMods = FName(TEXT("RevertMods"));
 	}
 	static FCompiledInDefer Z_CompiledInDefer_UClass_USkillReactiveIntf(Z_Construct_UClass_USkillReactiveIntf, TEXT("USkillReactiveIntf"));
 	DEFINE_VTABLE_PTR_HELPER_CTOR(USkillReactiveIntf);
+	UClass* Z_Construct_UClass_ASkillStorageIntf_NoRegister()
+	{
+		return ASkillStorageIntf::StaticClass();
+	}
+	UClass* Z_Construct_UClass_ASkillStorageIntf()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_AActor();
+			Z_Construct_UPackage_Spectral();
+			OuterClass = ASkillStorageIntf::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20900080;
+
+
+				OuterClass->StaticLink();
+#if WITH_METADATA
+				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("Skills/SkillFramework/SkillStorageIntf.h"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("Skills/SkillFramework/SkillStorageIntf.h"));
+#endif
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	static FCompiledInDefer Z_CompiledInDefer_UClass_ASkillStorageIntf(Z_Construct_UClass_ASkillStorageIntf, TEXT("ASkillStorageIntf"));
+	DEFINE_VTABLE_PTR_HELPER_CTOR(ASkillStorageIntf);
 	UFunction* Z_Construct_UFunction_USkillUserIntf_GenerateSkillExecutor()
 	{
 		UObject* Outer=Z_Construct_UClass_USkillUserIntf();
@@ -2170,8 +2131,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), NULL, FName(TEXT("/Script/Spectral")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0xA778987C;
-			Guid.B = 0xF3C27B33;
+			Guid.A = 0xA541914D;
+			Guid.B = 0xDB286980;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);

@@ -1,14 +1,15 @@
-﻿  Creating makefile for hot reloading SpectralEditor (modules to compile have changed)
-  Compiling game modules for hot reload
+﻿  Compiling game modules for hot reload
   Parsing headers for SpectralEditor
     Running UnrealHeaderTool "D:\Source\GitHub\Spectral\Spectral\Spectral.uproject" "D:\Source\GitHub\Spectral\Spectral\Intermediate\Build\Win64\SpectralEditor\Development\UnrealHeaderTool.manifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -rocket -installed
-  Reflection code generated for SpectralEditor in 5.6684179 seconds
-  Performing 5 actions (4 in parallel)
-  SkillFactoryIntf.cpp
+  Reflection code generated for SpectralEditor in 8.2964507 seconds
+  Performing 3 actions (4 in parallel)
   Spectral.generated.cpp
-  SkillEffectFactoryIntf.cpp
-  SkillModFactoryIntf.cpp
-  [5/5] Link UE4Editor-Spectral-598.dll
-     Creating library D:\Source\GitHub\Spectral\Spectral\Intermediate/Build/Win64\UE4Editor\Development\UE4Editor-Spectral-598.lib and object D:\Source\GitHub\Spectral\Spectral\Intermediate/Build/Win64\UE4Editor\Development\UE4Editor-Spectral-598.exp
+  SkillEffectStorageIntf.cpp
+D:\Source\GitHub\Spectral\Spectral\Intermediate\Build\Win64\UE4Editor\Inc\Spectral\Spectral.generated.cpp(86): error C2556: 'TScriptInterface<ISkillEffectIntf> ISkillEffectStorageIntf::AddSkillEffect(const TScriptInterface<ISkillEffectIntf> &,int32)': overloaded function differs only by return type from 'TScriptInterface<ISkillEffectIntf> &ISkillEffectStorageIntf::AddSkillEffect(const TScriptInterface<ISkillEffectIntf> &,int32)'
+  D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills/SkillFramework/SkillEffectStorageIntf.h(34): note: see declaration of 'ISkillEffectStorageIntf::AddSkillEffect'
+D:\Source\GitHub\Spectral\Spectral\Intermediate\Build\Win64\UE4Editor\Inc\Spectral\Spectral.generated.cpp(86): error C2373: 'ISkillEffectStorageIntf::AddSkillEffect': redefinition; different type modifiers
+  D:\Source\GitHub\Spectral\Spectral\Source\Spectral\Skills/SkillFramework/SkillEffectStorageIntf.h(34): note: see declaration of 'ISkillEffectStorageIntf::AddSkillEffect'
   -------- End Detailed Actions Stats -----------------------------------------------------------
-  Total build time: 13.45 seconds
+ERROR : UBT error : Failed to produce item: D:\Source\GitHub\Spectral\Spectral\Binaries\Win64\UE4Editor-Spectral-4280.dll
+  Total build time: 11.65 seconds
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.MakeFile.Targets(37,5): error MSB3073: The command ""C:\Program Files (x86)\Epic Games\4.10\Engine\Build\BatchFiles\Build.bat" SpectralEditor Win64 Development "D:\Source\GitHub\Spectral\Spectral\Spectral.uproject" -rocket -waitmutex -2015" exited with code -1.

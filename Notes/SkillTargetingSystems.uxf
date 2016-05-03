@@ -1,0 +1,1156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2160</x>
+      <y>792</y>
+      <w>80</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Skill
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1184</x>
+      <y>768</y>
+      <w>80</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>SkillStorage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1768</x>
+      <y>760</y>
+      <w>352</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ISkillIntf
+--
++GetModStorage(): TScriptInterface&lt;ISkillModStorageIntf&gt;
++GetEffectStorage(): TScriptInterface&lt;ISkillEffectStorageIntf&gt;
++ApplySkill(SkillUser: const TScriptInterface&lt;ISkillUserIntf&gt;&amp;): void
++GetSkillExecutor(): TScriptInterface&lt;ISkillExecutorIntf&gt;
++GetName(): FName</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2112</x>
+      <y>792</y>
+      <w>64</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>896</x>
+      <y>792</y>
+      <w>176</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ISkillStorageIntf</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1064</x>
+      <y>808</y>
+      <w>720</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+manages
+m1=1
+m2=0...n</panel_attributes>
+    <additional_attributes>10.0;20.0;880.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1064</x>
+      <y>776</y>
+      <w>136</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;20.0;150.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1880</x>
+      <y>1064</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ISkillEffectStorageIntf</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>856</x>
+      <y>1232</y>
+      <w>176</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ISkillModStorageIntf</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>1008</y>
+      <w>504</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>template=Intf
+&lt;interface&gt;
+IStorageIntf
+--
++GetContents(): TArray&lt; TScriptInterface&lt;Intf&gt; &gt;
++Add(Storable: const TScriptInterface&lt;Intf&gt;&amp;, Index: int32): TScriptInterface&lt;Intf&gt;
++RemoveByIndex(Index: int32): bool
++RemoveByRef(Storable: const TScriptInterface&lt;Intf&gt;&amp;): bool
++FindByRef(Storable: const TScriptInterface&lt;Intf&gt;&amp;): int32
++FindByName(Name: FName): int32</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>832</y>
+      <w>456</w>
+      <h>272</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+&lt;&lt;bind&gt;&gt;
+&lt;T-&gt;ISkillIntf&gt;
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>550.0;10.0;10.0;320.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>1072</y>
+      <w>1416</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+&lt;&lt;bind&gt;&gt;
+&lt;T-&gt;ISkillEffectIntf&gt;
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>1750.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>1080</y>
+      <w>392</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+&lt;&lt;bind&gt;&gt;
+&lt;T-&gt;ISkillModIntf&gt;
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>470.0;220.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1584</x>
+      <y>1304</y>
+      <w>208</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;bind&gt;&gt;
+&lt;T-&gt; ISkillEffectIntf&gt;
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>240.0;90.0;10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1776</x>
+      <y>1312</y>
+      <w>352</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ISkillEffectIntf
+--
++ApplyEffect(SkillUser: const TScriptInterface&lt;ISkillUserIntf&gt;&amp;): void
++GetName(): FName</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1952</x>
+      <y>1096</y>
+      <w>64</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+manages
+m1=1
+m2=0...n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1912</x>
+      <y>1448</y>
+      <w>80</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>SkillEffect
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1952</x>
+      <y>1408</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1776</x>
+      <y>1544</y>
+      <w>352</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ISkillModIntf
+--
++ApplyMod(Skill: const TScriptInterface&lt;ISkillIntf&gt;&amp;): void
++GetName(): FName</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>936</x>
+      <y>1272</y>
+      <w>856</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+manages
+m1=1
+m2=0...n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;420.0;1050.0;420.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1952</x>
+      <y>1496</y>
+      <w>24</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1912</x>
+      <y>1480</y>
+      <w>80</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>SkillMod
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>936</x>
+      <y>856</y>
+      <w>1024</w>
+      <h>392</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+manages
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>1260.0;10.0;1260.0;170.0;10.0;170.0;10.0;470.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1952</x>
+      <y>856</y>
+      <w>64</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+manages
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0;10.0;260.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>256</x>
+      <y>808</y>
+      <w>296</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Note..
+I would just use templates here, but you can't
+have templated UObjects (like UInterface) to
+make it visible to Blueprint.
+
+Therefore, we will need to create new ones for each type.
+Will likely each use an identical hidden. templated 
+non-UObject class for implementation to avoid too much 
+code duplication.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1264</x>
+      <y>512</y>
+      <w>352</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ISkillUserIntf
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1008</x>
+      <y>552</y>
+      <w>272</w>
+      <h>256</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+owns
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0;10.0;300.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2112</x>
+      <y>848</y>
+      <w>120</w>
+      <h>784</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Modifies
+m1=1
+m2=0...n</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0;80.0;950.0;20.0;950.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1608</x>
+      <y>568</y>
+      <w>352</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+affects
+m1=1...n
+m2=1</panel_attributes>
+    <additional_attributes>10.0;20.0;420.0;20.0;420.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1936</x>
+      <y>384</y>
+      <w>120</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>lt=.
+distributes
+m1=1
+m2=1...n
+</panel_attributes>
+    <additional_attributes>10.0;250.0;110.0;250.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1264</x>
+      <y>168</y>
+      <w>352</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ISkillExecutorIntf
+--
++GetSkillStorage(): TScriptInterface&lt;ISkillStorageIntf&gt;
++UseSkillByName(SkillName: FName): bool
++UseSkillByRef(SkillRef: TScriptInterface&lt;ISkillIntf&gt;
++GetName(): FName</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1816</x>
+      <y>288</y>
+      <w>352</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ISkillDistributorIntf
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1608</x>
+      <y>216</y>
+      <w>224</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0;130.0;160.0;260.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1432</x>
+      <y>264</y>
+      <w>24</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1632</x>
+      <y>400</y>
+      <w>312</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>Note..
+SkillExecutors have the capacity to store and "use" skills.
+
+SkillUsers vs. SkillDistributors are philosophically
+different objects.
+
+SkillDistributors are meant to be more transient objects,
+existing for the sole purpose of delivering its skills.
+
+SkillUsers exist more permanently, potentially gaining and 
+losing new Skills over time.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1936</x>
+      <y>128</y>
+      <w>312</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Note..
+Example of a concrete ISkillDistributorIntf
+-
+Gravity Stun Grenade
+::Targets SkillUsers within a given spherical radius
+  using ITargetingVolumeIntf.
+Skill 1) For 2 seconds, every 0.5 seconds a pulse is emitted
+         that draws in nearby SkillUsers.
+- periodically triggered Skill usage!
+Skill 2) Detonates, damaging and stunning them all.
+- different skill with multiple effects!</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1128</x>
+      <y>624</y>
+      <w>264</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Note..
+e.g. Any character that can acquire new skills</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2112</x>
+      <y>704</y>
+      <w>80</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>SkillUser
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1440</x>
+      <y>608</y>
+      <w>688</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+realizes</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0;840.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3088</x>
+      <y>288</y>
+      <w>352</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ITargetingMethodIntf
+--
++GetTargetables(): TArray&lt; TScriptInterface&lt;ITargetableIntf&gt; &gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3272</x>
+      <y>384</y>
+      <w>104</w>
+      <h>328</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;390.0;110.0;390.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3360</x>
+      <y>432</y>
+      <w>352</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ITargetingAreaIntf
+--
++GetLocation(): FVector
++SetAxes(float x, float y): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3360</x>
+      <y>528</y>
+      <w>352</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ITargetingVolumeIntf
+--
++GetLocation(): FVector
++SetAxes(float x, float y, float z): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3360</x>
+      <y>640</y>
+      <w>352</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ITargetingArcIntf
+--
++GetLocation(): FVector
++GetDirection(): FRotator
++GetDepth(): float
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3288</x>
+      <y>384</y>
+      <w>88</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;240.0;90.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3304</x>
+      <y>384</y>
+      <w>72</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0;70.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>3736</x>
+      <y>464</y>
+      <w>112</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Note..
+Square, Circle, Etc.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>3736</x>
+      <y>560</y>
+      <w>112</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Note..
+Cube, Sphere, Etc.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>3736</x>
+      <y>664</y>
+      <w>144</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Note..
+Abstraction of a direction.
+Imagine twin-stick shooter.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2160</x>
+      <y>336</y>
+      <w>136</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+delegates per delivery
+m1=1
+m2=1...n</panel_attributes>
+    <additional_attributes>10.0;20.0;150.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3360</x>
+      <y>768</y>
+      <w>352</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ITargetingSetIntf
+--
++GetTargets(): TArray&lt; TScriptInterface&lt;ITargetableIntf&gt; &gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3256</x>
+      <y>384</y>
+      <w>120</w>
+      <h>440</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;530.0;130.0;530.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>3736</x>
+      <y>784</y>
+      <w>192</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Note..
+If there are particular targets in mind.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2200</x>
+      <y>432</y>
+      <w>384</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ITargeterIntf
+--
++GetTargets(): TArray&lt; TScriptInterface&lt;ITargetableIntf&gt; &gt;
++GetTargetingMethods(): TArray&lt; TScriptInterface&lt;ITargetingMethodIntf&gt; &gt;
++GetTargetingPermissions(): TScriptInterface&lt;ITargetingPermissionsIntf&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>56</x>
+      <y>24</y>
+      <w>2800</w>
+      <h>1008</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+&lt;&lt;bind&gt;&gt;
+&lt;T-&gt;ITargetingMethodIntf&gt;
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>3480.0;920.0;3480.0;820.0;3260.0;820.0;3280.0;120.0;3240.0;20.0;3220.0;10.0;10.0;10.0;10.0;1240.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2224</x>
+      <y>568</y>
+      <w>376</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ITargetableIntf
+--
++GetTargetableLocation(): FVector
++GetTargetingPermissions(): TScriptInterface&lt;ITargetingPermissionsIntf&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2424</x>
+      <y>704</y>
+      <w>320</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ITargetableStorageIntf
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2152</x>
+      <y>608</y>
+      <w>88</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+realizes</panel_attributes>
+    <additional_attributes>90.0;10.0;20.0;10.0;10.0;80.0;20.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2096</x>
+      <y>488</y>
+      <w>120</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+realizes</panel_attributes>
+    <additional_attributes>130.0;10.0;70.0;10.0;10.0;90.0;70.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2576</x>
+      <y>536</y>
+      <w>80</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0;80.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2456</x>
+      <y>664</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2280</x>
+      <y>288</y>
+      <w>328</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ISkillDeliveryIntf
+--
++GetSkill(): TScriptInterface&lt;ISkillIntf&gt;
++GetTargetingMethod(): TScriptInterface&lt;ITargetingMethodIntf&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2600</x>
+      <y>328</y>
+      <w>504</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+has
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;20.0;610.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2064</x>
+      <y>360</y>
+      <w>384</w>
+      <h>416</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+has
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>460.0;10.0;460.0;80.0;10.0;80.0;10.0;500.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2800</x>
+      <y>472</y>
+      <w>440</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ITargetingPermissionsIntf
+--
++CanTarget(OtherPermissions: const TScriptInterface&lt;ITargetingPermissionsIntf&gt;&amp;)
++AddPermission(Name: FName): void
++RemovePermission(Name: FName): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2088</x>
+      <y>384</y>
+      <w>128</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+uses t-methods
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>140.0;110.0;10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2752</x>
+      <y>760</y>
+      <w>192</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ITargetingMethodStorageIntf</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2576</x>
+      <y>504</y>
+      <w>320</w>
+      <h>272</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0;130.0;200.0;380.0;200.0;380.0;320.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>64</x>
+      <y>88</y>
+      <w>2608</w>
+      <h>944</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+&lt;&lt;bind&gt;&gt;
+&lt;T-&gt;ITargetableIntf&gt;
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>3240.0;770.0;3240.0;20.0;10.0;20.0;10.0;1160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2576</x>
+      <y>432</y>
+      <w>296</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+</panel_attributes>
+    <additional_attributes>10.0;20.0;350.0;20.0;350.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2592</x>
+      <y>568</y>
+      <w>280</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;330.0;80.0;330.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2576</x>
+      <y>464</y>
+      <w>176</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>lt=-
+targets
+m1=0...n
+m2=0...n</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;10.0;160.0;190.0;30.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2696</x>
+      <y>496</y>
+      <w>120</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=.
+mediates</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>2544</x>
+      <y>1096</y>
+      <w>400</w>
+      <h>480</h>
+    </coordinates>
+    <panel_attributes>Note..
+This diagram represents a robust skill system that employs
+the use of the Decorator and Factory Method patterns.
+
+SkillUsers and Skills are the focal points of this diagram.
+
+SkillUsers have SkillStorage accounting for their Skills.
+
+Each Skill in turn has SkillEffect and SkillMod storage.
+
+Skills, SkillEffects, and SkillMods are each generated by
+corresponding Factory methods that they possess.
+i.e. MySkillUser.GetSkillStorage().AddSkill(FireballSkill.Make(), NPOS);
+
+SkillEffects dictate how the Skill will affect the receiving SkillUser.
+(e.g. DealDamage, MoveToLocation, AddArmor, etc.)
+
+SkillMods apply modifications to SkillEffects, or add/remove them
+from a Skill.
+(This allows us to have things like, "This skill improves
+the accuracy of your long-range skills by 40% for 10 seconds.")
+
+SkillUsers are typically also Targeters. When using a Skill, they
+will delegate its distribution to SkillDistributor which takes the Skill
+and combines it with the corresponding list of TargetingMethods.
+
+For each TargetingMethod, the SkillDistributor delegate a 
+SkillDelivery to apply the Skill to all Targets acquired by that
+TargetingMethod.
+
+TargetingMethods range from specific targets to targets within
+an arbitrary direction, area, or volume.
+
+TargetingMethods will only find targets whose TargetingPermissions
+allow the Targeter (the original SkillUser) to target the Targetable
+(usually another SkillUser).
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1544</x>
+      <y>848</y>
+      <w>240</w>
+      <h>416</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;bind&gt;&gt;
+&lt;T-&gt; ISkillIntf&gt;
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>280.0;10.0;20.0;10.0;10.0;130.0;10.0;500.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1440</x>
+      <y>1240</y>
+      <w>232</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>template=T
+&lt;interface&gt;
+IIntfFactoryIntf
+--
++Make(): TScriptInterface&lt;T&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1224</x>
+      <y>1184</y>
+      <w>320</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Note..
+An interface for a templateable factory method that produces
+interface references to an interface type T
+No need for Blueprint visibility, so templating works here.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1536</x>
+      <y>1304</y>
+      <w>256</w>
+      <h>304</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;bind&gt;&gt;
+&lt;T-&gt; ISkillModIntf&gt;
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>300.0;350.0;10.0;350.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>976</x>
+      <y>344</y>
+      <w>856</w>
+      <h>464</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+owns
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>1050.0;20.0;10.0;20.0;10.0;560.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2264</x>
+      <y>832</y>
+      <w>376</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>&lt;interface&gt;
+ISkillReactiveIntf
+--
++React(Skill: const TScriptInterface&lt;ISkillIntf&gt;&amp;): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2184</x>
+      <y>704</y>
+      <w>184</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+realizes</panel_attributes>
+    <additional_attributes>160.0;160.0;160.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2200</x>
+      <y>808</y>
+      <w>80</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+reacts to</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0;80.0;100.0</additional_attributes>
+  </element>
+</diagram>

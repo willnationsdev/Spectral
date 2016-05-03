@@ -27,10 +27,11 @@ public:
     TArray<TScriptInterface<ISkillEffectIntf>> GetSkillEffects() const;
 
     /*
-     * Adds a new SkillEffect to the array of skill effects.
+     * Adds a new SkillEffect to the array of skill effects. Index = -1 should imply insertion
+     * into the end of the container.
      */
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillEffectStorageIntf")
-    void AddSkillEffect(const TScriptInterface<ISkillEffectIntf>& SkillEffect);
+    TScriptInterface<ISkillEffectIntf> AddSkillEffect(const TScriptInterface<ISkillEffectIntf>& SkillEffect, int32 Index);
 
     /*
      * Removes the referenced SkillEffect from the array of skill effects.

@@ -166,6 +166,9 @@
     <ClInclude Include="..\..\Source\Spectral\Skills\SkillFramework\SkillFactoryIntf.h">
       <Filter>Source\Spectral\Skills\SkillFramework</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Spectral\Skills\SkillFramework\SkillStorageIntf.h">
+      <Filter>Source\Spectral\Skills\SkillFramework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\Spectral\Skills\SkillFramework\SkillModFactoryIntf.cpp">
@@ -175,6 +178,9 @@
       <Filter>Source\Spectral\Skills\SkillFramework</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Spectral\Skills\SkillFramework\SkillFactoryIntf.cpp">
+      <Filter>Source\Spectral\Skills\SkillFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Spectral\Skills\SkillFramework\SkillStorageIntf.cpp">
       <Filter>Source\Spectral\Skills\SkillFramework</Filter>
     </ClCompile>
   </ItemGroup>

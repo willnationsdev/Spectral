@@ -22,20 +22,6 @@ class SPECTRAL_API ISkillIntf {
 public:	
     
     /*
-     * Causes the Skill to undergo "alterations" based on modifications queued
-     * to take effect.
-     */
-    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillIntf")
-    void ApplyMods();
-
-    /*
-     * Causes the Skill to revert all "alterations" from modifications previously
-     * triggered by ApplyMods().
-     */
-    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillIntf")
-    void RevertMods();
-
-    /*
      * Provides access to the ModStorage responsible for managing the relationship
      * between SkillMods and the Skill they are associated with.
      */

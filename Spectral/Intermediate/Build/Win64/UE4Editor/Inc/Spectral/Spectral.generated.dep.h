@@ -35,6 +35,9 @@
 #ifndef SPECTRAL_SkillReactiveIntf_generated_h
 	#include "Skills/SkillFramework/SkillReactiveIntf.h"
 #endif
+#ifndef SPECTRAL_SkillStorageIntf_generated_h
+	#include "Skills/SkillFramework/SkillStorageIntf.h"
+#endif
 #ifndef SPECTRAL_SkillUserIntf_generated_h
 	#include "Skills/SkillFramework/SkillUserIntf.h"
 #endif

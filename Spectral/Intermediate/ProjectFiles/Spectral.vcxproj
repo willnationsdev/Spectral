@@ -262,10 +262,12 @@
     <ClCompile Include="..\..\Source\Spectral\Skills\SkillFramework\SkillEffectFactoryIntf.cpp" />
     <ClCompile Include="..\..\Source\Spectral\Skills\SkillFramework\SkillFactoryIntf.cpp" />
     <ClCompile Include="..\..\Source\Spectral\Skills\SkillFramework\SkillModFactoryIntf.cpp" />
+    <ClCompile Include="..\..\Source\Spectral\Skills\SkillFramework\SkillStorageIntf.cpp" />
     <ClCompile Include="..\..\Source\Spectral\Spectral.cpp" />
     <ClInclude Include="..\..\Source\Spectral\Skills\SkillFramework\SkillEffectFactoryIntf.h" />
     <ClInclude Include="..\..\Source\Spectral\Skills\SkillFramework\SkillFactoryIntf.h" />
     <ClInclude Include="..\..\Source\Spectral\Skills\SkillFramework\SkillModFactoryIntf.h" />
+    <ClInclude Include="..\..\Source\Spectral\Skills\SkillFramework\SkillStorageIntf.h" />
     <ClInclude Include="..\..\Source\Spectral\Spectral.h" />
     <ClCompile Include="..\..\Source\Spectral\SpectralGameMode.cpp" />
     <ClInclude Include="..\..\Source\Spectral\SpectralGameMode.h" />
