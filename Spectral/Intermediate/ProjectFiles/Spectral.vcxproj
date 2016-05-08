@@ -250,6 +250,10 @@
     <NMakeOutput>..\..\Binaries\Win64\Spectral-Win64-Shipping.exe</NMakeOutput>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Spectral\TimerSystem\TimerFramework\DiscreteTimerIntf.cpp" />
+    <ClCompile Include="..\..\Source\Spectral\TimerSystem\TimerFramework\TimerIntf.cpp" />
+    <ClInclude Include="..\..\Source\Spectral\TimerSystem\TimerFramework\DiscreteTimerIntf.h" />
+    <ClInclude Include="..\..\Source\Spectral\TimerSystem\TimerFramework\TimerIntf.h" />
     <None Include="..\..\Spectral.uproject" />
     <None Include="..\..\Source\Spectral.Target.cs" />
     <None Include="..\..\Source\SpectralEditor.Target.cs" />

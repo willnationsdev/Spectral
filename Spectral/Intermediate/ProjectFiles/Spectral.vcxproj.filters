@@ -169,6 +169,12 @@
     <ClInclude Include="..\..\Source\Spectral\Skills\SkillFramework\SkillStorageIntf.h">
       <Filter>Source\Spectral\Skills\SkillFramework</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Spectral\TimerSystem\TimerFramework\TimerIntf.h">
+      <Filter>Source\Spectral\TimerSystem\TimerFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Spectral\TimerSystem\TimerFramework\DiscreteTimerIntf.h">
+      <Filter>Source\Spectral\TimerSystem\TimerFramework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\Spectral\Skills\SkillFramework\SkillModFactoryIntf.cpp">
@@ -183,5 +189,19 @@
     <ClCompile Include="..\..\Source\Spectral\Skills\SkillFramework\SkillStorageIntf.cpp">
       <Filter>Source\Spectral\Skills\SkillFramework</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Spectral\TimerSystem\TimerFramework\TimerIntf.cpp">
+      <Filter>Source\Spectral\TimerSystem\TimerFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Spectral\TimerSystem\TimerFramework\DiscreteTimerIntf.cpp">
+      <Filter>Source\Spectral\TimerSystem\TimerFramework</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source\Spectral\TimerSystem">
+      <UniqueIdentifier>{34d31ecb-dee0-466b-9ee3-13d61baddda2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Spectral\TimerSystem\TimerFramework">
+      <UniqueIdentifier>{75277bc9-de89-4975-b63f-6079e5f6aa41}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

@@ -68,3 +68,9 @@
 #ifndef SPECTRAL_TargetingVolumeIntf_generated_h
 	#include "TargetingSystem/TargetingFramework/TargetingVolumeIntf.h"
 #endif
+#ifndef SPECTRAL_TimerIntf_generated_h
+	#include "TimerSystem/TimerFramework/TimerIntf.h"
+#endif
+#ifndef SPECTRAL_DiscreteTimerIntf_generated_h
+	#include "TimerSystem/TimerFramework/DiscreteTimerIntf.h"
+#endif
