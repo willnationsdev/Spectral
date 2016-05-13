@@ -1,9 +1,0 @@
-When using a skill, a delegate is called. The delegate need only take the SkillUser and the index of the Skill they are using.
-The delegate is responsible for...
-- establishing animations, if necessary (stopping current one, entering into other animations sequences, etc.)
-- setting up Tickers (Timers) for the spawning of SkillExecutors, if necessary
-- directly spawning SkillExecutors
-- Setting up a Ticker to trigger an "EndOfSkillUse" event, if necessary
-
-SkillExecutors will in turn call delegates whenever they complete that may involve reacting to whatever was "hit"
-

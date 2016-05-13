@@ -1,0 +1,2492 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>725</x>
+      <y>290</y>
+      <w>160</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>template=StorageType, KeyType
+&lt;&lt;interface&gt;&gt;
+ICompositeStorage
+--
++for(...)
++add(...): bool
++remove(...): bool
++get(...): StorageType
++set(...)
++find(...): KeyType
++clear()
++onAdd(...)
++onRemove(...)
++getName(): EStorageName</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>560</x>
+      <y>180</y>
+      <w>215</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>StorageType: the type that is stored
+KeyType: the method by which a given StorageType is accessed.
+
+Set: IStorage&lt;MyObject, MyObject&gt;
+Map: IStorage&lt;MyObject, string&gt; (or whatever you want)
+Array: IStorage&lt;MyObject, int&gt;
+etc.
+
+Up to the underlying implementation how the templated types
+should be used. Different teams can use it for different
+purposes. Can be optimized further if needed.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>270</y>
+      <w>15</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1070</x>
+      <y>345</y>
+      <w>70</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IStorageComponent
+--
++onAdd(...)
++onRemove(...)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>490</x>
+      <y>100</y>
+      <w>725</w>
+      <h>375</h>
+    </coordinates>
+    <panel_attributes>StorageSubsystem</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>840</x>
+      <y>350</y>
+      <w>240</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=0...*</panel_attributes>
+    <additional_attributes>10.0;10.0;460.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>995</x>
+      <y>220</y>
+      <w>135</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>Composite Pattern
+In case of nested storage items in
+games, e.g. Backpack has a Pouch, etc.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>405</x>
+      <y>600</y>
+      <w>1290</w>
+      <h>560</h>
+    </coordinates>
+    <panel_attributes>SkillSubsystem</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1735</x>
+      <y>625</y>
+      <w>450</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>TargetingSubsystem</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>840</x>
+      <y>370</y>
+      <w>240</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+is a</panel_attributes>
+    <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>770</x>
+      <y>775</y>
+      <w>125</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ISkillUser
+--
++useSkill(...): ISkillDistributor
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>635</x>
+      <y>730</y>
+      <w>120</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>SkillStorage
+--
+-contents: Array&lt;ISkill&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>690</x>
+      <y>355</y>
+      <w>75</w>
+      <h>385</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;realizes&gt;&gt;
+&lt;&lt;binds
+StorageType-&gt;ISkill
+KeyType-&gt;int
+&gt;&gt;</panel_attributes>
+    <additional_attributes>20.0;750.0;10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1230</x>
+      <y>100</y>
+      <w>785</w>
+      <h>460</h>
+    </coordinates>
+    <panel_attributes>ItemSubsystem</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>235</y>
+      <w>195</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;110.0;260.0;10.0;370.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1050</x>
+      <y>250</y>
+      <w>65</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>110.0;190.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1070</x>
+      <y>730</y>
+      <w>120</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ISkill
+--
++getSource(): ISkillUser
++getTarget(): ISkillReceptive
++getEffects(): SkillEffectStorage
++getName(): ESkillName
++static create(...): ISkill</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1120</x>
+      <y>630</y>
+      <w>120</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ISkillEffect
+--
++getName(): ESkillEffectName
++static create(...): ISkillEffect</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>920</x>
+      <y>650</y>
+      <w>120</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>SkillEffectStorage
+--
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>825</x>
+      <y>405</y>
+      <w>165</w>
+      <h>255</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;realizes&gt;&gt;
+&lt;&lt;binds
+StorageType-&gt;ISkillEffect
+KeyType-&gt;int
+&gt;&gt;</panel_attributes>
+    <additional_attributes>310.0;490.0;300.0;160.0;10.0;160.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1030</x>
+      <y>770</y>
+      <w>50</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=1
+m2=1
+targets</panel_attributes>
+    <additional_attributes>80.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1035</x>
+      <y>645</y>
+      <w>95</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=0...*
+is managed by</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>910</x>
+      <y>775</y>
+      <w>125</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ISkillReceptive
+--
++receive(...)
+getConditions(): SkillUserConditions</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1000</x>
+      <y>1015</y>
+      <w>150</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>Anything that a "skill" can be used on.
+
+Example receive:
+receive(ISkill) {
+   for(ISkillEffect e : ISkill.getEffects()) {
+      receive(ISkillEffect);
+   }
+}
+
+receive(DealDamageEffect) {
+   //reduce health by DealDamageEffect.power
+}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1010</x>
+      <y>810</y>
+      <w>15</w>
+      <h>215</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;410.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>975</x>
+      <y>665</y>
+      <w>120</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+has</panel_attributes>
+    <additional_attributes>220.0;130.0;220.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>745</y>
+      <w>330</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=0...*
+is managed by &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;640.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1225</x>
+      <y>970</y>
+      <w>145</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>Should be able to undo and redo
+ISkill / ISkillEffect 'apply' operations.
+- e.g. have SkillEffect +1 Range, need to get
+what range a skill WOULD have.
+Apply(), get range, Revert(). No copying.
+
+- sample Apply:
+void Apply(const ISkillReceptive&amp; receiver) {
+   for(ISkillEffect e : getEffects()) {
+      receiver.receive(e);
+   }
+}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1320</x>
+      <y>765</y>
+      <w>15</w>
+      <h>215</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;410.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>600</x>
+      <y>1015</y>
+      <w>200</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>skillUseHistory/skillReceiveHistory for ISkillMemorizer.
+
+The SkilledActor's usable skills are contained in 'skills'.
+
+If a given SkillEffect is designed to influence other skills'
+effects, then it is put into the skillFilter. All skills
+used by a SkilledActor must pass through the skillFilter.
+This would be for cases where a particular category
+of skills are to be modified on their way out the door.
+Ex. "All your elemental effects' duration are increased 20%."
+
+'conditions' are where a Skill has a non-instantaneous,
+dynamic presence. May trigger multiple times before ending.
+Ex. "+20 MovementSpeed for 10 sec."
+Ex. Damage-Over-Time effects
+Ex. "Press [key] to [insert fancy skill here]." (for a short period)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1105</x>
+      <y>385</y>
+      <w>20</w>
+      <h>355</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>20.0;690.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>960</x>
+      <y>400</y>
+      <w>55</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+EStorageName
+--
++Inventory
++Skills
++SkillFilter
++Conditions
++Timers
++Targets
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>840</x>
+      <y>395</y>
+      <w>130</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=1
+m2=1
+uses</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0;130.0;80.0;240.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>630</x>
+      <y>845</y>
+      <w>180</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>SkilledActor
+--
+-skillReceptiveComponent
+-skillUserComponent
+-skillMemorizerComponent
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1180</x>
+      <y>870</y>
+      <w>120</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>/Skill/
+--
+-effects: SkillEffectStorage
+-source: ISkillUser
+-target: ISkillReceptive
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1125</x>
+      <y>800</y>
+      <w>125</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;realizes&gt;&gt;</panel_attributes>
+    <additional_attributes>230.0;140.0;230.0;30.0;10.0;30.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>45</x>
+      <y>615</y>
+      <w>160</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>template=TimeDeltaType
+&lt;&lt;interface&gt;&gt;
+ITimer
+--
++pauseTimer()
++getLooping()
++setLooping(...)
++onTimeout()
++getTimeRemaining(): TimeDeltaType
++setTimer(...)
++advanceTimer(...)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>775</y>
+      <w>95</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>RealTimer
+--
+-currentTime: float
+-initialTime: float
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>100</x>
+      <y>705</y>
+      <w>105</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;realizes&gt;&gt;
+&lt;&lt;binds TimeDeltaType-&gt;float&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>240</x>
+      <y>645</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>TimerStorage
+--
+-contents: Array&lt;ITimer&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>680</y>
+      <w>155</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=0...*
+has</panel_attributes>
+    <additional_attributes>270.0;10.0;270.0;230.0;10.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>735</y>
+      <w>120</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>SkillUserConditions
+--
+-skills: SkillStorage
+-timers: TimerStorage
+-skillUser: ISkillUser
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>415</x>
+      <y>820</y>
+      <w>60</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;struct&gt;&gt;
+SkillTimer
+--
++skill: ISkill
++timer: ITimer
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>455</x>
+      <y>775</y>
+      <w>40</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m2=1
+m1=0...*
+produces</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>565</x>
+      <y>750</y>
+      <w>80</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+has</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>355</x>
+      <y>670</y>
+      <w>105</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+has</panel_attributes>
+    <additional_attributes>190.0;180.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>525</y>
+      <w>95</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>DiscreteTimer
+--
+-currentTime: int
+-initialTime: int
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>100</x>
+      <y>555</y>
+      <w>100</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;realizes&gt;&gt;
+&lt;&lt;binds TimeDeltaType-&gt;int&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>540</y>
+      <w>155</w>
+      <h>115</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=0...*
+has</panel_attributes>
+    <additional_attributes>270.0;210.0;270.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>775</y>
+      <w>25</w>
+      <h>115</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+has</panel_attributes>
+    <additional_attributes>10.0;210.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>0</x>
+      <y>465</y>
+      <w>385</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>TimerSubsystem</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>525</x>
+      <y>335</y>
+      <w>210</w>
+      <h>410</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;realizes&gt;&gt;
+&lt;&lt;binds
+StorageType-&gt;SkillTimer
+KeyType-&gt;int
+&gt;&gt;</panel_attributes>
+    <additional_attributes>20.0;800.0;10.0;10.0;400.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>415</x>
+      <y>620</y>
+      <w>105</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>Triggers the Skill's
+effect onTimeout.
+ //Sample timeout method
+timers[i].onTimeout = [](){
+   skills[i].apply(skillUser);
+}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>465</x>
+      <y>670</y>
+      <w>25</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>30.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>805</x>
+      <y>805</y>
+      <w>50</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;realizes&gt;&gt;</panel_attributes>
+    <additional_attributes>20.0;10.0;20.0;130.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>325</x>
+      <y>320</y>
+      <w>410</w>
+      <h>335</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;realizes&gt;&gt;
+&lt;&lt;binds
+StorageType-&gt;SkillTimer
+KeyType-&gt;int
+&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;650.0;10.0;10.0;800.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>715</x>
+      <y>900</y>
+      <w>15</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;230.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>805</x>
+      <y>810</y>
+      <w>160</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;realizes&gt;&gt;</panel_attributes>
+    <additional_attributes>240.0;10.0;240.0;140.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>900</y>
+      <w>125</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ISkillMemorizer
+--
++getSkillOutHistory(): SkillStorage
++getSkillInHistory(): SkillStorage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>775</x>
+      <y>900</y>
+      <w>75</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;realizes&gt;&gt;</panel_attributes>
+    <additional_attributes>130.0;50.0;10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>820</x>
+      <y>955</y>
+      <w>145</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>In cases where a record of skills used and 
+received by a given actor are significant.
+Enhances undo/redo capacity.
+Primarily a turn-based game use-case, but
+could easily be adapted for others.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>900</x>
+      <y>935</y>
+      <w>15</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1250</x>
+      <y>720</y>
+      <w>120</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IRevertableSkillUse
+--
++Apply(ISkillReceptive)
++Revert(ISkillReceptive)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1185</x>
+      <y>745</y>
+      <w>75</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1160</x>
+      <y>675</y>
+      <w>100</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;120.0;60.0;120.0;120.0;180.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1410</x>
+      <y>630</y>
+      <w>85</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+ESkillEffectName
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1375</x>
+      <y>895</y>
+      <w>205</w>
+      <h>255</h>
+    </coordinates>
+    <panel_attributes>Need to devise an effective method of minimizing duplication.
+Each effect requires different questions answered, both
+on the effect end and on the ISkillReceptive end.
+
+Example: DealDamage
+(Effect)
+- how much damage? Int? Float?
+- Are there types of damage? Pierce vs. Smash? Elemental?
+- Does it matter which direction the damage came from,
+  where the exact point of impact was, or what the
+  surface normal of the impact point was? Are those even
+  a thing?
+(ISkillReceptive)
+- Does the base damage need to be modified based on a type?
+- Does the end damage overtake our health? What then?
+- Do I have an armor stat that needs to reduce the base or
+  end damage amount?
+- Do I have any persistent conditions that are blocking
+  incoming damage, such as if I have temporary invincibility
+  by dashing or holding up a shield, etc.?
+
+Ultimately, we want a way to automate the computation of a
+new SkillEffect's influence, but have the flexibility to overwrite
+or extend these computations when we desire. That way, 
+making 1 new SkillEffect doesn't require us to make a new
+function for EVERY existing ISkillReceptive actor (or vice versa).
+Instead, there should likely be an object responsible for
+pairing certain data that the object will identify in
+both the SkillReceptive and the SkillEffects of a certain
+category (may require compositional elements in SkillEffects
+as well for maximum flexibility).
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1445</x>
+      <y>655</y>
+      <w>15</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;480.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1235</x>
+      <y>635</y>
+      <w>185</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=1
+provides</panel_attributes>
+    <additional_attributes>350.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1255</x>
+      <y>680</y>
+      <w>120</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>/SkillEffect/
+--
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1235</x>
+      <y>650</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;realizes&gt;&gt;</panel_attributes>
+    <additional_attributes>160.0;60.0;160.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1050</x>
+      <y>880</y>
+      <w>70</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+ESkillName
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1495</x>
+      <y>705</y>
+      <w>100</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes> //As examples...
++DealDamageEffect
++ApplyBleedEffect
++RestoreHealthEffect
++CurePoisonEffect
++ReinforceArmorEffect
++BlockIncomingDamageEffect</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1465</x>
+      <y>655</y>
+      <w>40</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>60.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1115</x>
+      <y>885</y>
+      <w>75</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=1
+produces</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1055</x>
+      <y>935</y>
+      <w>60</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes> //As examples...
++Stab
++Block
++Reinforce
++LesserHeal
++CurePoison</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1080</x>
+      <y>905</y>
+      <w>15</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1185</x>
+      <y>930</y>
+      <w>110</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>Note: Examine for thread safety</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1225</x>
+      <y>910</y>
+      <w>15</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1760</x>
+      <y>780</y>
+      <w>140</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>ISkillDelivery
+--
++getSkill(): ISkill
++getTargetingMethod(): ITargetingMethod
++connectSkill(...)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1945</x>
+      <y>795</y>
+      <w>125</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ITargetingMethod
+--
++getTargetables(): Array&lt;ITargetable&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1775</x>
+      <y>710</y>
+      <w>95</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>Responsible for connecting
+a skill to a set of 
+ISkillReceptive-implementing
+ITargetables by means
+of a given ITargetingMethod</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1815</x>
+      <y>750</y>
+      <w>15</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1185</x>
+      <y>785</y>
+      <w>585</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;1150.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1895</x>
+      <y>810</y>
+      <w>60</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1880</x>
+      <y>665</y>
+      <w>165</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ITargeter
+--
++canTarget(...): bool
++getTarget(): ITargetable
++setTarget(...)
++getTargetingMethods(): Array&lt;ITargetingMethod&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2050</x>
+      <y>675</y>
+      <w>120</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ITargetable
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2225</x>
+      <y>845</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ITransformable
+--
++getTransform(): Transform
++getRotation(): Rotator</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2135</x>
+      <y>695</y>
+      <w>100</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>180.0;320.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2015</x>
+      <y>695</y>
+      <w>115</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=1
+m2=0...*
+Acquires</panel_attributes>
+    <additional_attributes>10.0;200.0;10.0;100.0;190.0;100.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1965</x>
+      <y>720</y>
+      <w>30</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=1
+m2=1...*
+uses</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1625</x>
+      <y>0</y>
+      <w>365</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>External Actor/Entity Stuff</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2370</x>
+      <y>840</y>
+      <w>50</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>Transform</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2370</x>
+      <y>865</y>
+      <w>50</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>Rotator</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>870</x>
+      <y>805</y>
+      <w>650</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=1
+produces</panel_attributes>
+    <additional_attributes>1280.0;100.0;10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1510</x>
+      <y>845</y>
+      <w>165</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ISkillDistributor
+--
++getSkill(): ISkill
++generateDeliveries(): Array&lt;ISkillDelivery&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1670</x>
+      <y>810</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0...*
+m2=1
+delegates</panel_attributes>
+    <additional_attributes>180.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1485</x>
+      <y>355</y>
+      <w>130</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>ItemActor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1340</x>
+      <y>305</y>
+      <w>140</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>ItemStorage
+--
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>840</x>
+      <y>300</y>
+      <w>510</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;realizes&gt;&gt;
+&lt;&lt;binds
+StorageType-&gt;IItem
+KeyType-&gt;int
+&gt;&gt;</panel_attributes>
+    <additional_attributes>1000.0;30.0;800.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1135</x>
+      <y>355</y>
+      <w>360</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;realizes&gt;&gt;</panel_attributes>
+    <additional_attributes>700.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1340</x>
+      <y>430</y>
+      <w>140</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IItem
+--
++getContainer(): ItemStorage
++getDescription(): String
++getName(): EItemName</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1400</x>
+      <y>370</y>
+      <w>100</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;realizes&gt;&gt;</panel_attributes>
+    <additional_attributes>180.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1525</x>
+      <y>470</y>
+      <w>70</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IWeighted
+--
++getWeight(): float
++canPickup(): bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1550</x>
+      <y>370</y>
+      <w>45</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;realizes&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1380</x>
+      <y>320</y>
+      <w>60</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;&gt;&gt;
+is managed by</panel_attributes>
+    <additional_attributes>10.0;220.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>875</x>
+      <y>370</y>
+      <w>650</w>
+      <h>335</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;realizes&gt;&gt;</panel_attributes>
+    <additional_attributes>1280.0;10.0;1280.0;440.0;10.0;440.0;10.0;650.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>765</x>
+      <y>695</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ISkillPossessing
+--
++getSkills(): SkillStorage
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>720</y>
+      <w>20</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+is</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>725</x>
+      <y>700</y>
+      <w>50</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+carries</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1330</x>
+      <y>125</y>
+      <w>155</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Items can be stored.
+Items generally have a name and a description.
+Items may have...
+-weight
+-durability
+-monetary value
+Items may be consumable.
+Items may be interactable.
+
+Items may contain "effects", i.e. ISkills.
+-manner of "packaging" skills rather than
+ having an ISkillUser directly add and remove
+ skills.
+-ISkillUser may trigger an Item's skills on
+ item-related events.
+   -- when "activated"
+   -- when "picked up" / "dropped"
+   -- when "equipped" / "unequipped" 
+   -- when "fired" / "reload"
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1240</x>
+      <y>490</y>
+      <w>85</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+EItemName
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1280</x>
+      <y>440</y>
+      <w>70</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=1
+provides</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1600</x>
+      <y>470</y>
+      <w>70</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>WeightedComponent
+--
+-weight: float
+--
++getWeight(): float
++canPickup(): bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1600</x>
+      <y>370</y>
+      <w>15</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;200.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>2210</x>
+      <y>825</y>
+      <w>215</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>External Math Stuff</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1630</x>
+      <y>35</y>
+      <w>60</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>Actor
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1770</x>
+      <y>25</y>
+      <w>155</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>Assuming we are already using a framework
+with an entity-component system in place</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1750</x>
+      <y>35</y>
+      <w>30</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;40.0;40.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>710</x>
+      <y>370</y>
+      <w>800</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;
+m1=1
+m2=1
+&lt; carries</panel_attributes>
+    <additional_attributes>10.0;720.0;130.0;410.0;1580.0;410.0;1580.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1805</x>
+      <y>465</y>
+      <w>70</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IRepairable
+--
++getDurability(): float
++setDurability(...)
++isDamaged(): bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1715</x>
+      <y>465</y>
+      <w>85</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>RepairableComponent
+--
+-durability: float
+--
++getDurability(): float
++setDurability(...)
++isDamaged(): bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1820</x>
+      <y>415</y>
+      <w>45</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;realizes&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1785</x>
+      <y>415</y>
+      <w>15</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1745</x>
+      <y>225</y>
+      <w>55</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IConsumable
+--
++consume()
++canConsume()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1810</x>
+      <y>225</y>
+      <w>85</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>ConsumableComponent
+--
+
+--
++consume()
++canConsume()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1780</x>
+      <y>260</y>
+      <w>45</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;realizes&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1825</x>
+      <y>265</y>
+      <w>15</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1900</x>
+      <y>345</y>
+      <w>100</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>Just add on components &amp;
+interfaces as necessary for
+any new functionality that is
+found to be needed.
+
+If the system proves inflexible
+enough, it can be revised.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1745</x>
+      <y>330</y>
+      <w>125</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>ConsumableItemActor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1745</x>
+      <y>395</y>
+      <w>125</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>DurableItemActor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1610</x>
+      <y>345</y>
+      <w>145</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+m1=1
+m2=1
+is a</panel_attributes>
+    <additional_attributes>270.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1610</x>
+      <y>360</y>
+      <w>145</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+m1=1
+m2=1
+is a</panel_attributes>
+    <additional_attributes>270.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1865</x>
+      <y>385</y>
+      <w>45</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;30.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1865</x>
+      <y>345</y>
+      <w>45</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1760</x>
+      <y>860</y>
+      <w>140</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>SkillDelivery
+--
+-skill: ISkill
+-targetingMethod: TargetingMethod
+--
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1815</x>
+      <y>825</y>
+      <w>45</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;realizes&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1945</x>
+      <y>860</y>
+      <w>155</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>TargetingVolume
+--
+#getTargetablesInVolume(): Array&lt;ITargetable&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2010</x>
+      <y>825</y>
+      <w>45</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;realizes&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1915</x>
+      <y>920</y>
+      <w>60</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>TargetingSphere
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1985</x>
+      <y>920</y>
+      <w>60</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>TargetingBox
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2010</x>
+      <y>880</y>
+      <w>25</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+is a</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2070</x>
+      <y>920</y>
+      <w>60</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>TargetingCone
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2075</x>
+      <y>880</y>
+      <w>25</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+is a</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1955</x>
+      <y>880</y>
+      <w>25</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+is a</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2095</x>
+      <y>855</y>
+      <w>140</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>260.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>2085</x>
+      <y>835</y>
+      <w>95</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>Sample Targeting Method</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2095</x>
+      <y>845</y>
+      <w>40</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;40.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1515</x>
+      <y>795</y>
+      <w>145</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>SkillDistributor
+--
+-skill: ISkill
+-targetingMethods: Array&lt;ITargetingMethod&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1590</x>
+      <y>825</y>
+      <w>45</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;realizes&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1505</x>
+      <y>225</y>
+      <w>60</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IValuable
+--
++getValue(): float</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1580</x>
+      <y>225</y>
+      <w>85</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>ValuableComponent
+--
+-value: float
+--
++getValue(): float</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1520</x>
+      <y>260</y>
+      <w>45</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+&lt;&lt;realizes&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;190.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1585</x>
+      <y>260</y>
+      <w>15</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1705</x>
+      <y>55</y>
+      <w>60</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>ActorComponent
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1685</x>
+      <y>30</y>
+      <w>95</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1570</x>
+      <y>40</y>
+      <w>70</w>
+      <h>325</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0;10.0;630.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1740</x>
+      <y>65</y>
+      <w>115</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+is a</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;320.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1645</x>
+      <y>65</y>
+      <w>80</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+is a</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;320.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1715</x>
+      <y>65</y>
+      <w>25</w>
+      <h>410</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+is a</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;800.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1660</x>
+      <y>65</y>
+      <w>55</w>
+      <h>415</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+is a</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;810.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>15</x>
+      <y>915</y>
+      <w>365</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>External Actor/Entity Stuff</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>240</x>
+      <y>940</y>
+      <w>60</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>Actor
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>35</x>
+      <y>960</y>
+      <w>155</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>Assuming we are already using a framework
+with an entity-component system in place</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>185</x>
+      <y>970</y>
+      <w>115</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>290</x>
+      <y>970</y>
+      <w>60</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>ActorComponent
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>185</x>
+      <y>940</y>
+      <w>65</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>575</x>
+      <y>955</y>
+      <w>110</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>SkillMemorizerComponent
+--
+-skillUseHistory: SkillStorage
+-skillReceiveHistory: SkillStorage
+--
++getSkillOutHistory(): SkillStorage
++getSkillInHistory(): SkillStorage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>900</y>
+      <w>60</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+has</panel_attributes>
+    <additional_attributes>100.0;10.0;100.0;70.0;10.0;70.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>930</y>
+      <w>110</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>SkillUserComponent
+--
+-skills: SkillStorage
+-skillFilter: SkillStorage
+--
++getSkills(): SkillStorage
++useSkill(...)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>555</x>
+      <y>900</y>
+      <w>105</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+has</panel_attributes>
+    <additional_attributes>190.0;10.0;190.0;40.0;130.0;40.0;130.0;90.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>445</x>
+      <y>880</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>SkillReceptiveComponent
+--
+-conditions: SkillUserConditions
+--
++getConditions(): SkillUserConditions</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>885</y>
+      <w>80</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+has</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>345</x>
+      <y>975</y>
+      <w>240</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+m1=1
+m2=1
+is a</panel_attributes>
+    <additional_attributes>10.0;10.0;460.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>345</x>
+      <y>965</y>
+      <w>115</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+m1=1
+m2=1
+is a</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>335</x>
+      <y>905</y>
+      <w>120</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+m1=1
+m2=1
+is a</panel_attributes>
+    <additional_attributes>10.0;130.0;220.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>285</x>
+      <y>815</y>
+      <w>355</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+m1=1
+m2=1
+is a</panel_attributes>
+    <additional_attributes>10.0;250.0;10.0;130.0;210.0;130.0;210.0;10.0;690.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>760</y>
+      <w>80</w>
+      <h>205</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+has</panel_attributes>
+    <additional_attributes>140.0;10.0;140.0;150.0;10.0;150.0;10.0;390.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>555</x>
+      <y>760</y>
+      <w>105</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+has</panel_attributes>
+    <additional_attributes>190.0;10.0;190.0;120.0;50.0;120.0;50.0;350.0;10.0;350.0</additional_attributes>
+  </element>
+</diagram>
