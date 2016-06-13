@@ -19,8 +19,15 @@ class ISkillModIntf {
 public:
 
     /*
-     * Applies the modifications associated with this SkillMod to a given Skill
+     * Applies the modifications associated with this SkillMod to a given Skill.
      */
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillModIntf")
     void ApplyMod(const TScriptInterface<class ISkillIntf>& Skill);
+
+    /*
+     * Reverts the modifications associated with this SkillMod on a given Skill.
+     */
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillModIntf")
+    void RevertMod(const TScriptInterface<class ISkillIntf>& Skill);
+
 };

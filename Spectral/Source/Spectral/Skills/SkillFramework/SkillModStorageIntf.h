@@ -18,4 +18,27 @@ class ISkillModStorageIntf {
 
 public:
 
+    /*
+     * Returns an array of the SkillMods managed by the SkillModStorage.
+     */
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillModStorageIntf")
+    TArray<TScriptInterface<ISkillModIntf>> GetSkillMods() const;
+
+    /*
+     * Adds a new SkillMod to the array of skill effects.
+     */
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillModStorageIntf")
+    void AddSkillMod(const TScriptInterface<ISkillModIntf>& SkillMod);
+
+    /*
+     * Removes the referenced SkillMod from the array of skill effects.
+     */
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillModStorageIntf")
+    void RemoveSkillModByRef(const TScriptInterface<ISkillModIntf>& SkillMod);
+
+    /*
+     * Removes the SkillMod at Index from the array of skill effects.
+     */
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillModStorageIntf")
+    void RemoveSkillModByIndex(int32 Index);
 };

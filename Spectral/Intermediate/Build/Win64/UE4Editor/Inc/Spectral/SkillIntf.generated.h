@@ -22,8 +22,6 @@ class ISkillModStorageIntf;
 	virtual void ApplySkill_Implementation(const TScriptInterface<ISkillUserIntf>& Target)=0; \
 	virtual TScriptInterface<ISkillEffectStorageIntf> GetEffectStorage_Implementation()=0; \
 	virtual TScriptInterface<ISkillModStorageIntf> GetModStorage_Implementation()=0; \
-	virtual void RevertMods_Implementation()=0; \
-	virtual void ApplyMods_Implementation()=0; \
  \
 	DECLARE_FUNCTION(execGetSkillExecutor) \
 	{ \
@@ -48,18 +46,6 @@ class ISkillModStorageIntf;
 	{ \
 		P_FINISH; \
 		*(TScriptInterface<ISkillModStorageIntf>*)Z_Param__Result=this->GetModStorage_Implementation(); \
-	} \
- \
-	DECLARE_FUNCTION(execRevertMods) \
-	{ \
-		P_FINISH; \
-		this->RevertMods_Implementation(); \
-	} \
- \
-	DECLARE_FUNCTION(execApplyMods) \
-	{ \
-		P_FINISH; \
-		this->ApplyMods_Implementation(); \
 	}
 
 
@@ -68,8 +54,6 @@ class ISkillModStorageIntf;
 	virtual void ApplySkill_Implementation(const TScriptInterface<ISkillUserIntf>& Target)=0; \
 	virtual TScriptInterface<ISkillEffectStorageIntf> GetEffectStorage_Implementation()=0; \
 	virtual TScriptInterface<ISkillModStorageIntf> GetModStorage_Implementation()=0; \
-	virtual void RevertMods_Implementation()=0; \
-	virtual void ApplyMods_Implementation()=0; \
  \
 	DECLARE_FUNCTION(execGetSkillExecutor) \
 	{ \
@@ -94,18 +78,6 @@ class ISkillModStorageIntf;
 	{ \
 		P_FINISH; \
 		*(TScriptInterface<ISkillModStorageIntf>*)Z_Param__Result=this->GetModStorage_Implementation(); \
-	} \
- \
-	DECLARE_FUNCTION(execRevertMods) \
-	{ \
-		P_FINISH; \
-		this->RevertMods_Implementation(); \
-	} \
- \
-	DECLARE_FUNCTION(execApplyMods) \
-	{ \
-		P_FINISH; \
-		this->ApplyMods_Implementation(); \
 	}
 
 
@@ -128,12 +100,10 @@ class ISkillModStorageIntf;
 	};
 
 
-extern SPECTRAL_API  FName SPECTRAL_ApplyMods;
 extern SPECTRAL_API  FName SPECTRAL_ApplySkill;
 extern SPECTRAL_API  FName SPECTRAL_GetEffectStorage;
 extern SPECTRAL_API  FName SPECTRAL_GetModStorage;
 extern SPECTRAL_API  FName SPECTRAL_GetSkillExecutor;
-extern SPECTRAL_API  FName SPECTRAL_RevertMods;
 #define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_CALLBACK_WRAPPERS
 #define Spectral_Source_Spectral_Skills_SkillFramework_SkillIntf_h_16_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
@@ -190,12 +160,10 @@ protected: \
 	virtual ~ISkillIntf() {} \
 public: \
 	typedef USkillIntf UClassType; \
-	static void Execute_ApplyMods(UObject* O); \
 	static void Execute_ApplySkill(UObject* O, const TScriptInterface<ISkillUserIntf>& Target); \
 	static TScriptInterface<ISkillEffectStorageIntf> Execute_GetEffectStorage(UObject* O); \
 	static TScriptInterface<ISkillModStorageIntf> Execute_GetModStorage(UObject* O); \
 	static TScriptInterface<ISkillExecutorIntf> Execute_GetSkillExecutor(UObject* O); \
-	static void Execute_RevertMods(UObject* O); \
 	virtual UObject* _getUObject() const = 0;
 
 
@@ -204,12 +172,10 @@ protected: \
 	virtual ~ISkillIntf() {} \
 public: \
 	typedef USkillIntf UClassType; \
-	static void Execute_ApplyMods(UObject* O); \
 	static void Execute_ApplySkill(UObject* O, const TScriptInterface<ISkillUserIntf>& Target); \
 	static TScriptInterface<ISkillEffectStorageIntf> Execute_GetEffectStorage(UObject* O); \
 	static TScriptInterface<ISkillModStorageIntf> Execute_GetModStorage(UObject* O); \
 	static TScriptInterface<ISkillExecutorIntf> Execute_GetSkillExecutor(UObject* O); \
-	static void Execute_RevertMods(UObject* O); \
 	virtual UObject* _getUObject() const = 0;
 
 

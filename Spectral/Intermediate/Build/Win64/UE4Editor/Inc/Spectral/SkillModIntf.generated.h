@@ -15,7 +15,15 @@ class ISkillIntf;
 #define SPECTRAL_SkillModIntf_generated_h
 
 #define Spectral_Source_Spectral_Skills_SkillFramework_SkillModIntf_h_13_RPC_WRAPPERS \
+	virtual void RevertMod_Implementation(const TScriptInterface<ISkillIntf>& Skill)=0; \
 	virtual void ApplyMod_Implementation(const TScriptInterface<ISkillIntf>& Skill)=0; \
+ \
+	DECLARE_FUNCTION(execRevertMod) \
+	{ \
+		P_GET_TINTERFACE_REF(ISkillIntf,Z_Param_Out_Skill); \
+		P_FINISH; \
+		this->RevertMod_Implementation(Z_Param_Out_Skill); \
+	} \
  \
 	DECLARE_FUNCTION(execApplyMod) \
 	{ \
@@ -26,7 +34,15 @@ class ISkillIntf;
 
 
 #define Spectral_Source_Spectral_Skills_SkillFramework_SkillModIntf_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void RevertMod_Implementation(const TScriptInterface<ISkillIntf>& Skill)=0; \
 	virtual void ApplyMod_Implementation(const TScriptInterface<ISkillIntf>& Skill)=0; \
+ \
+	DECLARE_FUNCTION(execRevertMod) \
+	{ \
+		P_GET_TINTERFACE_REF(ISkillIntf,Z_Param_Out_Skill); \
+		P_FINISH; \
+		this->RevertMod_Implementation(Z_Param_Out_Skill); \
+	} \
  \
 	DECLARE_FUNCTION(execApplyMod) \
 	{ \
@@ -40,10 +56,15 @@ class ISkillIntf;
 	struct SkillModIntf_eventApplyMod_Parms \
 	{ \
 		TScriptInterface<ISkillIntf> Skill; \
+	}; \
+	struct SkillModIntf_eventRevertMod_Parms \
+	{ \
+		TScriptInterface<ISkillIntf> Skill; \
 	};
 
 
 extern SPECTRAL_API  FName SPECTRAL_ApplyMod;
+extern SPECTRAL_API  FName SPECTRAL_RevertMod;
 #define Spectral_Source_Spectral_Skills_SkillFramework_SkillModIntf_h_13_CALLBACK_WRAPPERS
 #define Spectral_Source_Spectral_Skills_SkillFramework_SkillModIntf_h_13_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
@@ -101,6 +122,7 @@ protected: \
 public: \
 	typedef USkillModIntf UClassType; \
 	static void Execute_ApplyMod(UObject* O, const TScriptInterface<ISkillIntf>& Skill); \
+	static void Execute_RevertMod(UObject* O, const TScriptInterface<ISkillIntf>& Skill); \
 	virtual UObject* _getUObject() const = 0;
 
 
@@ -110,6 +132,7 @@ protected: \
 public: \
 	typedef USkillModIntf UClassType; \
 	static void Execute_ApplyMod(UObject* O, const TScriptInterface<ISkillIntf>& Skill); \
+	static void Execute_RevertMod(UObject* O, const TScriptInterface<ISkillIntf>& Skill); \
 	virtual UObject* _getUObject() const = 0;
 
 

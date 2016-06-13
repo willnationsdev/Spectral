@@ -8,14 +8,109 @@
 #include "ObjectBase.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class ISkillEffectIntf;
 #ifdef SPECTRAL_SkillEffectStorageIntf_generated_h
 #error "SkillEffectStorageIntf.generated.h already included, missing '#pragma once' in SkillEffectStorageIntf.h"
 #endif
 #define SPECTRAL_SkillEffectStorageIntf_generated_h
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_RPC_WRAPPERS
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_RPC_WRAPPERS_NO_PURE_DECLS
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_STANDARD_CONSTRUCTORS \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_RPC_WRAPPERS \
+	virtual void RemoveSkillEffectByIndex_Implementation(int32 Index)=0; \
+	virtual void RemoveSkillEffectByRef_Implementation(const TScriptInterface<ISkillEffectIntf>& SkillEffect)=0; \
+	virtual TScriptInterface<ISkillEffectIntf> AddSkillEffect_Implementation(const TScriptInterface<ISkillEffectIntf>& SkillEffect, int32 Index)=0; \
+	virtual TArray<TScriptInterface<ISkillEffectIntf> > GetSkillEffects_Implementation() const=0; \
+ \
+	DECLARE_FUNCTION(execRemoveSkillEffectByIndex) \
+	{ \
+		P_GET_PROPERTY(UIntProperty,Z_Param_Index); \
+		P_FINISH; \
+		this->RemoveSkillEffectByIndex_Implementation(Z_Param_Index); \
+	} \
+ \
+	DECLARE_FUNCTION(execRemoveSkillEffectByRef) \
+	{ \
+		P_GET_TINTERFACE_REF(ISkillEffectIntf,Z_Param_Out_SkillEffect); \
+		P_FINISH; \
+		this->RemoveSkillEffectByRef_Implementation(Z_Param_Out_SkillEffect); \
+	} \
+ \
+	DECLARE_FUNCTION(execAddSkillEffect) \
+	{ \
+		P_GET_TINTERFACE_REF(ISkillEffectIntf,Z_Param_Out_SkillEffect); \
+		P_GET_PROPERTY(UIntProperty,Z_Param_Index); \
+		P_FINISH; \
+		*(TScriptInterface<ISkillEffectIntf>*)Z_Param__Result=this->AddSkillEffect_Implementation(Z_Param_Out_SkillEffect,Z_Param_Index); \
+	} \
+ \
+	DECLARE_FUNCTION(execGetSkillEffects) \
+	{ \
+		P_FINISH; \
+		*(TArray<TScriptInterface<ISkillEffectIntf> >*)Z_Param__Result=this->GetSkillEffects_Implementation(); \
+	}
+
+
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void RemoveSkillEffectByIndex_Implementation(int32 Index)=0; \
+	virtual void RemoveSkillEffectByRef_Implementation(const TScriptInterface<ISkillEffectIntf>& SkillEffect)=0; \
+	virtual TScriptInterface<ISkillEffectIntf> AddSkillEffect_Implementation(const TScriptInterface<ISkillEffectIntf>& SkillEffect, int32 Index)=0; \
+	virtual TArray<TScriptInterface<ISkillEffectIntf> > GetSkillEffects_Implementation() const=0; \
+ \
+	DECLARE_FUNCTION(execRemoveSkillEffectByIndex) \
+	{ \
+		P_GET_PROPERTY(UIntProperty,Z_Param_Index); \
+		P_FINISH; \
+		this->RemoveSkillEffectByIndex_Implementation(Z_Param_Index); \
+	} \
+ \
+	DECLARE_FUNCTION(execRemoveSkillEffectByRef) \
+	{ \
+		P_GET_TINTERFACE_REF(ISkillEffectIntf,Z_Param_Out_SkillEffect); \
+		P_FINISH; \
+		this->RemoveSkillEffectByRef_Implementation(Z_Param_Out_SkillEffect); \
+	} \
+ \
+	DECLARE_FUNCTION(execAddSkillEffect) \
+	{ \
+		P_GET_TINTERFACE_REF(ISkillEffectIntf,Z_Param_Out_SkillEffect); \
+		P_GET_PROPERTY(UIntProperty,Z_Param_Index); \
+		P_FINISH; \
+		*(TScriptInterface<ISkillEffectIntf>*)Z_Param__Result=this->AddSkillEffect_Implementation(Z_Param_Out_SkillEffect,Z_Param_Index); \
+	} \
+ \
+	DECLARE_FUNCTION(execGetSkillEffects) \
+	{ \
+		P_FINISH; \
+		*(TArray<TScriptInterface<ISkillEffectIntf> >*)Z_Param__Result=this->GetSkillEffects_Implementation(); \
+	}
+
+
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_EVENT_PARMS \
+	struct SkillEffectStorageIntf_eventAddSkillEffect_Parms \
+	{ \
+		TScriptInterface<ISkillEffectIntf> SkillEffect; \
+		int32 Index; \
+		TScriptInterface<ISkillEffectIntf> ReturnValue; \
+	}; \
+	struct SkillEffectStorageIntf_eventGetSkillEffects_Parms \
+	{ \
+		TArray<TScriptInterface<ISkillEffectIntf> > ReturnValue; \
+	}; \
+	struct SkillEffectStorageIntf_eventRemoveSkillEffectByIndex_Parms \
+	{ \
+		int32 Index; \
+	}; \
+	struct SkillEffectStorageIntf_eventRemoveSkillEffectByRef_Parms \
+	{ \
+		TScriptInterface<ISkillEffectIntf> SkillEffect; \
+	};
+
+
+extern SPECTRAL_API  FName SPECTRAL_AddSkillEffect;
+extern SPECTRAL_API  FName SPECTRAL_GetSkillEffects;
+extern SPECTRAL_API  FName SPECTRAL_RemoveSkillEffectByIndex;
+extern SPECTRAL_API  FName SPECTRAL_RemoveSkillEffectByRef;
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_CALLBACK_WRAPPERS
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API USkillEffectStorageIntf(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(USkillEffectStorageIntf) \
@@ -27,7 +122,7 @@ private: \
 public:
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_ENHANCED_CONSTRUCTORS \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API USkillEffectStorageIntf(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -50,52 +145,65 @@ public: \
 	enum {IsIntrinsic=COMPILED_IN_INTRINSIC};
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_GENERATED_BODY_LEGACY \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_GENERATED_BODY_LEGACY \
 		PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 	GENERATED_UINTERFACE_BODY_COMMON() \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_STANDARD_CONSTRUCTORS \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_STANDARD_CONSTRUCTORS \
 	PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_GENERATED_BODY \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_GENERATED_BODY \
 	PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 	GENERATED_UINTERFACE_BODY_COMMON() \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_ENHANCED_CONSTRUCTORS \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 	PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_INCLASS_IINTERFACE_NO_PURE_DECLS \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_INCLASS_IINTERFACE_NO_PURE_DECLS \
 protected: \
 	virtual ~ISkillEffectStorageIntf() {} \
 public: \
 	typedef USkillEffectStorageIntf UClassType; \
+	static TScriptInterface<ISkillEffectIntf> Execute_AddSkillEffect(UObject* O, const TScriptInterface<ISkillEffectIntf>& SkillEffect, int32 Index); \
+	static TArray<TScriptInterface<ISkillEffectIntf> > Execute_GetSkillEffects(const UObject* O); \
+	static void Execute_RemoveSkillEffectByIndex(UObject* O, int32 Index); \
+	static void Execute_RemoveSkillEffectByRef(UObject* O, const TScriptInterface<ISkillEffectIntf>& SkillEffect); \
 	virtual UObject* _getUObject() const = 0;
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_INCLASS_IINTERFACE \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_INCLASS_IINTERFACE \
 protected: \
 	virtual ~ISkillEffectStorageIntf() {} \
 public: \
 	typedef USkillEffectStorageIntf UClassType; \
+	static TScriptInterface<ISkillEffectIntf> Execute_AddSkillEffect(UObject* O, const TScriptInterface<ISkillEffectIntf>& SkillEffect, int32 Index); \
+	static TArray<TScriptInterface<ISkillEffectIntf> > Execute_GetSkillEffects(const UObject* O); \
+	static void Execute_RemoveSkillEffectByIndex(UObject* O, int32 Index); \
+	static void Execute_RemoveSkillEffectByRef(UObject* O, const TScriptInterface<ISkillEffectIntf>& SkillEffect); \
 	virtual UObject* _getUObject() const = 0;
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_10_PROLOG
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_17_GENERATED_BODY_LEGACY \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_12_PROLOG \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_EVENT_PARMS
+
+
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_19_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_RPC_WRAPPERS \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_INCLASS_IINTERFACE \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_RPC_WRAPPERS \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_CALLBACK_WRAPPERS \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_INCLASS_IINTERFACE \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_17_GENERATED_BODY \
+#define Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_19_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_13_INCLASS_IINTERFACE_NO_PURE_DECLS \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_CALLBACK_WRAPPERS \
+	Spectral_Source_Spectral_Skills_SkillFramework_SkillEffectStorageIntf_h_15_INCLASS_IINTERFACE_NO_PURE_DECLS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

@@ -4,6 +4,8 @@
 
 #include "SkillEffectIntf.generated.h"
 
+class ISkillEffectStorageIntf;
+
 /**
 *
 */
@@ -18,4 +20,21 @@ class ISkillEffectIntf {
 
 public:
 
+    /*
+     * Applies the modifications made by this SkillEffect on a given SkillUser.
+     */
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillEffectIntf")
+    void ApplyEffect(const TScriptInterface<class ISkillUserIntf>& Skill);
+
+    /*
+     * Reverts the modifications made by this SkillEffect on a given SkillUser.
+     */
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillEffectIntf")
+    void RevertEffect(const TScriptInterface<class ISkillUserIntf>& Skill);
+
+    /*
+     * Returns a reference to the containing Storage object.
+     */
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SkillEffectIntf")
+    TScriptInterface<ISkillEffectStorageIntf> GetStorage();
 };

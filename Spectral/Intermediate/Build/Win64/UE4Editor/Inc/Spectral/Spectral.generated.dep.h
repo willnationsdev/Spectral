@@ -5,6 +5,9 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
+#ifndef SPECTRAL_SkillEffectFactoryIntf_generated_h
+	#include "Skills/SkillFramework/SkillEffectFactoryIntf.h"
+#endif
 #ifndef SPECTRAL_SkillEffectIntf_generated_h
 	#include "Skills/SkillFramework/SkillEffectIntf.h"
 #endif
@@ -14,8 +17,14 @@
 #ifndef SPECTRAL_SkillExecutorIntf_generated_h
 	#include "Skills/SkillFramework/SkillExecutorIntf.h"
 #endif
+#ifndef SPECTRAL_SkillFactoryIntf_generated_h
+	#include "Skills/SkillFramework/SkillFactoryIntf.h"
+#endif
 #ifndef SPECTRAL_SkillIntf_generated_h
 	#include "Skills/SkillFramework/SkillIntf.h"
+#endif
+#ifndef SPECTRAL_SkillModFactoryIntf_generated_h
+	#include "Skills/SkillFramework/SkillModFactoryIntf.h"
 #endif
 #ifndef SPECTRAL_SkillModIntf_generated_h
 	#include "Skills/SkillFramework/SkillModIntf.h"
@@ -25,6 +34,9 @@
 #endif
 #ifndef SPECTRAL_SkillReactiveIntf_generated_h
 	#include "Skills/SkillFramework/SkillReactiveIntf.h"
+#endif
+#ifndef SPECTRAL_SkillStorageIntf_generated_h
+	#include "Skills/SkillFramework/SkillStorageIntf.h"
 #endif
 #ifndef SPECTRAL_SkillUserIntf_generated_h
 	#include "Skills/SkillFramework/SkillUserIntf.h"
@@ -55,4 +67,10 @@
 #endif
 #ifndef SPECTRAL_TargetingVolumeIntf_generated_h
 	#include "TargetingSystem/TargetingFramework/TargetingVolumeIntf.h"
+#endif
+#ifndef SPECTRAL_TimerIntf_generated_h
+	#include "TimerSystem/TimerFramework/TimerIntf.h"
+#endif
+#ifndef SPECTRAL_DiscreteTimerIntf_generated_h
+	#include "TimerSystem/TimerFramework/DiscreteTimerIntf.h"
 #endif
