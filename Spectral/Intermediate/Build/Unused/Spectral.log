@@ -1,9 +1,0 @@
-﻿  Compiling game modules for hot reload
-  Parsing headers for SpectralEditor
-    Running UnrealHeaderTool "D:\Source\GitHub\Spectral\Spectral\Spectral.uproject" "D:\Source\GitHub\Spectral\Spectral\Intermediate\Build\Win64\SpectralEditor\Development\UnrealHeaderTool.manifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -rocket -installed
-LogWindows : error : Windows GetLastError: The operation completed successfully. (0)
-LogWindows : error : === Critical error: ===
-  Assertion failed: InterfaceGeneratedBodyLine > 0 [File:d:\buildfarm\buildmachine_++depot+ue4-releases+4.10\engine\source\programs\unrealheadertool\private\ParserHelper.h] [Line: 1411] 
-Error : Failed to generate code for SpectralEditor - error code: CrashOrAssert (3)
-  UnrealHeaderTool failed for target 'SpectralEditor' (platform: Win64, module info: D:\Source\GitHub\Spectral\Spectral\Intermediate\Build\Win64\SpectralEditor\Development\UnrealHeaderTool.manifest).
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.MakeFile.Targets(37,5): error MSB3073: The command ""C:\Program Files (x86)\Epic Games\4.10\Engine\Build\BatchFiles\Build.bat" SpectralEditor Win64 Development "D:\Source\GitHub\Spectral\Spectral\Spectral.uproject" -rocket -waitmutex -2015" exited with code -1.
