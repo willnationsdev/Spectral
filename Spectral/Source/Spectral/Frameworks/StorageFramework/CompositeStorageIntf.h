@@ -9,9 +9,9 @@
 UENUM(BlueprintType)
 enum class EStorageName : uint8
 {
-	SN_Skills 		UMETA(DisplayName = "Skills"),
-	SN_Timers 		UMETA(DisplayName = "Timers"),
-	SN_Conditions	UMETA(DisplayName = "Conditions")
+	Skills 		UMETA(DisplayName = "Skills"),
+	Timers 		UMETA(DisplayName = "Timers"),
+	Conditions	UMETA(DisplayName = "Conditions")
 };
 
 UINTERFACE(NotBlueprintable)

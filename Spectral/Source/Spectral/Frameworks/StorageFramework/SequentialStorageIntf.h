@@ -9,15 +9,15 @@
 UINTERFACE(NotBlueprintable)
 class SPECTRAL_API USequentialStorageIntf : public UInterface
 {
-	GENERATED_UINTERFACE_BODY()
+    GENERATED_UINTERFACE_BODY()
 };
 
 class SPECTRAL_API ISequentialStorageIntf {
 
-	GENERATED_IINTERFACE_BODY()
+    GENERATED_IINTERFACE_BODY()
 
 public:
 
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SequentialStorageIntf")
-		EStorageName GetName();
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SequentialStorageIntf")
+    EStorageName GetName();
 };

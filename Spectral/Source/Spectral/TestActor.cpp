@@ -16,7 +16,8 @@ ATestActor::ATestActor()
 void ATestActor::BeginPlay()
 {
     Super::BeginPlay();
-    OnAdd_Implementation();
+    //OnAdd_Implementation();
+    //OnFun_Implementation();
 }
 
 // Called every frame
@@ -27,10 +28,20 @@ void ATestActor::Tick( float DeltaTime )
 }
 
 EStorageName ATestActor::GetName_Implementation() {
-    return EStorageName::SN_Skills;
+    return EStorageName::Skills;
 }
 
 void ATestActor::OnAdd_Implementation() {
     UE_LOG(LogTemp, Warning, TEXT("OnAdd_Implementation has triggered"));
     return;
+}
+
+void ATestActor::OnFun_Implementation() {
+    UE_LOG(LogTemp, Warning, TEXT("OnFun_Implementation has triggered"));
+    return;
+}
+
+bool ATestActor::isEqual_Implementation(const TScriptInterface<IMyInterfaceIntf> &other) {
+    UE_LOG(LogTemp, Warning, TEXT("isEqual_Implementation has triggered"));
+    return this == other.GetObjectW();
 }
