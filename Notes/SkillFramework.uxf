@@ -947,7 +947,7 @@ IRevertableSkillUse
     <id>UMLClass</id>
     <coordinates>
       <x>2086</x>
-      <y>987</y>
+      <y>1043</y>
       <w>119</w>
       <h>42</h>
     </coordinates>
@@ -1003,26 +1003,26 @@ as well for maximum flexibility).
     <id>Relation</id>
     <coordinates>
       <x>2135</x>
-      <y>1022</y>
+      <y>1078</y>
       <w>21</w>
-      <h>406</h>
+      <h>350</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;560.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;480.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1722</x>
-      <y>994</y>
-      <w>378</w>
-      <h>35</h>
+      <y>1001</y>
+      <w>434</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
 m2=1
 provides</panel_attributes>
-    <additional_attributes>520.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>550.0;50.0;550.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -1083,12 +1083,12 @@ ESkillName
     <id>Relation</id>
     <coordinates>
       <x>2163</x>
-      <y>1022</y>
+      <y>1078</y>
       <w>56</w>
-      <h>98</h>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>60.0;120.0;10.0;10.0</additional_attributes>
+    <additional_attributes>60.0;40.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -2525,25 +2525,26 @@ provides ^</panel_attributes>
       <x>2338</x>
       <y>973</y>
       <w>147</w>
-      <h>63</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 SkillData
 --
 +getName(): ESkillDataName
-+</panel_attributes>
++getType(): ESkillDataType
++getData(): void*</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>2422</x>
-      <y>1029</y>
+      <y>1036</y>
       <w>56</w>
-      <h>112</h>
+      <h>105</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>60.0;140.0;10.0;10.0</additional_attributes>
+    <additional_attributes>60.0;130.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -2630,5 +2631,33 @@ how many types it is requesting.</panel_attributes>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>80.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1960</x>
+      <y>903</y>
+      <w>217</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>In a non-Unreal setup, I would be having
+templated versions of the SkillData defined so
+that the return value of getData woud be
+automatically decided at the time the type is
+defined. Alas, I may need to use the getType()
+to switch on a cast for getData() or some such.
+Warrants more investigation.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2170</x>
+      <y>959</y>
+      <w>182</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>240.0;70.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
