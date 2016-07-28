@@ -18,6 +18,27 @@ class SPECTRAL_API ISequentialStorageIntf {
 
 public:
 
+    /*
+     * Returns the number of items currently stored in the internal array.
+     */
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SequentialStorageIntf")
-    EStorageName GetName();
+    int32 Size();
+
+    /*
+     * Changes the capacity to the given amount, truncating values later on.
+     */
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SequentialStorageIntf")
+    void Resize(int32 newSize);
+
+    /*
+     * Resets the internal array's size to 0. Shorthand for Resize(0).
+     */
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SequentialStorageIntf")
+    void Clear();
+
+    /*
+     * Returns whether the internal array's size is non-zero.
+     */
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SequentialStorageIntf")
+    bool Empty();
 };

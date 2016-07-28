@@ -15,7 +15,7 @@ enum class EStorageName : uint8
 };
 
 UINTERFACE(NotBlueprintable)
-class SPECTRAL_API UCompositeStorageIntf : public UStorageComponentIntf
+class SPECTRAL_API UCompositeStorageIntf : public UInterface
 {
 	GENERATED_UINTERFACE_BODY()
 };
